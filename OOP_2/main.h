@@ -14,6 +14,7 @@
 #include <type_traits>  // is_abstract, is_base_of, is_nothrow_move_constructible
 #include "zmogus.h"     // abstrakti bazinė klasė
 #include "studentas.h"  // išvestinė klasė
+#include "konteineris.h"
 
 #define NUMBER_OF_PAZYMYS 15
 
@@ -38,7 +39,7 @@ char askOutputChoice();
 char askContainerChoice();
 
 // Generate functions
-Konteineris<int> generatePazymiai(int m);
+Vector<int> generatePazymiai(int m);
 
 // Print functions
 void printWelcome();
@@ -50,7 +51,7 @@ std::string enterName(int n);
 std::string enterSurname(int n);
 int enterNumberOfPazymys(int n);
 int enterPazymys(int n);
-Konteineris<int> enterPazymiai(int n, int m);
+Vector<int> enterPazymiai(int n, int m);
 int enterEgzaminas(int n);
 
 // File handling functions

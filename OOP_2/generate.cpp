@@ -6,9 +6,9 @@ std::mt19937& getRng()
     return rng;
 }
 
-Konteineris<int> generatePazymiai(int m) // m - pažymių skaičius
+Vector<int> generatePazymiai(int m) // m - pažymių skaičius
 {
-    Konteineris<int> tmp;
+    Vector<int> tmp;
     tmp.reserve(m);
     std::uniform_int_distribution<int> dist(studentas::minPazymys, studentas::maxPazymys);
     std::mt19937& rng = getRng();

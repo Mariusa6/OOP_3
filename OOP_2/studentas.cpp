@@ -9,17 +9,17 @@ int studentas::gyvuStudentu = 0;
 // Privatūs pagalbiniai metodai
 // -------------------------------------------------------
 
-double studentas::vidurkis(const Konteineris<int>& nd) {
+double studentas::vidurkis(const Vector<int>& nd) {
     if (nd.empty())
         return 0.0;
     double sum = std::accumulate(nd.begin(), nd.end(), 0.0);
     return sum / nd.size();
 }
 
-double studentas::mediana(const Konteineris<int>& nd) {
+double studentas::mediana(const Vector<int>& nd) {
     if (nd.empty())
         return 0.0;
-    Konteineris<int> sortedNd = nd;
+    Vector<int> sortedNd = nd;
     std::sort(sortedNd.begin(), sortedNd.end());
     size_t size = sortedNd.size();
     if (size % 2 == 0)
@@ -67,7 +67,7 @@ studentas::studentas()
 
 studentas::studentas(const std::string& vardas,
     const std::string& pavarde,
-    const Konteineris<int>& nd,
+    const Vector<int>& nd,
     int egzaminas)
     : zmogus(vardas, pavarde),           // bazinė validuoja vardą ir pavardę
     nd_(nd), egzaminas_(egzaminas),
@@ -251,7 +251,7 @@ std::string studentas::tipas() const
 // 4. SET'ERIAI
 // =======================================================
 
-void studentas::setNd(const Konteineris<int>& nd) {
+void studentas::setNd(const Vector<int>& nd) {
     for (int p : nd)
         if (!pazymysTinkamas(p))
             throw std::runtime_error("Namų darbo pažymys už ribų: " + std::to_string(p));

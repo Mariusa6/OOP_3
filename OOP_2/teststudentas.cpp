@@ -115,7 +115,7 @@ bool testStudentasKlase()
 
         // Rodykle i bazine klase
         std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-            "Ona", "Onaite", Konteineris<int>{ 10, 10 }, 10);
+            "Ona", "Onaite", Vector<int>{ 10, 10 }, 10);
         tikrink(p->tipas() == "Studentas", "virtualus tipas() per unique_ptr<zmogus>");
         tikrink(p->pilnasVardas() == "Ona Onaite", "paveldetas metodas per rodykle");
 
@@ -134,7 +134,7 @@ bool testStudentasKlase()
             // Objektas kuriamas kaip studentas, naikinamas per zmogus rodykle.
             // Be virtual destruktoriaus studentas laukai liktu neatlaisvinti.
             std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-                "Testas", "Testaitis", Konteineris<int>{ 5, 5 }, 5);
+                "Testas", "Testaitis", Vector<int>{ 5, 5 }, 5);
 
             tikrink(zmogus::gyvuZmoniu == priesZmoniu + 1,
                 "sukurus objekta zmogus skaitiklis padidejo");
@@ -542,9 +542,9 @@ bool testStudentasKlase()
         // skirtingu isvestiniu klasiu objektus vienoje vietoje
         Konteineris<std::unique_ptr<zmogus>> zmones;
         zmones.push_back(std::make_unique<studentas>(
-            "Pirmas", "Pirmaitis", Konteineris<int>{ 10, 10 }, 10));
+            "Pirmas", "Pirmaitis", Vector<int>{ 10, 10 }, 10));
         zmones.push_back(std::make_unique<studentas>(
-            "Antras", "Antraitis", Konteineris<int>{ 1, 1 }, 1));
+            "Antras", "Antraitis", Vector<int>{ 1, 1 }, 1));
 
         for (auto& z : zmones) {
             studentas* sp = dynamic_cast<studentas*>(z.get());
