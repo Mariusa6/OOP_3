@@ -51,7 +51,7 @@ void testContainers(int n)
 {
     const std::string filename = "data/studentai" + std::to_string(n) + ".txt";
     std::cout << u8"=== Konteinerių palyginimas: " << n << u8" studentų ===\n";
-    testContainer<std::vector<studentas>>("vector", filename);
+    testContainer<Konteineris<studentas>>("vector", filename);
     testContainer<std::list<studentas>>("list", filename);
     testContainer<std::deque<studentas>>("deque", filename);
     std::cout << "\n";

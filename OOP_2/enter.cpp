@@ -10,7 +10,7 @@ studentas enterStudentas(int n)
 
     std::string vardas = enterName(n);
     std::string pavarde = enterSurname(n);
-    std::vector<int> nd = enterPazymiai(n, enterNumberOfPazymys(n));
+    Konteineris<int> nd = enterPazymiai(n, enterNumberOfPazymys(n));
     int egzaminas = enterEgzaminas(n);
 
     return studentas(vardas, pavarde, nd, egzaminas);
@@ -80,9 +80,9 @@ int enterPazymys(int n)
     return tmp;
 }
 
-std::vector<int> enterPazymiai(int n, int m) // n - studento numeris, m - pažymių skaičius
+Konteineris<int> enterPazymiai(int n, int m) // n - studento numeris, m - pažymių skaičius
 {
-    std::vector<int> tmp;
+    Konteineris<int> tmp;
     std::cout << u8"Iveskite #" << n << u8" studento namų darbų pažymius.\n";
     for (int i{ 0 }; i < m; i++)
     {

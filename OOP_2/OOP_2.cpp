@@ -117,7 +117,7 @@ int main()
         switch (askContainerChoice())
         {
         case '1':
-            runProgram<std::vector<studentas>>();
+            runProgram<Konteineris<studentas>>();
             break;
         case '2':
             runProgram<std::list<studentas>>();

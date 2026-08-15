@@ -38,7 +38,7 @@ char askOutputChoice();
 char askContainerChoice();
 
 // Generate functions
-std::vector<int> generatePazymiai(int m);
+Konteineris<int> generatePazymiai(int m);
 
 // Print functions
 void printWelcome();
@@ -50,7 +50,7 @@ std::string enterName(int n);
 std::string enterSurname(int n);
 int enterNumberOfPazymys(int n);
 int enterPazymys(int n);
-std::vector<int> enterPazymiai(int n, int m);
+Konteineris<int> enterPazymiai(int n, int m);
 int enterEgzaminas(int n);
 
 // File handling functions

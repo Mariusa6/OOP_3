@@ -115,7 +115,7 @@ bool testStudentasKlase()
 
         // Rodykle i bazine klase
         std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-            "Ona", "Onaite", std::vector<int>{ 10, 10 }, 10);
+            "Ona", "Onaite", Konteineris<int>{ 10, 10 }, 10);
         tikrink(p->tipas() == "Studentas", "virtualus tipas() per unique_ptr<zmogus>");
         tikrink(p->pilnasVardas() == "Ona Onaite", "paveldetas metodas per rodykle");
 
@@ -134,7 +134,7 @@ bool testStudentasKlase()
             // Objektas kuriamas kaip studentas, naikinamas per zmogus rodykle.
             // Be virtual destruktoriaus studentas laukai liktu neatlaisvinti.
             std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-                "Testas", "Testaitis", std::vector<int>{ 5, 5 }, 5);
+                "Testas", "Testaitis", Konteineris<int>{ 5, 5 }, 5);
 
             tikrink(zmogus::gyvuZmoniu == priesZmoniu + 1,
                 "sukurus objekta zmogus skaitiklis padidejo");
@@ -445,7 +445,7 @@ bool testStudentasKlase()
         studentas d("Zigmas", "Petraitis", { 5 }, 7);
         tikrink(c < d, "esant vienodoms pavardems lyginama pagal varda");
 
-        std::vector<studentas> v = { b, a };
+        Konteineris<studentas> v = { b, a };
         std::sort(v.begin(), v.end());
         tikrink(v[0].pavarde() == "Adamkus", "std::sort su operator< veikia");
     }
@@ -518,7 +518,7 @@ bool testStudentasKlase()
 
     skyrius("E6. Veikimas konteineriuose (move semantika)");
     {
-        std::vector<studentas> v;
+        Konteineris<studentas> v;
         v.reserve(4);
         for (int i = 0; i < 4; ++i)
             v.push_back(studentas("Vardas" + std::to_string(i),
@@ -531,7 +531,7 @@ bool testStudentasKlase()
         tikrink(v[0].vardas() == "Vardas0" && v[3].vardas() == "Vardas3",
             "duomenys islieka po vektoriaus perskirstymo");
 
-        std::vector<studentas> v2 = std::move(v);
+        Konteineris<studentas> v2 = std::move(v);
         tikrink(v2.size() == 4, "vektorius perkeltas su std::move");
         tikrink(v2[2].vardas() == "Vardas2", "duomenys teisingi po perkelimo");
     }
@@ -540,11 +540,11 @@ bool testStudentasKlase()
     {
         // Konteineris bazines klases rodykliu — leidzia laikyti
         // skirtingu isvestiniu klasiu objektus vienoje vietoje
-        std::vector<std::unique_ptr<zmogus>> zmones;
+        Konteineris<std::unique_ptr<zmogus>> zmones;
         zmones.push_back(std::make_unique<studentas>(
-            "Pirmas", "Pirmaitis", std::vector<int>{ 10, 10 }, 10));
+            "Pirmas", "Pirmaitis", Konteineris<int>{ 10, 10 }, 10));
         zmones.push_back(std::make_unique<studentas>(
-            "Antras", "Antraitis", std::vector<int>{ 1, 1 }, 1));
+            "Antras", "Antraitis", Konteineris<int>{ 1, 1 }, 1));
 
         for (auto& z : zmones) {
             studentas* sp = dynamic_cast<studentas*>(z.get());

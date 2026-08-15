@@ -56,7 +56,7 @@
   *
   * // Polimorfinis naudojimas
   * std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-  *     "Petras", "Petraitis", std::vector<int>{5, 5}, 8);
+  *     "Petras", "Petraitis", Konteineris<int>{5, 5}, 8);
   * std::cout << p->tipas() << ": " << p->galutinis() << "\n";
   * @endcode
   *
@@ -69,7 +69,7 @@
   */
 class studentas : public zmogus {
 private:
-    std::vector<int> nd_;       ///< Namų darbų pažymiai (kiekvienas 1–10)
+    Konteineris<int> nd_;       ///< Namų darbų pažymiai (kiekvienas 1–10)
     int egzaminas_;             ///< Egzamino pažymys (1–10)
     double galutinisVid_;       ///< Galutinis balas pagal namų darbų vidurkį
     double galutinisMed_;       ///< Galutinis balas pagal namų darbų medianą
@@ -79,7 +79,7 @@ private:
      * @param nd Pažymių vektorius
      * @return Vidurkis; 0.0 jei vektorius tuščias
      */
-    static double vidurkis(const std::vector<int>& nd);
+    static double vidurkis(const Konteineris<int>& nd);
 
     /**
      * @brief Apskaičiuoja medianą.
@@ -91,7 +91,7 @@ private:
      * @param nd Pažymių vektorius (nebūtinai surikiuotas)
      * @return Mediana; 0.0 jei vektorius tuščias
      */
-    static double mediana(const std::vector<int>& nd);
+    static double mediana(const Konteineris<int>& nd);
 
     /**
      * @brief Patikrina, ar pažymys patenka į leistiną intervalą.
@@ -158,7 +158,7 @@ public:
      */
     studentas(const std::string& vardas,
         const std::string& pavarde,
-        const std::vector<int>& nd,
+        const Konteineris<int>& nd,
         int egzaminas);
 
     /**
@@ -313,7 +313,7 @@ public:
      * @brief Grąžina namų darbų pažymius.
      * @return Konstanti nuoroda į vektorių (be kopijavimo)
      */
-    inline const std::vector<int>& nd() const { return nd_; }
+    inline const Konteineris<int>& nd() const { return nd_; }
 
     /// @brief Grąžina egzamino pažymį.
     inline int egzaminas() const { return egzaminas_; }
@@ -342,7 +342,7 @@ public:
      * @param nd Pažymių vektorius
      * @throws std::runtime_error jei bent vienas pažymys už ribų
      */
-    void setNd(const std::vector<int>& nd);
+    void setNd(const Konteineris<int>& nd);
 
     /**
      * @brief Nustato egzamino pažymį su validacija.

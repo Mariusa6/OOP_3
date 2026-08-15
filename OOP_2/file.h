@@ -35,7 +35,7 @@ Container readStudentaiFromFile(const std::string& filename)
         throw std::runtime_error("Nepavyko atidaryti failo: " + filename);
 
     // Didesnis skaitymo buferis — mažiau OS kvietimų
-    std::vector<char> rdbuf(FILE_BUFFER_SIZE);
+    Konteineris<char> rdbuf(FILE_BUFFER_SIZE);
     file.rdbuf()->pubsetbuf(rdbuf.data(), rdbuf.size());
 
     std::string line;
@@ -79,7 +79,7 @@ void writeStudentaiToFile(const Container& studentai, const std::string& filenam
     if (!file.is_open())
         throw std::runtime_error("Nepavyko sukurti failo: " + filename);
 
-    std::vector<char> wrbuf(FILE_BUFFER_SIZE);
+    Konteineris<char> wrbuf(FILE_BUFFER_SIZE);
     file.rdbuf()->pubsetbuf(wrbuf.data(), wrbuf.size());
 
     file << u8"Vardas              Pavardė             Galutinis (Vid.)    Galutinis (Med.)\n";
