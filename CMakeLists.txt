@@ -145,7 +145,7 @@ set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
 set(CPACK_NSIS_MODIFY_PATH OFF)
 
 # Administravimo teisės
-set(CPACK_NSIS_EXTRA_PREINSTALL_COMMANDS "RequestExecutionLevel admin")
+set(CPACK_NSIS_DEFINES "RequestExecutionLevel admin")
 
 # Nuorodos Start meniu ir darbalaukyje
 set(CPACK_PACKAGE_EXECUTABLES "programa" "Studentu sistema")
