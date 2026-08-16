@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logika_0',['7. Suderinamumas su v1.2 logika',['../index.html#autotoc_md34',1,'']]]
+  ['licencija_0',['Licencija',['../index.html#autotoc_md49',1,'']]]
 ];

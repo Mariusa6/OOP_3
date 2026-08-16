@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['4_20rule_20of_20five_20su_20paveldėjimu_0',['4. Rule of Five su paveldėjimu',['../index.html#autotoc_md19',1,'']]]
+  ['4_20klasių_20architektūra_0',['4. Klasių architektūra',['../index.html#autotoc_md21',1,'']]]
 ];

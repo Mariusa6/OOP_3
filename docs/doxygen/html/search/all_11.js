@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['išvestinė_20klasė_20studentas_0',['3. Išvestinė klasė &lt;span class=&quot;tt&quot;&gt;studentas&lt;/span&gt;',['../index.html#autotoc_md14',1,'']]],
-  ['i_20o_20operatoriai_1',['Polimorfiniai I/O operatoriai',['../index.html#autotoc_md25',1,'']]],
-  ['informacinė_20sistema_20oop_5fmarius_5faugustinas_2',['Studentų Informacinė Sistema OOP_Marius_Augustinas',['../index.html',1,'']]],
-  ['instrukcija_3',['instrukcija',['../index.html#autotoc_md44',1,'10. Įdiegimo instrukcija'],['../index.html#autotoc_md39',1,'9. Naudojimosi instrukcija']]],
-  ['ir_20naikinimo_20tvarka_4',['Konstravimo ir naikinimo tvarka',['../index.html#autotoc_md22',1,'']]],
-  ['ir_20paveldėjimas_5',['v1.5 — Abstrakti klasė ir paveldėjimas',['../index.html#autotoc_md4',1,'']]],
-  ['isallletters_6',['isAllLetters',['../enter_8cpp.html#ad825e0bf7e7233028c28af95f02c952c',1,'isAllLetters(const std::string &amp;input):&#160;enter.cpp'],['../main_8h.html#ad825e0bf7e7233028c28af95f02c952c',1,'isAllLetters(const std::string &amp;input):&#160;enter.cpp']]],
-  ['istorija_7',['Versijų istorija',['../index.html#autotoc_md2',1,'']]],
-  ['isvalyk_8',['isvalyk',['../classstudentas.html#ac3d3cd09acc5a81a33426af4b10d63ca',1,'studentas']]]
+  ['kam_20jie_20reikalingi_0',['Kam jie reikalingi',['../index.html#autotoc_md33',1,'']]],
+  ['kas_20dokumentuota_1',['Kas dokumentuota',['../index.html#autotoc_md30',1,'']]],
+  ['klasė_20zmogus_2',['Abstrakti klasė &lt;span class=&quot;tt&quot;&gt;zmogus&lt;/span&gt;',['../index.html#autotoc_md22',1,'']]],
+  ['klasių_20architektūra_3',['4. Klasių architektūra',['../index.html#autotoc_md21',1,'']]],
+  ['konteinerių_20palyginimas_4',['Konteinerių palyginimas',['../index.html#autotoc_md41',1,'']]],
+  ['konteinerio_20pasirinkimas_5',['Pirmas ekranas — konteinerio pasirinkimas',['../index.html#autotoc_md8',1,'']]]
 ];

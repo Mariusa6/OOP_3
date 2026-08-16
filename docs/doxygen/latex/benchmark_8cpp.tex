@@ -1,0 +1,270 @@
+\doxysection{tests/\+benchmark.cpp Failo Nuoroda}
+\hypertarget{benchmark_8cpp}{}\label{benchmark_8cpp}\index{tests/benchmark.cpp@{tests/benchmark.cpp}}
+
+
+Spartos analizė:\+ std::\+vector vs nuosava Vector klasė.  
+
+
+{\ttfamily \+\#include "{}../\+\+OOP\+\_\+3/\+\+Vector.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$chrono$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$iomanip$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$cstdlib$>$}\newline
+Įtraukimo priklausomybių diagrama benchmark.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{benchmark_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Tipų apibrėžimai}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{benchmark_8cpp_a56837b72f94ac37530cd9fdf8c04ea5d}{Laikrodis}} = std::\+chrono::\+high\+\_\+resolution\+\_\+clock
+\item 
+using \doxymbox{\hyperlink{benchmark_8cpp_a82dfe5e8153294dee79d02ff514f72d4}{Sekundes}} = std::\+chrono::\+duration$<$double$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{benchmark_8cpp_aa84ef8734ee8c5c4bb7afdd40ac2b3ed}{matuok\+Std\+Vector}} (unsigned int sz)
+\begin{DoxyCompactList}\small\item\em Matuoja std::\+vector užpildymo laiką. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{benchmark_8cpp_a1768c854ef85d45eb61c2ffc465b8e1c}{matuok\+Vector}} (unsigned int sz)
+\begin{DoxyCompactList}\small\item\em Matuoja nuosavos Vector užpildymo laiką. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{benchmark_8cpp_a040f209a0fbe84ba857d6b66a100d2e1}{tyrimas1}} ()
+\item 
+unsigned long long \doxymbox{\hyperlink{benchmark_8cpp_a9741e48bceedef3be20f3db833c2b648}{skaiciuok\+Std\+Vector}} (unsigned int sz)
+\begin{DoxyCompactList}\small\item\em Skaičiuoja std::\+vector perskirstymus. \end{DoxyCompactList}\item 
+unsigned long long \doxymbox{\hyperlink{benchmark_8cpp_a0eaddbad1537832c2958b9c113a84071}{skaiciuok\+Vector}} (unsigned int sz)
+\begin{DoxyCompactList}\small\item\em Skaičiuoja nuosavos Vector perskirstymus. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{benchmark_8cpp_acea19bd19b999278b6ed6643dfd169bf}{tyrimas2}} ()
+\item 
+void \doxymbox{\hyperlink{benchmark_8cpp_a4399b50c271813ed0ea0d30d700974b7}{tyrimas3}} ()
+\item 
+int \doxymbox{\hyperlink{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\+[$\,$]\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Smulkus aprašymas}
+Spartos analizė:\+ std::\+vector vs nuosava Vector klasė. 
+
+Atlieka du tyrimus:\+
+\begin{DoxyEnumerate}
+\item push\+\_\+back() spartos palyginimas su 10⁴ … 10⁸ elementų
+\item Atminties perskirstymų skaičiavimas
+\end{DoxyEnumerate}
+
+Kompiliavimas:\+ g++ -\/std=c++17 -\/O2 \doxylink{benchmark_8cpp}{benchmark.\+cpp} -\/o benchmark
+
+Paleidimas:\+ ./\+benchmark — visi tyrimai ./\+benchmark 1 — tik push\+\_\+back tyrimas ./\+benchmark 2 — tik perskirstymų tyrimas
+
+\begin{DoxyWarning}{Įspėjimas}
+100 000 000 elementų testas naudoja \texorpdfstring{$\sim$}{\string~}400 MB kiekvienam konteineriui. Su 8 GB RAM tai priimtina, bet mažesnėse sistemose gali prireikti praleisti paskutinį dydį. 
+\end{DoxyWarning}
+
+
+Apibrėžimas faile \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}}.
+
+
+
+\label{benchmark_8cpp_doc-typedef-members}
+\Hypertarget{benchmark_8cpp_doc-typedef-members}
+\doxysubsection{Tipų apibrėžimų Dokumentacija}
+\Hypertarget{benchmark_8cpp_a56837b72f94ac37530cd9fdf8c04ea5d}\index{benchmark.cpp@{benchmark.cpp}!Laikrodis@{Laikrodis}}
+\index{Laikrodis@{Laikrodis}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{Laikrodis}{Laikrodis}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a56837b72f94ac37530cd9fdf8c04ea5d} 
+using \doxymbox{\hyperlink{benchmark_8cpp_a56837b72f94ac37530cd9fdf8c04ea5d}{Laikrodis}} = std::\+chrono::\+high\+\_\+resolution\+\_\+clock}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00031}{31}}.
+
+\Hypertarget{benchmark_8cpp_a82dfe5e8153294dee79d02ff514f72d4}\index{benchmark.cpp@{benchmark.cpp}!Sekundes@{Sekundes}}
+\index{Sekundes@{Sekundes}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{Sekundes}{Sekundes}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a82dfe5e8153294dee79d02ff514f72d4} 
+using \doxymbox{\hyperlink{benchmark_8cpp_a82dfe5e8153294dee79d02ff514f72d4}{Sekundes}} = std::\+chrono::\+duration$<$double$>$}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00032}{32}}.
+
+
+
+\label{benchmark_8cpp_doc-func-members}
+\Hypertarget{benchmark_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{benchmark_8cpp_aa84ef8734ee8c5c4bb7afdd40ac2b3ed}\index{benchmark.cpp@{benchmark.cpp}!matuokStdVector@{matuokStdVector}}
+\index{matuokStdVector@{matuokStdVector}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{matuokStdVector()}{matuokStdVector()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_aa84ef8734ee8c5c4bb7afdd40ac2b3ed} 
+double matuok\+Std\+Vector (\begin{DoxyParamCaption}\item[{unsigned int}]{sz}{}\end{DoxyParamCaption})}
+
+
+
+Matuoja std::\+vector užpildymo laiką. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em sz} & Elementų skaičius \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Trukmė sekundėmis 
+\end{DoxyReturn}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00043}{43}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00072}{tyrimas1()}}.
+
+\Hypertarget{benchmark_8cpp_a1768c854ef85d45eb61c2ffc465b8e1c}\index{benchmark.cpp@{benchmark.cpp}!matuokVector@{matuokVector}}
+\index{matuokVector@{matuokVector}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{matuokVector()}{matuokVector()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a1768c854ef85d45eb61c2ffc465b8e1c} 
+double matuok\+Vector (\begin{DoxyParamCaption}\item[{unsigned int}]{sz}{}\end{DoxyParamCaption})}
+
+
+
+Matuoja nuosavos Vector užpildymo laiką. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em sz} & Elementų skaičius \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Trukmė sekundėmis 
+\end{DoxyReturn}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00060}{60}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00072}{tyrimas1()}}.
+
+\Hypertarget{benchmark_8cpp_a040f209a0fbe84ba857d6b66a100d2e1}\index{benchmark.cpp@{benchmark.cpp}!tyrimas1@{tyrimas1}}
+\index{tyrimas1@{tyrimas1}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas1()}{tyrimas1()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a040f209a0fbe84ba857d6b66a100d2e1} 
+void tyrimas1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00072}{72}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{benchmark_8cpp_source_l00043}{matuok\+Std\+Vector()}}, ir \doxymbox{\hyperlink{benchmark_8cpp_source_l00060}{matuok\+Vector()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00217}{main()}}.
+
+\Hypertarget{benchmark_8cpp_a9741e48bceedef3be20f3db833c2b648}\index{benchmark.cpp@{benchmark.cpp}!skaiciuokStdVector@{skaiciuokStdVector}}
+\index{skaiciuokStdVector@{skaiciuokStdVector}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{skaiciuokStdVector()}{skaiciuokStdVector()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a9741e48bceedef3be20f3db833c2b648} 
+unsigned long long skaiciuok\+Std\+Vector (\begin{DoxyParamCaption}\item[{unsigned int}]{sz}{}\end{DoxyParamCaption})}
+
+
+
+Skaičiuoja std::\+vector perskirstymus. 
+
+Perskirstymas aptinkamas stebint capacity() pokytį — jis įvyksta tada, kai capacity() == size() ir pridedamas naujas elementas.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em sz} & Elementų skaičius \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Perskirstymų skaičius 
+\end{DoxyReturn}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00117}{117}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00154}{tyrimas2()}}.
+
+\Hypertarget{benchmark_8cpp_a0eaddbad1537832c2958b9c113a84071}\index{benchmark.cpp@{benchmark.cpp}!skaiciuokVector@{skaiciuokVector}}
+\index{skaiciuokVector@{skaiciuokVector}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{skaiciuokVector()}{skaiciuokVector()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a0eaddbad1537832c2958b9c113a84071} 
+unsigned long long skaiciuok\+Vector (\begin{DoxyParamCaption}\item[{unsigned int}]{sz}{}\end{DoxyParamCaption})}
+
+
+
+Skaičiuoja nuosavos Vector perskirstymus. 
+
+
+\begin{DoxyParams}{Parametrai}
+{\em sz} & Elementų skaičius \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Perskirstymų skaičius 
+\end{DoxyReturn}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00138}{138}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00154}{tyrimas2()}}.
+
+\Hypertarget{benchmark_8cpp_acea19bd19b999278b6ed6643dfd169bf}\index{benchmark.cpp@{benchmark.cpp}!tyrimas2@{tyrimas2}}
+\index{tyrimas2@{tyrimas2}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas2()}{tyrimas2()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_acea19bd19b999278b6ed6643dfd169bf} 
+void tyrimas2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00154}{154}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{benchmark_8cpp_source_l00117}{skaiciuok\+Std\+Vector()}}, ir \doxymbox{\hyperlink{benchmark_8cpp_source_l00138}{skaiciuok\+Vector()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00217}{main()}}.
+
+\Hypertarget{benchmark_8cpp_a4399b50c271813ed0ea0d30d700974b7}\index{benchmark.cpp@{benchmark.cpp}!tyrimas3@{tyrimas3}}
+\index{tyrimas3@{tyrimas3}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{tyrimas3()}{tyrimas3()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a4399b50c271813ed0ea0d30d700974b7} 
+void tyrimas3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00187}{187}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{benchmark_8cpp_source_l00217}{main()}}.
+
+\Hypertarget{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{benchmark.cpp@{benchmark.cpp}!main@{main}}
+\index{main@{main}!benchmark.cpp@{benchmark.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{benchmark_8cpp_source}{benchmark.\+cpp}} eilutėje \doxymbox{\hyperlink{benchmark_8cpp_source_l00217}{217}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{benchmark_8cpp_source_l00072}{tyrimas1()}}, \doxymbox{\hyperlink{benchmark_8cpp_source_l00154}{tyrimas2()}}, ir \doxymbox{\hyperlink{benchmark_8cpp_source_l00187}{tyrimas3()}}.
+

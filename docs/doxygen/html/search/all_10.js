@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hierarchija_0',['1. Klasių hierarchija',['../index.html#autotoc_md7',1,'']]]
+  ['jie_20reikalingi_0',['Kam jie reikalingi',['../index.html#autotoc_md33',1,'']]]
 ];

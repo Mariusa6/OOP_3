@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['v1_202_20→_20v1_205_0',['11. Pakeitimai v1.2 → v1.5',['../index.html#autotoc_md50',1,'']]],
-  ['v1_202_20logika_1',['7. Suderinamumas su v1.2 logika',['../index.html#autotoc_md34',1,'']]],
-  ['v1_202_20testų_20patikra_2',['B–E skyriai — v1.2 testų patikra',['../index.html#autotoc_md31',1,'']]],
-  ['v1_205_3',['11. Pakeitimai v1.2 → v1.5',['../index.html#autotoc_md50',1,'']]],
-  ['v1_205_20—_20abstrakti_20klasė_20ir_20paveldėjimas_4',['v1.5 — Abstrakti klasė ir paveldėjimas',['../index.html#autotoc_md4',1,'']]],
-  ['v1_205_20testai_5',['A skyrius — nauji v1.5 testai',['../index.html#autotoc_md30',1,'']]],
-  ['vardas_6',['vardas',['../classzmogus.html#ab9d7c2f6f7c5a548306b0200fa0b10c2',1,'zmogus']]],
-  ['vardas_5f_7',['vardas_',['../classzmogus.html#afd058850030e111c47eceb328c65c142',1,'zmogus']]],
-  ['vargsiukai_8',['vargsiukai',['../structsplit_result.html#a47cd03b30b9aeee3b508c282b02b3618',1,'splitResult']]],
-  ['versijų_20istorija_9',['Versijų istorija',['../index.html#autotoc_md2',1,'']]],
-  ['vidurkis_10',['vidurkis',['../classstudentas.html#a8b0f7430a4700ac5112ceff2cb9d2b6c',1,'studentas']]],
-  ['virtualus_20destruktorius_11',['Virtualus destruktorius',['../index.html#autotoc_md12',1,'']]],
-  ['visual_20studio_12',['Visual Studio',['../index.html#autotoc_md48',1,'']]]
+  ['validacija_0',['Įvesties validacija',['../index.html#autotoc_md12',1,'']]],
+  ['variantas_20a_20—_20cmake_20rekomenduojama_1',['Variantas A — CMake (rekomenduojama)',['../index.html#autotoc_md16',1,'']]],
+  ['variantas_20b_20—_20g_20tiesiogiai_2',['Variantas B — g++ tiesiogiai',['../index.html#autotoc_md17',1,'']]],
+  ['variantas_20c_20—_20visual_20studio_3',['Variantas C — Visual Studio',['../index.html#autotoc_md18',1,'']]],
+  ['vectortests_2ecpp_4',['Vectortests.cpp',['../_vectortests_8cpp.html',1,'']]],
+  ['versijų_20istorija_5',['1. Versijų istorija',['../index.html#autotoc_md4',1,'']]],
+  ['visual_20studio_6',['Variantas C — Visual Studio',['../index.html#autotoc_md18',1,'']]],
+  ['vs_20class_20ir_20optimizavimo_20flag_20ai_7',['&lt;span class=&quot;tt&quot;&gt;struct&lt;/span&gt; vs &lt;span class=&quot;tt&quot;&gt;class&lt;/span&gt; ir optimizavimo flag&apos;ai',['../index.html#autotoc_md43',1,'']]]
 ];

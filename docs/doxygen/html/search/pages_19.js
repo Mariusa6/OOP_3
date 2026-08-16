@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['techninė_20aplinka_0',['Techninė aplinka',['../index.html#autotoc_md5',1,'']]],
-  ['testų_20patikra_1',['6. Testų patikra',['../index.html#autotoc_md28',1,'']]],
-  ['testų_20patikra_2',['B–E skyriai — v1.2 testų patikra',['../index.html#autotoc_md31',1,'']]],
-  ['testų_20rezultatai_3',['Testų rezultatai',['../index.html#autotoc_md32',1,'']]],
-  ['testų_20struktūra_4',['Testų struktūra',['../index.html#autotoc_md29',1,'']]],
-  ['testai_5',['A skyrius — nauji v1.5 testai',['../index.html#autotoc_md30',1,'']]],
-  ['tiesiogiai_6',['g++ tiesiogiai',['../index.html#autotoc_md47',1,'']]],
-  ['tvarka_7',['Konstravimo ir naikinimo tvarka',['../index.html#autotoc_md22',1,'']]]
+  ['techninė_20aplinka_0',['Techninė aplinka',['../index.html#autotoc_md40',1,'']]],
+  ['testų_20apimtis_1',['Testų apimtis',['../index.html#autotoc_md36',1,'']]],
+  ['testų_20paruošimas_2',['Unit testų paruošimas',['../index.html#autotoc_md19',1,'']]],
+  ['testai_3',['testai',['../index.html#autotoc_md37',1,'Įdomiausi testai'],['../index.html#autotoc_md32',1,'6. Unit testai']]],
+  ['tiesiogiai_4',['Variantas B — g++ tiesiogiai',['../index.html#autotoc_md17',1,'']]],
+  ['tipinė_20darbo_20eiga_5',['Tipinė darbo eiga',['../index.html#autotoc_md10',1,'']]],
+  ['turinys_6',['Turinys',['../index.html#autotoc_md2',1,'']]],
+  ['tyrimai_7',['7. Spartos tyrimai',['../index.html#autotoc_md39',1,'']]]
 ];

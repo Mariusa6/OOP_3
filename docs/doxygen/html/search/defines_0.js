@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['number_5fof_5fpazymys_0',['NUMBER_OF_PAZYMYS',['../main_8h.html#a6172ae5f44946971e88b7fe16550f0f2',1,'main.h']]]
+  ['catch_5fconfig_5fmain_0',['CATCH_CONFIG_MAIN',['../unit_tests_8cpp.html#a656eb5868e824d59f489f910db438420',1,'CATCH_CONFIG_MAIN:&#160;unitTests.cpp'],['../_vectortests_8cpp.html#a656eb5868e824d59f489f910db438420',1,'CATCH_CONFIG_MAIN:&#160;Vectortests.cpp']]]
 ];

@@ -1,0 +1,205 @@
+\doxysection{tests/\+\+Vectortests.cpp Failo Nuoroda}
+\hypertarget{_vectortests_8cpp}{}\label{_vectortests_8cpp}\index{tests/Vectortests.cpp@{tests/Vectortests.cpp}}
+
+
+Unit testai nuosavai Vector klasei (Catch2).  
+
+
+{\ttfamily \+\#include "{}catch.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}../\+\+OOP\+\_\+3/\+\+Vector.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$numeric$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$sstream$>$}\newline
+Įtraukimo priklausomybių diagrama Vectortests.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_vectortests_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Apibrėžimai}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{_vectortests_8cpp_a656eb5868e824d59f489f910db438420}{CATCH\+\_\+\+CONFIG\+\_\+\+MAIN}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\+\_\+\+CASE}} ("{}Konstruktoriai"{}, "{}\+[konstruktoriai]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_af7c085cd63dc81f4ef508223ed4414ef}{TEST\+\_\+\+CASE}} ("{}Priskyrimas"{}, "{}\+[priskyrimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_aa1570d5b234fde51df72e46098b90fc0}{TEST\+\_\+\+CASE}} ("{}Elementu prieiga"{}, "{}\+[prieiga]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a23f3a0726aa12d548c9ca1b19691546f}{TEST\+\_\+\+CASE}} ("{}Iteratoriai"{}, "{}\+[iteratoriai]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a7f7ce1d57676a034fa77461f27c4ec5f}{TEST\+\_\+\+CASE}} ("{}Talpa"{}, "{}\+[talpa]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a6bd8fa915df6ab8b350537df6a0c49a1}{TEST\+\_\+\+CASE}} ("{}push\+\_\+back ir pop\+\_\+back"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_ab79949f6f883c46b258e3bad4dd251af}{TEST\+\_\+\+CASE}} ("{}emplace\+\_\+back"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a164b3a55fe63ec18a2f0b061d9b92a49}{TEST\+\_\+\+CASE}} ("{}insert"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_ab6a38c9dcb2328cf54ba04d81359d28c}{TEST\+\_\+\+CASE}} ("{}erase"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a3f6265afaf30849f3520b7e1f4299345}{TEST\+\_\+\+CASE}} ("{}clear ir resize"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_a8ee0afea8ae4b977afc3abee195bf7c1}{TEST\+\_\+\+CASE}} ("{}swap"{}, "{}\+[modifikavimas]\+"{})
+\item 
+\doxymbox{\hyperlink{_vectortests_8cpp_ab0bc5b77d3ffd20b0a0c6b006014d43c}{TEST\+\_\+\+CASE}} ("{}Lyginimo operatoriai"{}, "{}\+[operatoriai]\+"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Smulkus aprašymas}
+Unit testai nuosavai Vector klasei (Catch2). 
+
+Kiekvienam testui taikomas tas pats principas:\+ ta pati operacija atliekama su {\ttfamily std::\+vector} ir su {\ttfamily Vector}, o rezultatai lyginami. Taip tikrinama ne tik ar {\ttfamily Vector} veikia, bet ar veikia {\bfseries{taip pat}} kaip standartinis konteineris.
+
+Paleidimas:\+ ./\+vector\+Tests — visi testai ./\+vector\+Tests "{}\+[talpa]\+"{} — tik talpos testai ./\+vector\+Tests -\/l — testų sąrašas 
+
+Apibrėžimas faile \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}}.
+
+
+
+\label{_vectortests_8cpp_doc-define-members}
+\Hypertarget{_vectortests_8cpp_doc-define-members}
+\doxysubsection{Apibrėžimų Dokumentacija}
+\Hypertarget{_vectortests_8cpp_a656eb5868e824d59f489f910db438420}\index{Vectortests.cpp@{Vectortests.cpp}!CATCH\_CONFIG\_MAIN@{CATCH\_CONFIG\_MAIN}}
+\index{CATCH\_CONFIG\_MAIN@{CATCH\_CONFIG\_MAIN}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_MAIN}{CATCH\_CONFIG\_MAIN}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a656eb5868e824d59f489f910db438420} 
+\+\#define CATCH\+\_\+\+CONFIG\+\_\+\+MAIN}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00016}{16}}.
+
+
+
+\label{_vectortests_8cpp_doc-func-members}
+\Hypertarget{_vectortests_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Konstruktoriai"{}}]{}{, }\item[{"{}"{}}]{}{\+[konstruktoriai]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00073}{73}}.
+
+\Hypertarget{_vectortests_8cpp_af7c085cd63dc81f4ef508223ed4414ef}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_af7c085cd63dc81f4ef508223ed4414ef} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Priskyrimas"{}}]{}{, }\item[{"{}"{}}]{}{\+[priskyrimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00157}{157}}.
+
+\Hypertarget{_vectortests_8cpp_aa1570d5b234fde51df72e46098b90fc0}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_aa1570d5b234fde51df72e46098b90fc0} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Elementu prieiga"{}}]{}{, }\item[{"{}"{}}]{}{\+[prieiga]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00209}{209}}.
+
+\Hypertarget{_vectortests_8cpp_a23f3a0726aa12d548c9ca1b19691546f}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a23f3a0726aa12d548c9ca1b19691546f} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Iteratoriai"{}}]{}{, }\item[{"{}"{}}]{}{\+[iteratoriai]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00259}{259}}.
+
+\Hypertarget{_vectortests_8cpp_a7f7ce1d57676a034fa77461f27c4ec5f}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a7f7ce1d57676a034fa77461f27c4ec5f} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Talpa"{}}]{}{, }\item[{"{}"{}}]{}{\+[talpa]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00306}{306}}.
+
+\Hypertarget{_vectortests_8cpp_a6bd8fa915df6ab8b350537df6a0c49a1}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a6bd8fa915df6ab8b350537df6a0c49a1} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}push\+\_\+back ir pop\+\_\+back"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00403}{403}}.
+
+\Hypertarget{_vectortests_8cpp_ab79949f6f883c46b258e3bad4dd251af}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_ab79949f6f883c46b258e3bad4dd251af} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}emplace\+\_\+back"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00438}{438}}.
+
+\Hypertarget{_vectortests_8cpp_a164b3a55fe63ec18a2f0b061d9b92a49}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a164b3a55fe63ec18a2f0b061d9b92a49} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}insert"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00463}{463}}.
+
+\Hypertarget{_vectortests_8cpp_ab6a38c9dcb2328cf54ba04d81359d28c}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_ab6a38c9dcb2328cf54ba04d81359d28c} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}erase"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00521}{521}}.
+
+\Hypertarget{_vectortests_8cpp_a3f6265afaf30849f3520b7e1f4299345}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a3f6265afaf30849f3520b7e1f4299345} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}clear ir resize"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00555}{555}}.
+
+\Hypertarget{_vectortests_8cpp_a8ee0afea8ae4b977afc3abee195bf7c1}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_a8ee0afea8ae4b977afc3abee195bf7c1} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}swap"{}}]{}{, }\item[{"{}"{}}]{}{\+[modifikavimas]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00600}{600}}.
+
+\Hypertarget{_vectortests_8cpp_ab0bc5b77d3ffd20b0a0c6b006014d43c}\index{Vectortests.cpp@{Vectortests.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!Vectortests.cpp@{Vectortests.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
+{\footnotesize\ttfamily \label{_vectortests_8cpp_ab0bc5b77d3ffd20b0a0c6b006014d43c} 
+TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Lyginimo operatoriai"{}}]{}{, }\item[{"{}"{}}]{}{\+[operatoriai]\+}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{_vectortests_8cpp_source}{Vectortests.\+cpp}} eilutėje \doxymbox{\hyperlink{_vectortests_8cpp_source_l00629}{629}}.
+

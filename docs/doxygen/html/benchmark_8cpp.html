@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studentu informacine sistema: tests/benchmark.cpp Failo Nuoroda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v2.0</span>
+   </div>
+   <div id="projectbrief">VU ISI Objektinio programavimo kurso laboratoriniai darbai</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Paieška" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('benchmark_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">benchmark.cpp Failo Nuoroda</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Spartos analizė: std::vector vs nuosava Vector klasė.  
+<a href="#details">Daugiau...</a></p>
+<div class="textblock"><code>#include &quot;../OOP_3/Vector.h&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Įtraukimo priklausomybių diagrama benchmark.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="benchmark_8cpp__incl.svg" width="651" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="benchmark_8cpp_source.html">Eiti į šio failo programos kodą.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Tipų apibrėžimai</h2></td></tr>
+<tr class="memitem:a56837b72f94ac37530cd9fdf8c04ea5d" id="r_a56837b72f94ac37530cd9fdf8c04ea5d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a56837b72f94ac37530cd9fdf8c04ea5d">Laikrodis</a> = std::chrono::high_resolution_clock</td></tr>
+<tr class="memitem:a82dfe5e8153294dee79d02ff514f72d4" id="r_a82dfe5e8153294dee79d02ff514f72d4"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a82dfe5e8153294dee79d02ff514f72d4">Sekundes</a> = std::chrono::duration&lt;double&gt;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcijos</h2></td></tr>
+<tr class="memitem:aa84ef8734ee8c5c4bb7afdd40ac2b3ed" id="r_aa84ef8734ee8c5c4bb7afdd40ac2b3ed"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aa84ef8734ee8c5c4bb7afdd40ac2b3ed">matuokStdVector</a> (unsigned int sz)</td></tr>
+<tr class="memdesc:aa84ef8734ee8c5c4bb7afdd40ac2b3ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matuoja std::vector užpildymo laiką.  <br /></td></tr>
+<tr class="memitem:a1768c854ef85d45eb61c2ffc465b8e1c" id="r_a1768c854ef85d45eb61c2ffc465b8e1c"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a1768c854ef85d45eb61c2ffc465b8e1c">matuokVector</a> (unsigned int sz)</td></tr>
+<tr class="memdesc:a1768c854ef85d45eb61c2ffc465b8e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matuoja nuosavos Vector užpildymo laiką.  <br /></td></tr>
+<tr class="memitem:a040f209a0fbe84ba857d6b66a100d2e1" id="r_a040f209a0fbe84ba857d6b66a100d2e1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a040f209a0fbe84ba857d6b66a100d2e1">tyrimas1</a> ()</td></tr>
+<tr class="memitem:a9741e48bceedef3be20f3db833c2b648" id="r_a9741e48bceedef3be20f3db833c2b648"><td class="memItemLeft">unsigned long long&#160;</td><td class="memItemRight"><a class="el" href="#a9741e48bceedef3be20f3db833c2b648">skaiciuokStdVector</a> (unsigned int sz)</td></tr>
+<tr class="memdesc:a9741e48bceedef3be20f3db833c2b648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skaičiuoja std::vector perskirstymus.  <br /></td></tr>
+<tr class="memitem:a0eaddbad1537832c2958b9c113a84071" id="r_a0eaddbad1537832c2958b9c113a84071"><td class="memItemLeft">unsigned long long&#160;</td><td class="memItemRight"><a class="el" href="#a0eaddbad1537832c2958b9c113a84071">skaiciuokVector</a> (unsigned int sz)</td></tr>
+<tr class="memdesc:a0eaddbad1537832c2958b9c113a84071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skaičiuoja nuosavos Vector perskirstymus.  <br /></td></tr>
+<tr class="memitem:acea19bd19b999278b6ed6643dfd169bf" id="r_acea19bd19b999278b6ed6643dfd169bf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acea19bd19b999278b6ed6643dfd169bf">tyrimas2</a> ()</td></tr>
+<tr class="memitem:a4399b50c271813ed0ea0d30d700974b7" id="r_a4399b50c271813ed0ea0d30d700974b7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4399b50c271813ed0ea0d30d700974b7">tyrimas3</a> ()</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Smulkus aprašymas</h2>
+<div class="textblock"><p>Spartos analizė: std::vector vs nuosava Vector klasė. </p>
+<p>Atlieka du tyrimus:</p><ol type="1">
+<li>push_back() spartos palyginimas su 10⁴ … 10⁸ elementų</li>
+<li>Atminties perskirstymų skaičiavimas</li>
+</ol>
+<p>Kompiliavimas: g++ -std=c++17 -O2 <a class="el" href="benchmark_8cpp.html" title="Spartos analizė: std::vector vs nuosava Vector klasė.">benchmark.cpp</a> -o benchmark</p>
+<p>Paleidimas: ./benchmark — visi tyrimai ./benchmark 1 — tik push_back tyrimas ./benchmark 2 — tik perskirstymų tyrimas</p>
+<dl class="section warning"><dt>Įspėjimas</dt><dd>100 000 000 elementų testas naudoja ~400 MB kiekvienam konteineriui. Su 8 GB RAM tai priimtina, bet mažesnėse sistemose gali prireikti praleisti paskutinį dydį. </dd></dl>
+
+<p class="definition">Apibrėžimas faile <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a>.</p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Tipų apibrėžimų Dokumentacija</h2>
+<a id="a56837b72f94ac37530cd9fdf8c04ea5d" name="a56837b72f94ac37530cd9fdf8c04ea5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56837b72f94ac37530cd9fdf8c04ea5d">&#9670;&#160;</a></span>Laikrodis</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a56837b72f94ac37530cd9fdf8c04ea5d">Laikrodis</a> = std::chrono::high_resolution_clock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00031">31</a>.</p>
+
+</div>
+</div>
+<a id="a82dfe5e8153294dee79d02ff514f72d4" name="a82dfe5e8153294dee79d02ff514f72d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82dfe5e8153294dee79d02ff514f72d4">&#9670;&#160;</a></span>Sekundes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a82dfe5e8153294dee79d02ff514f72d4">Sekundes</a> = std::chrono::duration&lt;double&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00032">32</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Funkcijos Dokumentacija</h2>
+<a id="aa84ef8734ee8c5c4bb7afdd40ac2b3ed" name="aa84ef8734ee8c5c4bb7afdd40ac2b3ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa84ef8734ee8c5c4bb7afdd40ac2b3ed">&#9670;&#160;</a></span>matuokStdVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double matuokStdVector </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Matuoja std::vector užpildymo laiką. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>Elementų skaičius </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Trukmė sekundėmis </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00043">43</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00072">tyrimas1()</a>.</p>
+
+</div>
+</div>
+<a id="a1768c854ef85d45eb61c2ffc465b8e1c" name="a1768c854ef85d45eb61c2ffc465b8e1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1768c854ef85d45eb61c2ffc465b8e1c">&#9670;&#160;</a></span>matuokVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double matuokVector </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Matuoja nuosavos Vector užpildymo laiką. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>Elementų skaičius </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Trukmė sekundėmis </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00060">60</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00072">tyrimas1()</a>.</p>
+
+</div>
+</div>
+<a id="a040f209a0fbe84ba857d6b66a100d2e1" name="a040f209a0fbe84ba857d6b66a100d2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a040f209a0fbe84ba857d6b66a100d2e1">&#9670;&#160;</a></span>tyrimas1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tyrimas1 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00072">72</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="benchmark_8cpp_source.html#l00043">matuokStdVector()</a>, ir <a class="el" href="benchmark_8cpp_source.html#l00060">matuokVector()</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00217">main()</a>.</p>
+
+</div>
+</div>
+<a id="a9741e48bceedef3be20f3db833c2b648" name="a9741e48bceedef3be20f3db833c2b648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9741e48bceedef3be20f3db833c2b648">&#9670;&#160;</a></span>skaiciuokStdVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long skaiciuokStdVector </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Skaičiuoja std::vector perskirstymus. </p>
+<p>Perskirstymas aptinkamas stebint capacity() pokytį — jis įvyksta tada, kai capacity() == size() ir pridedamas naujas elementas.</p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>Elementų skaičius </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Perskirstymų skaičius </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00117">117</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00154">tyrimas2()</a>.</p>
+
+</div>
+</div>
+<a id="a0eaddbad1537832c2958b9c113a84071" name="a0eaddbad1537832c2958b9c113a84071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eaddbad1537832c2958b9c113a84071">&#9670;&#160;</a></span>skaiciuokVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long skaiciuokVector </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>sz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Skaičiuoja nuosavos Vector perskirstymus. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>Elementų skaičius </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Perskirstymų skaičius </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00138">138</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00154">tyrimas2()</a>.</p>
+
+</div>
+</div>
+<a id="acea19bd19b999278b6ed6643dfd169bf" name="acea19bd19b999278b6ed6643dfd169bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea19bd19b999278b6ed6643dfd169bf">&#9670;&#160;</a></span>tyrimas2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tyrimas2 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00154">154</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="benchmark_8cpp_source.html#l00117">skaiciuokStdVector()</a>, ir <a class="el" href="benchmark_8cpp_source.html#l00138">skaiciuokVector()</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00217">main()</a>.</p>
+
+</div>
+</div>
+<a id="a4399b50c271813ed0ea0d30d700974b7" name="a4399b50c271813ed0ea0d30d700974b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4399b50c271813ed0ea0d30d700974b7">&#9670;&#160;</a></span>tyrimas3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tyrimas3 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00187">187</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="benchmark_8cpp_source.html#l00217">main()</a>.</p>
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Apibrėžimas failo <a class="el" href="benchmark_8cpp_source.html">benchmark.cpp</a> eilutėje <a class="el" href="benchmark_8cpp_source.html#l00217">217</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="benchmark_8cpp_source.html#l00072">tyrimas1()</a>, <a class="el" href="benchmark_8cpp_source.html#l00154">tyrimas2()</a>, ir <a class="el" href="benchmark_8cpp_source.html#l00187">tyrimas3()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a href="benchmark_8cpp.html">benchmark.cpp</a></li>
+    <li class="footer">Sugeneruota <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

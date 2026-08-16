@@ -1,9 +1,0 @@
-<map id="OOP_2/zmogus.h" name="OOP_2/zmogus.h">
-<area shape="rect" id="Node000001" title="Abstrakti bazinė klasė, aprašanti bendrus žmogaus duomenis." alt="" coords="56,5,181,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,59,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,32,60,72,57,68,101,33"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="83,80,154,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,31,121,65,116,63,117,35"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="178,80,256,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,30,191,70,186,71,135,35"/>
-</map>

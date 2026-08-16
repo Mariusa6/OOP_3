@@ -25,23 +25,13 @@
 var NAVTREE =
 [
   [ "Studentu informacine sistema", "index.html", [
-    [ "Studentų Informacinė Sistema OOP_Marius_Augustinas", "index.html", "index" ],
-    [ "Klasės", "annotated.html", [
-      [ "Klasės", "annotated.html", "annotated_dup" ],
-      [ "Klasės Indeksas", "classes.html", null ],
-      [ "Klasių hierarchija", "hierarchy.html", "hierarchy" ],
-      [ "Klasių Nariai", "functions.html", [
-        [ "Visi", "functions.html", null ],
-        [ "Funkcijos", "functions_func.html", null ],
-        [ "Kintamieji", "functions_vars.html", null ]
-      ] ]
-    ] ],
+    [ "Studentų Informacinė Sistema", "index.html", "index" ],
     [ "Failai", "files.html", [
       [ "Failai", "files.html", "files_dup" ],
       [ "Failų Nariai", "globals.html", [
         [ "Visi", "globals.html", null ],
         [ "Funkcijos", "globals_func.html", null ],
-        [ "Kintamieji", "globals_vars.html", null ],
+        [ "Tipų apibrėžimai", "globals_type.html", null ],
         [ "Apibrėžimai", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -50,7 +40,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_o_o_p__2_8cpp.html"
+"_vectortests_8cpp.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

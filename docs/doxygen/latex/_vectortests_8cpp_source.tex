@@ -1,0 +1,785 @@
+\doxysection{Vectortests.\+cpp}
+\hypertarget{_vectortests_8cpp_source}{}\label{_vectortests_8cpp_source}\index{tests/Vectortests.cpp@{tests/Vectortests.cpp}}
+\doxymbox{\hyperlink{_vectortests_8cpp}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00001}00001\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ @file\ vectorTests.cpp}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ @brief\ Unit\ testai\ nuosavai\ Vector\ klasei\ (Catch2).}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ Kiekvienam\ testui\ taikomas\ tas\ pats\ principas:\ ta\ pati\ operacija}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ atliekama\ su\ \`{}std::vector`\ ir\ su\ \`{}Vector`,\ o\ rezultatai\ lyginami.}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Taip\ tikrinama\ ne\ tik\ ar\ \`{}Vector`\ veikia,\ bet\ ar\ veikia\ **taip\ pat**}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ kaip\ standartinis\ konteineris.}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ Paleidimas:}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ \ \ \ \ ./vectorTests\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ —\ visi\ testai}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ \ \ \ \ ./vectorTests\ "{}[talpa]"{}\ \ \ \ \ \ \ \ —\ tik\ talpos\ testai}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ \ \ \ \ ./vectorTests\ -\/l\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ —\ testų\ sąrašas}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00014}00014\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00016}\doxymbox{\hyperlink{_vectortests_8cpp_a656eb5868e824d59f489f910db438420}{00016}}\ \textcolor{preprocessor}{\#define\ CATCH\_CONFIG\_MAIN}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}catch.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}../OOP\_3/Vector.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <numeric>}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00026}00026\ \ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00027}00027\ \ \textcolor{comment}{//\ Pagalbinė\ klasė\ objektų\ gyvavimui\ sekti}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00028}00028\ \ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00030}00030\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00031}00031\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00032}00032\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00033}00033\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Testinė\ klasė,\ skaičiuojanti\ konstruktorių\ ir\ destruktorių\ kvietimus.}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00034}00034\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ *\ Leidžia\ patikrinti,\ ar\ Vector\ teisingai\ konstruoja\ ir\ naikina}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ *\ elementus\ —\ ypač\ svarbu\ perskirstymo\ metu.}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{struct\ }Sekiklis\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ gyvu;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ kopiju;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ perkelimu;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ reiksme;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ Sekiklis(\textcolor{keywordtype}{int}\ v\ =\ 0)\ :\ reiksme(v)\ \{\ ++gyvu;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ Sekiklis(\textcolor{keyword}{const}\ Sekiklis\&\ o)\ :\ reiksme(o.reiksme)\ \{\ ++gyvu;\ ++kopiju;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ Sekiklis(Sekiklis\&\&\ o)\ noexcept\ :\ reiksme(o.reiksme)\ \{\ ++gyvu;\ ++perkelimu;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ Sekiklis\&\ operator=(\textcolor{keyword}{const}\ Sekiklis\&\ o)\ \{\ reiksme\ =\ o.reiksme;\ ++kopiju;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ Sekiklis\&\ operator=(Sekiklis\&\&\ o)\ \textcolor{keyword}{noexcept}\ \{\ reiksme\ =\ o.reiksme;\ ++perkelimu;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \string~Sekiklis()\ \{\ -\/-\/gyvu;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ Sekiklis\&\ o)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ reiksme\ ==\ o.reiksme;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ atstatyk()\ \{\ gyvu\ =\ 0;\ kopiju\ =\ 0;\ perkelimu\ =\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00054}00054\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ Sekiklis::gyvu\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{int}\ Sekiklis::kopiju\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ Sekiklis::perkelimu\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00059}00059\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ ///\ Palygina\ Vector\ ir\ std::vector\ turinį}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ sutampa(\textcolor{keyword}{const}\ Vector<T>\&\ v,\ \textcolor{keyword}{const}\ std::vector<T>\&\ sv)\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ v.size()\ ==\ sv.size()}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ std::equal(v.begin(),\ v.end(),\ sv.begin());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00067}00067\ \}\ \textcolor{comment}{//\ anoniminis\ namespace}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00069}00069\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00070}00070\ \textcolor{comment}{//\ 1.\ KONSTRUKTORIAI}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00071}00071\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00073}\doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{00073}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Konstruktoriai"{}},\ \textcolor{stringliteral}{"{}[konstruktoriai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00075}00075\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}numatytasis\ —\ tuscias\ vektorius"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ std::vector<int>\ sv;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ sv.size());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ sv.capacity());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ REQUIRE(v.empty()\ ==\ sv.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ REQUIRE(v.data()\ ==\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00084}00084\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}n\ elementu\ su\ reiksme"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ Vector<int>\ v(5,\ 42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ std::vector<int>\ sv(5,\ 42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ REQUIRE(v[4]\ ==\ 42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00093}00093\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}n\ numatytai\ sukonstruotu\ elementu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ Vector<int>\ v(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ std::vector<int>\ sv(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 0);\ \ \ \textcolor{comment}{//\ int()\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00100}00100\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}is\ iteratoriu\ intervalo"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ std::vector<int>\ saltinis\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ Vector<int>\ v(saltinis.begin(),\ saltinis.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ saltinis));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00106}00106\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}is\ initializer\_list"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00112}00112\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}Vector(5,\ 10)\ NEinterpretuojamas\ kaip\ intervalas"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Be\ enable\_if\ sios\ eilutes\ butu\ klaidingai\ parinktas}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ intervalo\ konstruktorius}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ Vector<int>\ v(5,\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00120}00120\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}kopijavimo\ konstruktorius\ —\ gili\ kopija"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ Vector<int>\ originalas\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ Vector<int>\ kopija(originalas);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ REQUIRE(kopija\ ==\ originalas);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ REQUIRE(kopija.data()\ !=\ originalas.data());\ \ \ \textcolor{comment}{//\ skirtinga\ atmintis}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ kopija[0]\ =\ 99;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ REQUIRE(originalas[0]\ ==\ 1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ originalas\ nepakito}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00131}00131\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}perkelimo\ konstruktorius"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ Vector<int>\ saltinis\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ senasAdresas\ =\ saltinis.data();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ Vector<int>\ tikslas(std::move(saltinis));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ REQUIRE(tikslas.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ REQUIRE(tikslas.data()\ ==\ senasAdresas);\ \ \ \ \ \ \ \textcolor{comment}{//\ ta\ pati\ atmintis}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ REQUIRE(saltinis.size()\ ==\ 0);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ saltinis\ tuscias}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ REQUIRE(saltinis.data()\ ==\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00143}00143\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}konstruktoriai\ teisingai\ naikina\ objektus"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v(10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00151}00151\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00153}00153\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00154}00154\ \textcolor{comment}{//\ 2.\ PRISKYRIMAS}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00155}00155\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00157}\doxymbox{\hyperlink{_vectortests_8cpp_af7c085cd63dc81f4ef508223ed4414ef}{00157}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Priskyrimas"{}},\ \textcolor{stringliteral}{"{}[priskyrimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00158}00158\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00159}00159\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}kopijavimo\ priskyrimas"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ Vector<int>\ a\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ Vector<int>\ b;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ b\ =\ a;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ REQUIRE(b\ ==\ a);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ REQUIRE(b.data()\ !=\ a.data());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00167}00167\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}priskyrimas\ sau\ nesugadina"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ Vector<int>\ a\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ a\ =\ a;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ REQUIRE(a.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ REQUIRE(a[0]\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00174}00174\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}perkelimo\ priskyrimas"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ Vector<int>\ a\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ Vector<int>\ b\ =\ \{\ 9\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ b\ =\ std::move(a);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ REQUIRE(b.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ REQUIRE(a.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00182}00182\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}priskyrimas\ is\ initializer\_list"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ v\ =\ \{\ 4,\ 5,\ 6\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ REQUIRE(v[1]\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00187}00187\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00189}00189\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}assign\ su\ n\ kopiju"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ v.assign(5,\ 7);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ sv.assign(5,\ 7);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00197}00197\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}assign\ su\ intervalu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ std::vector<int>\ saltinis\ =\ \{\ 8,\ 9\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ v.assign(saltinis.begin(),\ saltinis.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ saltinis));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00202}00202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00205}00205\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00206}00206\ \textcolor{comment}{//\ 3.\ ELEMENTŲ\ PRIEIGA}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00207}00207\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00209}\doxymbox{\hyperlink{_vectortests_8cpp_aa1570d5b234fde51df72e46098b90fc0}{00209}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Elementu\ prieiga"{}},\ \textcolor{stringliteral}{"{}[prieiga]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00210}00210\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00211}00211\ \ \ \ \ Vector<int>\ v\ =\ \{\ 10,\ 20,\ 30,\ 40\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00212}00212\ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 10,\ 20,\ 30,\ 40\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00214}00214\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}operator[]"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ sv[0]);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ REQUIRE(v[3]\ ==\ sv[3]);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ v[1]\ =\ 99;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ REQUIRE(v[1]\ ==\ 99);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00221}00221\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}at()\ su\ ribu\ tikrinimu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ REQUIRE(v.at(2)\ ==\ sv.at(2));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ REQUIRE\_THROWS\_AS(v.at(4),\ std::out\_of\_range);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ REQUIRE\_THROWS\_AS(v.at(100),\ std::out\_of\_range);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::vector\ meta\ ta\ pacia\ isimti}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ REQUIRE\_THROWS\_AS(sv.at(4),\ std::out\_of\_range);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00230}00230\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}front\ ir\ back"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ REQUIRE(v.front()\ ==\ sv.front());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ REQUIRE(v.back()\ ==\ sv.back());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ v.front()\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ v.back()\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ REQUIRE(v[3]\ ==\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00237}00237\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00239}00239\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}data()\ grazina\ rodykle\ i\ masyva"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ p\ =\ v.data();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ REQUIRE(p[0]\ ==\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ REQUIRE(p[3]\ ==\ 40);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00243}00243\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00245}00245\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}const\ prieiga"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Vector<int>\&\ cv\ =\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ REQUIRE(cv[0]\ ==\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ REQUIRE(cv.at(1)\ ==\ 20);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ REQUIRE(cv.front()\ ==\ 10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ REQUIRE(cv.back()\ ==\ 40);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ REQUIRE(cv.data()\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00252}00252\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00253}00253\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00255}00255\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00256}00256\ \textcolor{comment}{//\ 4.\ ITERATORIAI}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00257}00257\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00259}\doxymbox{\hyperlink{_vectortests_8cpp_a23f3a0726aa12d548c9ca1b19691546f}{00259}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Iteratoriai"{}},\ \textcolor{stringliteral}{"{}[iteratoriai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00260}00260\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00261}00261\ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00262}00262\ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00264}00264\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}begin\ ir\ end"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ REQUIRE(*v.begin()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ REQUIRE(*(v.end()\ -\/\ 1)\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ REQUIRE(v.end()\ -\/\ v.begin()\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00270}00270\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}range-\/based\ for"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ suma\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ :\ v)\ suma\ +=\ x;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ REQUIRE(suma\ ==\ 15);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00276}00276\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}atvirkstiniai\ iteratoriai"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ std::vector<int>\ atvirksciai;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ v.rbegin();\ it\ !=\ v.rend();\ ++it)}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ atvirksciai.push\_back(*it);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ REQUIRE(atvirksciai\ ==\ std::vector<int>\{\ 5,\ 4,\ 3,\ 2,\ 1\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00281}00281\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00283}00283\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}const\ iteratoriai"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Vector<int>\&\ cv\ =\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ REQUIRE(*cv.cbegin()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ REQUIRE(*(cv.cend()\ -\/\ 1)\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ REQUIRE(*cv.crbegin()\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00288}00288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00290}00290\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}veikia\ su\ STL\ algoritmais"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ REQUIRE(std::accumulate(v.begin(),\ v.end(),\ 0)\ ==\ 15);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ REQUIRE(*std::max\_element(v.begin(),\ v.end())\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ REQUIRE(std::count(v.begin(),\ v.end(),\ 3)\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ std::sort(v.begin(),\ v.end(),\ std::greater<int>());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ REQUIRE(std::find(v.begin(),\ v.end(),\ 3)\ !=\ v.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00299}00299\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00300}00300\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00302}00302\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00303}00303\ \textcolor{comment}{//\ 5.\ TALPA\ —\ svarbiausias\ skyrius}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00304}00304\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00306}\doxymbox{\hyperlink{_vectortests_8cpp_a7f7ce1d57676a034fa77461f27c4ec5f}{00306}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Talpa"{}},\ \textcolor{stringliteral}{"{}[talpa]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00307}00307\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00308}00308\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}empty\ ir\ size"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ REQUIRE(v.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ v.push\_back(1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ REQUIRE\_FALSE(v.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00318}00318\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}capacity\ dvigubinama\ augant"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ v.push\_back(1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ v.push\_back(2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ v.push\_back(3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ v.push\_back(4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ v.push\_back(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 8);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00336}00336\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00338}00338\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}reserve\ paskiria\ atminti,\ bet\ nekuria\ elementu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ v.reserve(100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ >=\ 100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ REQUIRE(v.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00344}00344\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00346}00346\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}reserve\ nemazina\ talpos"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ v.reserve(100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ v.reserve(10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ >=\ 100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00351}00351\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00353}00353\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}reserve\ panaikina\ perskirstymus"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ v.reserve(1000);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ pries\ =\ v.data();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ v.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ REQUIRE(v.data()\ ==\ pries);\ \ \ \textcolor{comment}{//\ atmintis\ nepersikele}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00364}00364\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}shrink\_to\_fit\ atlaisvina\ nepanaudota\ atminti"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ v.reserve(100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ v.push\_back(1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ v.push\_back(2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ >=\ 100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ v.shrink\_to\_fit();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00375}00375\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00377}00377\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}max\_size\ grazina\ teigiama\ reiksme"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ REQUIRE(v.max\_size()\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00380}00380\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00382}00382\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}perskirstymu\ skaicius\ atitinka\ log2(n)"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ perskirstymu\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ senaTalpa\ =\ v.capacity();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ v.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v.capacity()\ !=\ senaTalpa)\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++perskirstymu;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ senaTalpa\ =\ v.capacity();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1000\ elementu\ →\ talpa\ 1,2,4,...,1024\ →\ 11\ perskirstymu}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ REQUIRE(perskirstymu\ ==\ 11);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00396}00396\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00397}00397\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00399}00399\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00400}00400\ \textcolor{comment}{//\ 6.\ MODIFIKAVIMAS}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00401}00401\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00403}\doxymbox{\hyperlink{_vectortests_8cpp_a6bd8fa915df6ab8b350537df6a0c49a1}{00403}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}push\_back\ ir\ pop\_back"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00404}00404\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00405}00405\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}push\_back\ prideda\ i\ gala"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ std::vector<int>\ sv;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ 10;\ ++i)\ \{\ v.push\_back(i);\ sv.push\_back(i);\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00410}00410\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00412}00412\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}push\_back\ su\ perkelimu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ Vector<std::string>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ std::string\ s\ =\ \textcolor{stringliteral}{"{}labas"{}};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ v.push\_back(std::move(s));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ \textcolor{stringliteral}{"{}labas"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ REQUIRE(s.empty());\ \ \ \textcolor{comment}{//\ perkelta}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00418}00418\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00420}00420\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}pop\_back\ pasalina\ paskutini"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ v.pop\_back();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ REQUIRE(v.back()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00425}00425\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00427}00427\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}pop\_back\ sunaikina\ objekta"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ v.push\_back(Sekiklis(1));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ v.push\_back(Sekiklis(2));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pries\ =\ Sekiklis::gyvu;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ v.pop\_back();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ pries\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00435}00435\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00436}00436\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00438}\doxymbox{\hyperlink{_vectortests_8cpp_ab79949f6f883c46b258e3bad4dd251af}{00438}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}emplace\_back"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00439}00439\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00440}00440\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}sukuria\ objekta\ vietoje"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ Vector<std::string>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ v.emplace\_back(5,\ \textcolor{charliteral}{'a'});\ \ \ \ \ \ \ \textcolor{comment}{//\ std::string(5,\ 'a')}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ \textcolor{stringliteral}{"{}aaaaa"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00444}00444\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00446}00446\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}grazina\ nuoroda\ i\ sukurta\ elementa"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ r\ =\ v.emplace\_back(42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ REQUIRE(r\ ==\ 42);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ r\ =\ 99;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 99);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00452}00452\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00454}00454\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}emplace\_back\ nekopijuoja"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ v.reserve(10);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ v.emplace\_back(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::kopiju\ ==\ 0);\ \ \ \textcolor{comment}{//\ jokiu\ kopiju}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00460}00460\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00461}00461\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00463}\doxymbox{\hyperlink{_vectortests_8cpp_a164b3a55fe63ec18a2f0b061d9b92a49}{00463}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}insert"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00464}00464\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00465}00465\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ i\ pradzia"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ v.insert(v.begin(),\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ sv.insert(sv.begin(),\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00471}00471\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00473}00473\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ i\ vidury"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ v.insert(v.begin()\ +\ 1,\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ sv.insert(sv.begin()\ +\ 1,\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00479}00479\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00481}00481\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ i\ gala"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ v.insert(v.end(),\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ REQUIRE(v.back()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00486}00486\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00488}00488\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ n\ kopiju"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ v.insert(v.begin()\ +\ 1,\ 3,\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ sv.insert(sv.begin()\ +\ 1,\ 3,\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00494}00494\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00496}00496\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ intervala"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ std::vector<int>\ saltinis\ =\ \{\ 2,\ 3,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ v.insert(v.begin()\ +\ 1,\ saltinis.begin(),\ saltinis.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ sv.insert(sv.begin()\ +\ 1,\ saltinis.begin(),\ saltinis.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00503}00503\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00505}00505\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ initializer\_list"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ v.insert(v.begin()\ +\ 1,\ \{\ 2,\ 3\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ REQUIRE(v[1]\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ REQUIRE(v[2]\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00511}00511\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00513}00513\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ grazina\ iteratoriu\ i\ iterpta\ elementa"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ v.insert(v.begin()\ +\ 1,\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ REQUIRE(*it\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ REQUIRE(it\ ==\ v.begin()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00518}00518\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00519}00519\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00520}00520\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00521}\doxymbox{\hyperlink{_vectortests_8cpp_ab6a38c9dcb2328cf54ba04d81359d28c}{00521}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}erase"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00522}00522\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00523}00523\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ viena\ elementa"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2,\ 3,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00526}00526\ \ \ \ \ \ \ \ \ v.erase(v.begin()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ sv.erase(sv.begin()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00529}00529\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00531}00531\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ intervala"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ v.erase(v.begin()\ +\ 1,\ v.begin()\ +\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ sv.erase(sv.begin()\ +\ 1,\ sv.begin()\ +\ 4);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00537}00537\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00539}00539\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ grazina\ iteratoriu\ i\ kita\ elementa"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00540}00540\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00541}00541\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ v.erase(v.begin());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00542}00542\ \ \ \ \ \ \ \ \ REQUIRE(*it\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00543}00543\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00545}00545\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ sunaikina\ objektus"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ ++i)\ v.emplace\_back(i);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pries\ =\ Sekiklis::gyvu;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ v.erase(v.begin(),\ v.begin()\ +\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ pries\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00552}00552\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00553}00553\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00555}\doxymbox{\hyperlink{_vectortests_8cpp_a3f6265afaf30849f3520b7e1f4299345}{00555}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}clear\ ir\ resize"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00556}00556\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00557}00557\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}clear\ pasalina\ elementus,\ bet\ ne\ talpa"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ talpa\ =\ v.capacity();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ v.clear();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ REQUIRE(v.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ ==\ talpa);\ \ \ \textcolor{comment}{//\ talpa\ nepakito}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00564}00564\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00565}00565\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00566}00566\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}clear\ sunaikina\ objektus"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ ++i)\ v.emplace\_back(i);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ v.clear();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00572}00572\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00574}00574\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}resize\ didinant"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ v.resize(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ sv.resize(5);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ REQUIRE(v[4]\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00581}00581\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00583}00583\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}resize\ didinant\ su\ reiksme"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ std::vector<int>\ sv\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ v.resize(5,\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00587}00587\ \ \ \ \ \ \ \ \ sv.resize(5,\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00588}00588\ \ \ \ \ \ \ \ \ REQUIRE(sutampa(v,\ sv));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00589}00589\ \ \ \ \ \ \ \ \ REQUIRE(v[4]\ ==\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00590}00590\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00592}00592\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}resize\ mazinant"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ v.resize(2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ REQUIRE(v.back()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00597}00597\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00598}00598\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00600}\doxymbox{\hyperlink{_vectortests_8cpp_a8ee0afea8ae4b977afc3abee195bf7c1}{00600}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}swap"{}},\ \textcolor{stringliteral}{"{}[modifikavimas]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00601}00601\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00602}00602\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}nario\ swap"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00603}00603\ \ \ \ \ \ \ \ \ Vector<int>\ a\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ Vector<int>\ b\ =\ \{\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ aData\ =\ a.data();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00606}00606\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ bData\ =\ b.data();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00607}00607\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00608}00608\ \ \ \ \ \ \ \ \ a.swap(b);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ REQUIRE(a.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00611}00611\ \ \ \ \ \ \ \ \ REQUIRE(b.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00612}00612\ \ \ \ \ \ \ \ \ REQUIRE(a.data()\ ==\ bData);\ \ \ \textcolor{comment}{//\ sukeistos\ rodykles,\ ne\ elementai}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ REQUIRE(b.data()\ ==\ aData);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00614}00614\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00616}00616\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}ne-\/nare\ swap\ funkcija"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00617}00617\ \ \ \ \ \ \ \ \ Vector<int>\ a\ =\ \{\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00618}00618\ \ \ \ \ \ \ \ \ Vector<int>\ b\ =\ \{\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00619}00619\ \ \ \ \ \ \ \ \ swap(a,\ b);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00620}00620\ \ \ \ \ \ \ \ \ REQUIRE(a[0]\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00621}00621\ \ \ \ \ \ \ \ \ REQUIRE(b[0]\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00622}00622\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00623}00623\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00624}00624\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00625}00625\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00626}00626\ \textcolor{comment}{//\ 7.\ NE-\/NARIAI\ OPERATORIAI}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00627}00627\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00629}\doxymbox{\hyperlink{_vectortests_8cpp_ab0bc5b77d3ffd20b0a0c6b006014d43c}{00629}}\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Lyginimo\ operatoriai"{}},\ \textcolor{stringliteral}{"{}[operatoriai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00630}00630\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00631}00631\ \ \ \ \ Vector<int>\ a\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00632}00632\ \ \ \ \ Vector<int>\ b\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00633}00633\ \ \ \ \ Vector<int>\ c\ =\ \{\ 1,\ 2,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00634}00634\ \ \ \ \ Vector<int>\ trumpas\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00635}00635\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00636}00636\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}==\ ir\ !="{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00637}00637\ \ \ \ \ \ \ \ \ REQUIRE(a\ ==\ b);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00638}00638\ \ \ \ \ \ \ \ \ REQUIRE(a\ !=\ c);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00639}00639\ \ \ \ \ \ \ \ \ REQUIRE(a\ !=\ trumpas);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00640}00640\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00642}00642\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}leksikografinis\ palyginimas"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00643}00643\ \ \ \ \ \ \ \ \ REQUIRE(a\ <\ c);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00644}00644\ \ \ \ \ \ \ \ \ REQUIRE(c\ >\ a);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00645}00645\ \ \ \ \ \ \ \ \ REQUIRE(trumpas\ <\ a);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00646}00646\ \ \ \ \ \ \ \ \ REQUIRE(a\ <=\ b);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00647}00647\ \ \ \ \ \ \ \ \ REQUIRE(a\ >=\ b);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00648}00648\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00650}00650\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}rezultatai\ sutampa\ su\ std::vector"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00651}00651\ \ \ \ \ \ \ \ \ std::vector<int>\ sa\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00652}00652\ \ \ \ \ \ \ \ \ std::vector<int>\ sc\ =\ \{\ 1,\ 2,\ 4\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00653}00653\ \ \ \ \ \ \ \ \ REQUIRE((a\ <\ c)\ ==\ (sa\ <\ sc));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00654}00654\ \ \ \ \ \ \ \ \ REQUIRE((a\ ==\ b)\ ==\ (sa\ ==\ std::vector<int>\{\ 1,\ 2,\ 3\ \}));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00655}00655\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00656}00656\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00657}00657\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00658}00658\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}erase\ ir\ erase\_if\ (ne-\/nares)"{}},\ \textcolor{stringliteral}{"{}[operatoriai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00659}00659\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00660}00660\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ pasalina\ visas\ reiksmes\ kopijas"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00661}00661\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 2,\ 5,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00662}00662\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ n\ =\ erase(v,\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00663}00663\ \ \ \ \ \ \ \ \ REQUIRE(n\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00664}00664\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00665}00665\ \ \ \ \ \ \ \ \ REQUIRE(v\ ==\ Vector<int>\{\ 1,\ 3,\ 5\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00666}00666\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00668}00668\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\_if\ pagal\ predikata"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00669}00669\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3,\ 4,\ 5,\ 6\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ n\ =\ erase\_if(v,\ [](\textcolor{keywordtype}{int}\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ \%\ 2\ ==\ 0;\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00671}00671\ \ \ \ \ \ \ \ \ REQUIRE(n\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00672}00672\ \ \ \ \ \ \ \ \ REQUIRE(v\ ==\ Vector<int>\{\ 1,\ 3,\ 5\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00673}00673\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00674}00674\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00675}00675\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00676}00676\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00677}00677\ \textcolor{comment}{//\ 8.\ SUDĖTINGI\ TIPAI}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00678}00678\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00679}00679\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00680}00680\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Veikimas\ su\ sudetingais\ tipais"{}},\ \textcolor{stringliteral}{"{}[tipai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00681}00681\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00682}00682\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}Vector<std::string>"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00683}00683\ \ \ \ \ \ \ \ \ Vector<std::string>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00684}00684\ \ \ \ \ \ \ \ \ v.push\_back(\textcolor{stringliteral}{"{}pirmas"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00685}00685\ \ \ \ \ \ \ \ \ v.push\_back(\textcolor{stringliteral}{"{}antras"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00686}00686\ \ \ \ \ \ \ \ \ v.emplace\_back(\textcolor{stringliteral}{"{}trecias"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00688}00688\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00689}00689\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ \textcolor{stringliteral}{"{}pirmas"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00690}00690\ \ \ \ \ \ \ \ \ REQUIRE(v.back()\ ==\ \textcolor{stringliteral}{"{}trecias"{}});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00691}00691\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00692}00692\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00693}00693\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}Vector<Vector<int>>\ —\ vektorius\ vektoriuje"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00694}00694\ \ \ \ \ \ \ \ \ Vector<Vector<int>>\ matrica;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00695}00695\ \ \ \ \ \ \ \ \ matrica.push\_back(Vector<int>\{\ 1,\ 2\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00696}00696\ \ \ \ \ \ \ \ \ matrica.push\_back(Vector<int>\{\ 3,\ 4\ \});}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00697}00697\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00698}00698\ \ \ \ \ \ \ \ \ REQUIRE(matrica.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00699}00699\ \ \ \ \ \ \ \ \ REQUIRE(matrica[0][1]\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00700}00700\ \ \ \ \ \ \ \ \ REQUIRE(matrica[1][0]\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00701}00701\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00702}00702\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00703}00703\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}perskirstymas\ nesugadina\ objektu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00704}00704\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00705}00705\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00707}00707\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00708}00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v.emplace\_back(i);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00709}00709\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ 100);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ REQUIRE(v[0].reiksme\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00712}00712\ \ \ \ \ \ \ \ \ \ \ \ \ REQUIRE(v[99].reiksme\ ==\ 99);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00713}00713\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00714}00714\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::gyvu\ ==\ 0);\ \ \ \textcolor{comment}{//\ nera\ nutekejimo}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00715}00715\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00717}00717\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}perskirstymas\ naudoja\ move,\ ne\ copy"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00718}00718\ \ \ \ \ \ \ \ \ Sekiklis::atstatyk();}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00719}00719\ \ \ \ \ \ \ \ \ Vector<Sekiklis>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00720}00720\ \ \ \ \ \ \ \ \ v.reserve(2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00721}00721\ \ \ \ \ \ \ \ \ v.emplace\_back(1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00722}00722\ \ \ \ \ \ \ \ \ v.emplace\_back(2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00723}00723\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00724}00724\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ kopijuPries\ =\ Sekiklis::kopiju;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00725}00725\ \ \ \ \ \ \ \ \ v.emplace\_back(3);\ \ \ \textcolor{comment}{//\ sukelia\ perskirstyma}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00726}00726\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00727}00727\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sekiklis\ turi\ noexcept\ move,\ todel\ turi\ buti\ naudojamas}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00728}00728\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::kopiju\ ==\ kopijuPries);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00729}00729\ \ \ \ \ \ \ \ \ REQUIRE(Sekiklis::perkelimu\ >\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00730}00730\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00731}00731\ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00732}00732\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00733}00733\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00734}00734\ \textcolor{comment}{//\ 9.\ KRAŠTINIAI\ ATVEJAI}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00735}00735\ \textcolor{comment}{//\ =====================================================================}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00736}00736\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00737}00737\ \doxymbox{\hyperlink{_vectortests_8cpp_a16d09c359a3f7ad7066e979fc9b3c1cd}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Krastiniai\ atvejai"{}},\ \textcolor{stringliteral}{"{}[krastiniai]"{}})}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00738}00738\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00739}00739\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}operacijos\ su\ tusciu\ vektoriumi"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00740}00740\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00741}00741\ \ \ \ \ \ \ \ \ REQUIRE(v.begin()\ ==\ v.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00742}00742\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00743}00743\ \ \ \ \ \ \ \ \ REQUIRE\_NOTHROW(v.clear());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00744}00744\ \ \ \ \ \ \ \ \ REQUIRE\_NOTHROW(v.shrink\_to\_fit());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00745}00745\ \ \ \ \ \ \ \ \ REQUIRE\_THROWS\_AS(v.at(0),\ std::out\_of\_range);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00746}00746\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00747}00747\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00748}00748\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ i\ tuscia\ vektoriu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00749}00749\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00750}00750\ \ \ \ \ \ \ \ \ v.insert(v.begin(),\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00751}00751\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00752}00752\ \ \ \ \ \ \ \ \ REQUIRE(v[0]\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00753}00753\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00754}00754\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00755}00755\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}erase\ visus\ elementus"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00756}00756\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00757}00757\ \ \ \ \ \ \ \ \ v.erase(v.begin(),\ v.end());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00758}00758\ \ \ \ \ \ \ \ \ REQUIRE(v.empty());}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00759}00759\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00760}00760\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00761}00761\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}insert\ nulis\ elementu"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00762}00762\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00763}00763\ \ \ \ \ \ \ \ \ v.insert(v.begin(),\ 0,\ 9);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00764}00764\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00765}00765\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00766}00766\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00767}00767\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}resize\ i\ ta\ pati\ dydi"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00768}00768\ \ \ \ \ \ \ \ \ Vector<int>\ v\ =\ \{\ 1,\ 2,\ 3\ \};}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00769}00769\ \ \ \ \ \ \ \ \ v.resize(3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00770}00770\ \ \ \ \ \ \ \ \ REQUIRE(v.size()\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00771}00771\ \ \ \ \ \ \ \ \ REQUIRE(v[2]\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00772}00772\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00773}00773\ }
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00774}00774\ \ \ \ \ SECTION(\textcolor{stringliteral}{"{}didelis\ reserve"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00775}00775\ \ \ \ \ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00776}00776\ \ \ \ \ \ \ \ \ REQUIRE\_NOTHROW(v.reserve(100000));}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00777}00777\ \ \ \ \ \ \ \ \ REQUIRE(v.capacity()\ >=\ 100000);}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00778}00778\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vectortests_8cpp_source_l00779}00779\ \}}
+
+\end{DoxyCode}

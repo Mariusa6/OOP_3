@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['_7estudentas_0',['~studentas',['../classstudentas.html#abbac9b39cbb8d75c9a3c0c5026356e7c',1,'studentas']]],
-  ['_7ezmogus_1',['~zmogus',['../classzmogus.html#a03d8b774303f436c2d94a8341b0dce3a',1,'zmogus']]]
+  ['—_20catch2_0',['Pasirinktas framework — Catch2',['../index.html#autotoc_md34',1,'']]],
+  ['—_20cmake_20rekomenduojama_1',['Variantas A — CMake (rekomenduojama)',['../index.html#autotoc_md16',1,'']]],
+  ['—_20g_20tiesiogiai_2',['Variantas B — g++ tiesiogiai',['../index.html#autotoc_md17',1,'']]],
+  ['—_20konteinerio_20pasirinkimas_3',['Pirmas ekranas — konteinerio pasirinkimas',['../index.html#autotoc_md8',1,'']]],
+  ['—_20visual_20studio_4',['Variantas C — Visual Studio',['../index.html#autotoc_md18',1,'']]]
 ];

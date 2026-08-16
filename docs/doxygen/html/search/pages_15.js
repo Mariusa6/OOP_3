@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['o_20operatoriai_0',['Polimorfiniai I/O operatoriai',['../index.html#autotoc_md25',1,'']]],
-  ['objekto_20sukurti_20neįmanoma_1',['Demonstracija — objekto sukurti neįmanoma',['../index.html#autotoc_md11',1,'']]],
-  ['of_20five_20su_20paveldėjimu_2',['4. Rule of Five su paveldėjimu',['../index.html#autotoc_md19',1,'']]],
-  ['oop_5fmarius_5faugustinas_3',['Studentų Informacinė Sistema OOP_Marius_Augustinas',['../index.html',1,'']]],
-  ['operatoriai_4',['Polimorfiniai I/O operatoriai',['../index.html#autotoc_md25',1,'']]],
-  ['other_20move_20konstruktoriuje_5',['Kodėl &lt;span class=&quot;tt&quot;&gt;std::move(other)&lt;/span&gt; move konstruktoriuje',['../index.html#autotoc_md20',1,'']]],
-  ['override_6',['Ką realizuoja (&lt;span class=&quot;tt&quot;&gt;override&lt;/span&gt;)',['../index.html#autotoc_md16',1,'']]]
+  ['o_20optimizacija_0',['I/O optimizacija',['../index.html#autotoc_md44',1,'']]],
+  ['of_20five_20su_20paveldėjimu_1',['Rule of Five su paveldėjimu',['../index.html#autotoc_md23',1,'']]],
+  ['optimizacija_2',['I/O optimizacija',['../index.html#autotoc_md44',1,'']]],
+  ['optimizavimo_20flag_20ai_3',['&lt;span class=&quot;tt&quot;&gt;struct&lt;/span&gt; vs &lt;span class=&quot;tt&quot;&gt;class&lt;/span&gt; ir optimizavimo flag&apos;ai',['../index.html#autotoc_md43',1,'']]]
 ];
