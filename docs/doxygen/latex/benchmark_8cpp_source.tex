@@ -23,7 +23,7 @@
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ sistemose\ gali\ prireikti\ praleisti\ paskutinį\ dydį.}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00020}00020\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}../OOP\_3/Vector.h"{}}}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_vector_8h}{../OOP\_3/Vector.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00023}00023\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <chrono>}}
@@ -65,9 +65,9 @@
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00061}00061\ \{}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{auto}\ pradzia\ =\ Laikrodis::now();}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00064}00064\ \ \ \ \ Vector<int>\ v2;}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00064}00064\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v2;}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ sz;\ ++i)}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ v2.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i));}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ v2.\doxymbox{\hyperlink{class_vector_a7cb08d016f15c97741c849cdb83170e1}{push\_back}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i));}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00067}00067\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{auto}\ pabaiga\ =\ Laikrodis::now();}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{benchmark_8cpp_a82dfe5e8153294dee79d02ff514f72d4}{Sekundes}}(pabaiga\ -\/\ pradzia).count();}
@@ -141,15 +141,15 @@
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00137}00137\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00138}\doxymbox{\hyperlink{benchmark_8cpp_a0eaddbad1537832c2958b9c113a84071}{00138}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{benchmark_8cpp_a0eaddbad1537832c2958b9c113a84071}{skaiciuokVector}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sz)}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00139}00139\ \{}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00140}00140\ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00140}00140\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v;}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ perskirstymu\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00142}00142\ \ \ \ \ std::size\_t\ senaTalpa\ =\ v.capacity();}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00142}00142\ \ \ \ \ std::size\_t\ senaTalpa\ =\ v.\doxymbox{\hyperlink{class_vector_a60671a453740307c95b9716139acfaf0}{capacity}}();}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00143}00143\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ sz;\ ++i)\ \{}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ v.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i));}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v.capacity()\ !=\ senaTalpa)\ \{}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ v.\doxymbox{\hyperlink{class_vector_a7cb08d016f15c97741c849cdb83170e1}{push\_back}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(i));}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v.\doxymbox{\hyperlink{class_vector_a60671a453740307c95b9716139acfaf0}{capacity}}()\ !=\ senaTalpa)\ \{}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ ++perskirstymu;}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ senaTalpa\ =\ v.capacity();}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ senaTalpa\ =\ v.\doxymbox{\hyperlink{class_vector_a60671a453740307c95b9716139acfaf0}{capacity}}();}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00150}00150\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{return}\ perskirstymu;}
@@ -200,14 +200,14 @@
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00196}00196\ \ \ \ \ std::cout\ <<\ std::string(50,\ \textcolor{charliteral}{'-\/'})\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00197}00197\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00198}00198\ \ \ \ \ std::vector<int>\ sv;}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00199}00199\ \ \ \ \ Vector<int>\ v;}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00199}00199\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ v;}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00200}00200\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ 20;\ ++i)\ \{}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ sv.push\_back(i);}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ v.push\_back(i);}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ v.\doxymbox{\hyperlink{class_vector_a7cb08d016f15c97741c849cdb83170e1}{push\_back}}(i);}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ std::cout\ <<\ std::left\ <<\ std::setw(10)\ <<\ i}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(20)\ <<\ sv.capacity()}
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(20)\ <<\ v.capacity()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::setw(20)\ <<\ v.\doxymbox{\hyperlink{class_vector_a60671a453740307c95b9716139acfaf0}{capacity}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00207}00207\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00208}00208\ }
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00209}00209\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nMSVC\ naudoja\ 1.5x\ augimo\ koeficienta,\ GCC/Clang\ -\/\ 2x.\(\backslash\)n"{}}}
@@ -218,7 +218,7 @@
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00214}00214\ \textcolor{comment}{//\ main}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00215}00215\ \textcolor{comment}{//\ =====================================================================}}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00216}00216\ }
-\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00217}\doxymbox{\hyperlink{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00217}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])}
+\DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00217}\doxymbox{\hyperlink{benchmark_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00217}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_o_o_p__3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00218}00218\ \{}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00219}00219\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{benchmark_8cpp_source_l00220}00220\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\(\backslash\)n"{}};}

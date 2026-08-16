@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['a_20—_20cmake_20rekomenduojama_0',['Variantas A — CMake (rekomenduojama)',['../index.html#autotoc_md16',1,'']]],
-  ['abstrakti_20klasė_20zmogus_1',['Abstrakti klasė &lt;span class=&quot;tt&quot;&gt;zmogus&lt;/span&gt;',['../index.html#autotoc_md22',1,'']]],
-  ['ai_2',['&lt;span class=&quot;tt&quot;&gt;struct&lt;/span&gt; vs &lt;span class=&quot;tt&quot;&gt;class&lt;/span&gt; ir optimizavimo flag&apos;ai',['../index.html#autotoc_md43',1,'']]],
-  ['apimtis_3',['Testų apimtis',['../index.html#autotoc_md36',1,'']]],
-  ['aplinka_4',['Techninė aplinka',['../index.html#autotoc_md40',1,'']]],
-  ['architektūra_5',['4. Klasių architektūra',['../index.html#autotoc_md21',1,'']]]
+  ['iš_20šaltinio_0',['Iš šaltinio',['../index.html#autotoc_md22',1,'']]],
+  ['iš_20setup_20exe_1',['Iš setup.exe',['../index.html#autotoc_md21',1,'']]],
+  ['insert_2',['insert',['../class_vector.html#a58b6689868c3d347a90f6c7c2d60be12',1,'Vector::insert(const_iterator pos, const T &amp;value)'],['../class_vector.html#ae48e57a98f883366ee659c0ff1e8626c',1,'Vector::insert(const_iterator pos, T &amp;&amp;value)'],['../class_vector.html#a9cb18719aa12e6eb248c09b00b35a562',1,'Vector::insert(const_iterator pos, size_type n, const T &amp;value)'],['../class_vector.html#a1e90a4e8d2654c25356e2f764407356a',1,'Vector::insert(const_iterator pos, InputIt first, InputIt last)'],['../class_vector.html#aaad3c0c254d3c0f63c68c986c02fd784',1,'Vector::insert(const_iterator pos, std::initializer_list&lt; T &gt; il)']]],
+  ['insertimpl_3',['insertImpl',['../class_vector.html#af68d34d442d342f7e3b272323635b6a1',1,'Vector']]],
+  ['isallletters_4',['isAllLetters',['../enter_8cpp.html#ad825e0bf7e7233028c28af95f02c952c',1,'isAllLetters(const std::string &amp;input):&#160;enter.cpp'],['../main_8h.html#ad825e0bf7e7233028c28af95f02c952c',1,'isAllLetters(const std::string &amp;input):&#160;enter.cpp']]],
+  ['isvalyk_5',['isvalyk',['../classstudentas.html#ac3d3cd09acc5a81a33426af4b10d63ca',1,'studentas']]],
+  ['iterator_6',['iterator',['../class_vector.html#aa0fd44c3574e523e734e33e6b7471ee1',1,'Vector']]]
 ];

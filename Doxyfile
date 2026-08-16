@@ -17,7 +17,7 @@
 # Projekto informacija
 #---------------------------------------------------------------------
 PROJECT_NAME           = "Studentu informacine sistema"
-PROJECT_NUMBER         = v2.0
+PROJECT_NUMBER         = v3.0
 PROJECT_BRIEF          = "VU ISI Objektinio programavimo kurso laboratoriniai darbai"
 OUTPUT_DIRECTORY       = docs/doxygen
 CREATE_SUBDIRS         = NO
@@ -26,7 +26,7 @@ OUTPUT_LANGUAGE        = Lithuanian
 #---------------------------------------------------------------------
 # Įvesties failai
 #---------------------------------------------------------------------
-INPUT                  = OOP_2 \
+INPUT                  = OOP_3 \
                          tests \
                          README.md
 FILE_PATTERNS          = *.h \
@@ -34,6 +34,7 @@ FILE_PATTERNS          = *.h \
                          *.md
 RECURSIVE              = YES
 EXCLUDE_PATTERNS       = */build/* \
+			 */out/* \
                          */data/* \
                          */catch.hpp
 USE_MDFILE_AS_MAINPAGE = README.md

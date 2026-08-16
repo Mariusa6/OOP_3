@@ -1,0 +1,108 @@
+\doxysection{OOP\+\_\+3/\+calculate.h Failo Nuoroda}
+\hypertarget{calculate_8h}{}\label{calculate_8h}\index{OOP\_3/calculate.h@{OOP\_3/calculate.h}}
+{\ttfamily \+\#include "{}main.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$iterator$>$}\newline
+{\ttfamily \+\#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \+\#include $<$stdexcept$>$}\newline
+Įtraukimo priklausomybių diagrama calculate.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{calculate_8h__incl}
+\end{center}
+\end{figure}
+Šis grafas rodo, kuris failas tiesiogiai ar netiesiogiai įtraukia šį failą:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{calculate_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Container$>$ }\\void \doxymbox{\hyperlink{calculate_8h_a075f16863229a04047d7d1e57c11e7fd}{calculate\+Galutinis}} (Container \&studentai)
+\item 
+{\footnotesize template$<$typename Container$>$ }\\void \doxymbox{\hyperlink{calculate_8h_a86a9a7ec6b079ece5e376ea000412fa4}{sort\+Studentai}} (Container \&studentai, char sort\+By)
+\item 
+{\footnotesize template$<$typename Container$>$ }\\\doxymbox{\hyperlink{structsplit_result}{split\+Result}}$<$ Container $>$ \doxymbox{\hyperlink{calculate_8h_a6446249f282aca6b2314630b80b2228a}{split\+Studentai}} (const Container \&studentai)
+\item 
+{\footnotesize template$<$typename Container$>$ }\\Container \doxymbox{\hyperlink{calculate_8h_a6532d778fd6f2d1ff2759c109c3002b4}{partition\+Studentai}} (Container \&studentai)
+\end{DoxyCompactItemize}
+
+
+\label{calculate_8h_doc-func-members}
+\Hypertarget{calculate_8h_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{calculate_8h_a075f16863229a04047d7d1e57c11e7fd}\index{calculate.h@{calculate.h}!calculateGalutinis@{calculateGalutinis}}
+\index{calculateGalutinis@{calculateGalutinis}!calculate.h@{calculate.h}}
+\doxysubsubsection{\texorpdfstring{calculateGalutinis()}{calculateGalutinis()}}
+{\footnotesize\ttfamily \label{calculate_8h_a075f16863229a04047d7d1e57c11e7fd} 
+template$<$typename Container$>$ \\
+void calculate\+Galutinis (\begin{DoxyParamCaption}\item[{Container \&}]{studentai}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{calculate_8h_source}{calculate.\+h}} eilutėje \doxymbox{\hyperlink{calculate_8h_source_l00015}{15}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}, \doxymbox{\hyperlink{test_8cpp_source_l00012}{test\+Container()}}, ir \doxymbox{\hyperlink{test_8h_source_l00037}{test\+Data()}}.
+
+\Hypertarget{calculate_8h_a86a9a7ec6b079ece5e376ea000412fa4}\index{calculate.h@{calculate.h}!sortStudentai@{sortStudentai}}
+\index{sortStudentai@{sortStudentai}!calculate.h@{calculate.h}}
+\doxysubsubsection{\texorpdfstring{sortStudentai()}{sortStudentai()}}
+{\footnotesize\ttfamily \label{calculate_8h_a86a9a7ec6b079ece5e376ea000412fa4} 
+template$<$typename Container$>$ \\
+void sort\+Studentai (\begin{DoxyParamCaption}\item[{Container \&}]{studentai}{, }\item[{char}]{sort\+By}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{calculate_8h_source}{calculate.\+h}} eilutėje \doxymbox{\hyperlink{calculate_8h_source_l00028}{28}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{studentas_8cpp_source_l00486}{compare\+Pagal\+Mediana()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00474}{compare\+Pagal\+Pavarde()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00470}{compare\+Pagal\+Varda()}}, ir \doxymbox{\hyperlink{studentas_8cpp_source_l00482}{compare\+Pagal\+Vidurki()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}, \doxymbox{\hyperlink{test_8cpp_source_l00012}{test\+Container()}}, ir \doxymbox{\hyperlink{test_8h_source_l00037}{test\+Data()}}.
+
+\Hypertarget{calculate_8h_a6446249f282aca6b2314630b80b2228a}\index{calculate.h@{calculate.h}!splitStudentai@{splitStudentai}}
+\index{splitStudentai@{splitStudentai}!calculate.h@{calculate.h}}
+\doxysubsubsection{\texorpdfstring{splitStudentai()}{splitStudentai()}}
+{\footnotesize\ttfamily \label{calculate_8h_a6446249f282aca6b2314630b80b2228a} 
+template$<$typename Container$>$ \\
+\doxymbox{\hyperlink{structsplit_result}{split\+Result}}$<$ Container $>$ split\+Studentai (\begin{DoxyParamCaption}\item[{const Container \&}]{studentai}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{calculate_8h_source}{calculate.\+h}} eilutėje \doxymbox{\hyperlink{calculate_8h_source_l00054}{54}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{main_8h_source_l00027}{split\+Result$<$ Container $>$::\+kietiakai}}, ir \doxymbox{\hyperlink{main_8h_source_l00028}{split\+Result$<$ Container $>$::\+vargsiukai}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{test_8h_source_l00037}{test\+Data()}}.
+
+\Hypertarget{calculate_8h_a6532d778fd6f2d1ff2759c109c3002b4}\index{calculate.h@{calculate.h}!partitionStudentai@{partitionStudentai}}
+\index{partitionStudentai@{partitionStudentai}!calculate.h@{calculate.h}}
+\doxysubsubsection{\texorpdfstring{partitionStudentai()}{partitionStudentai()}}
+{\footnotesize\ttfamily \label{calculate_8h_a6532d778fd6f2d1ff2759c109c3002b4} 
+template$<$typename Container$>$ \\
+Container partition\+Studentai (\begin{DoxyParamCaption}\item[{Container \&}]{studentai}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{calculate_8h_source}{calculate.\+h}} eilutėje \doxymbox{\hyperlink{calculate_8h_source_l00073}{73}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}, ir \doxymbox{\hyperlink{test_8cpp_source_l00012}{test\+Container()}}.
+

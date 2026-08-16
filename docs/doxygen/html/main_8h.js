@@ -1,0 +1,26 @@
+var main_8h =
+[
+    [ "splitResult&lt; Container &gt;", "structsplit_result.html", "structsplit_result" ],
+    [ "NUMBER_OF_PAZYMYS", "main_8h.html#a6172ae5f44946971e88b7fe16550f0f2", null ],
+    [ "askMenuChoice", "main_8h.html#a5651f246a79369542b993fa5d34bcb4e", null ],
+    [ "enterNumberOfStudents", "main_8h.html#a1234dbb38da5673391eb6ee2b60f5f64", null ],
+    [ "askSortBy", "main_8h.html#a4978cf2ba4a1e782e02b8c5f547e5860", null ],
+    [ "askIfMoreStudents", "main_8h.html#a733ae834fd920d494ed5264a13b4b315", null ],
+    [ "askOutputChoice", "main_8h.html#a5c00b9437416a48eda4888337e47913f", null ],
+    [ "askContainerChoice", "main_8h.html#a6174c3c81733728a7cd564c2f3cbeabe", null ],
+    [ "generatePazymiai", "main_8h.html#a7831e27e84708a6cec4ffdd1b56643e2", null ],
+    [ "printWelcome", "main_8h.html#a2b70b7938c7f57013b731aa2c8ddf2c1", null ],
+    [ "printNameAsk", "main_8h.html#a3d91863679e302462cbfe80a4bf04f03", null ],
+    [ "enterStudentas", "main_8h.html#a5636e815383c58ca453311ad83989444", null ],
+    [ "enterName", "main_8h.html#aaf49ce89aec8f975875a373eaf934b8b", null ],
+    [ "enterSurname", "main_8h.html#ad902984e6f75d81851f09fb73b940352", null ],
+    [ "enterNumberOfPazymys", "main_8h.html#a1b12f06f1f9095e414b7001f377fc67a", null ],
+    [ "enterPazymys", "main_8h.html#a807792fb0a7abcdfdfb710cf990bc426", null ],
+    [ "enterPazymiai", "main_8h.html#a4c40ce3f9e7a303c4a1555edbfa8f640", null ],
+    [ "enterEgzaminas", "main_8h.html#a80734449dd8b2b32ddf671cde5cc07a0", null ],
+    [ "enterFileName", "main_8h.html#a29b6ab1ee18f21d0cec26a8e37f8200e", null ],
+    [ "enterOutputFileName", "main_8h.html#ad543da82fc59654dae39d37d5bd9bf69", null ],
+    [ "testContainers", "main_8h.html#a7cc207279ba4315c7699200b62e15aeb", null ],
+    [ "testStudentasKlase", "main_8h.html#a0c9b8a1152b97e6d9e1806fe0387e00c", null ],
+    [ "isAllLetters", "main_8h.html#ad825e0bf7e7233028c28af95f02c952c", null ]
+];

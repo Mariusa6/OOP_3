@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['laikrodis_0',['Laikrodis',['../benchmark_8cpp.html#a56837b72f94ac37530cd9fdf8c04ea5d',1,'benchmark.cpp']]],
-  ['licencija_1',['Licencija',['../index.html#autotoc_md49',1,'']]]
+  ['unit_20testai_0',['Unit testai',['../index.html#autotoc_md14',1,'']]],
+  ['unittests_2ecpp_1',['unitTests.cpp',['../unit_tests_8cpp.html',1,'']]]
 ];

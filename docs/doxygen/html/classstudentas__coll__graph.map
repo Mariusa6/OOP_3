@@ -1,0 +1,19 @@
+<map id="studentas" name="studentas">
+<area shape="rect" id="Node000001" title="Studento duomenys — išvestinė klasė iš abstrakčios zmogus." alt="" coords="68,5365,210,7035"/>
+<area shape="rect" id="Node000002" href="$classzmogus.html" title="ABSTRAKTI bazinė klasė — bendras bet kokio žmogaus aprašymas." alt="" coords="10,4168,116,4557"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,4570,107,5366,101,5366,71,4575"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,1787,97,1856"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="63,1853,65,4151,60,4151,63,1858"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,147,120,232"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="63,244,65,1787,60,1787,63,250"/>
+<area shape="rect" id="Node000005" href="$class_vector.html" title=" " alt="" coords="140,3432,292,5293"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="177,5290,177,5349,172,5348,177,5296"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="148,1787,271,1856"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="210,1853,216,3415,211,3415,209,1858"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="151,155,268,224"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="209,236,212,1787,207,1787,209,242"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="200,5,219,75"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="209,72,212,138,207,137,209,77"/>
+<area shape="rect" id="Node000009" href="$class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva." alt="" coords="296,304,448,3339"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="295,3142,285,3339,279,3432,274,3432,280,3339,294,3147"/>
+</map>

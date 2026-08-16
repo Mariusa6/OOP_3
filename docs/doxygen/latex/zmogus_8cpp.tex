@@ -1,0 +1,105 @@
+\doxysection{OOP\+\_\+3/\+zmogus.cpp Failo Nuoroda}
+\hypertarget{zmogus_8cpp}{}\label{zmogus_8cpp}\index{OOP\_3/zmogus.cpp@{OOP\_3/zmogus.cpp}}
+{\ttfamily \+\#include "{}zmogus.\+h"{}}\newline
+Įtraukimo priklausomybių diagrama zmogus.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{zmogus_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{zmogus_8cpp_aa13bdc9d741efbe2622274d92503d010}{operator$<$$<$}} (std::\+ostream \&os, const \doxymbox{\hyperlink{classzmogus}{zmogus}} \&z)
+\begin{DoxyCompactList}\small\item\em Polimorfinis išvesties operatorius. \end{DoxyCompactList}\item 
+std::\+istream \& \doxymbox{\hyperlink{zmogus_8cpp_a83717bca17c74f44fccbc3a991026333}{operator$>$$>$}} (std::\+istream \&is, \doxymbox{\hyperlink{classzmogus}{zmogus}} \&z)
+\begin{DoxyCompactList}\small\item\em Polimorfinis įvesties operatorius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{zmogus_8cpp_doc-func-members}
+\Hypertarget{zmogus_8cpp_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{zmogus_8cpp_aa13bdc9d741efbe2622274d92503d010}\index{zmogus.cpp@{zmogus.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!zmogus.cpp@{zmogus.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{zmogus_8cpp_aa13bdc9d741efbe2622274d92503d010} 
+std::\+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{, }\item[{const \doxymbox{\hyperlink{classzmogus}{zmogus}} \&}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Polimorfinis išvesties operatorius. 
+
+Priima {\ttfamily \doxylink{classzmogus}{zmogus}\&} nuorodą, bet kviečia virtualų print() metodą. Todėl veikia su bet kuria išvestine klase — dabartine ir būsimomis.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em os} & Išvesties srautas \\
+\hline
+{\em z} & Išvedamas objektas \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Nuoroda į srautą
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Pavyzdys}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{classstudentas}{studentas}}\ s(\textcolor{stringliteral}{"{}Jonas"{}},\ \textcolor{stringliteral}{"{}Jonaitis"{}},\ \{5,\ 6\},\ 7);}
+\DoxyCodeLine{s.\doxymbox{\hyperlink{classstudentas_a1c8fb3d314a421493cd45738dd8b8fc9}{calculateGalutinis}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::cout\ <<\ s\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ į\ ekraną}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::ofstream\ f(\textcolor{stringliteral}{"{}rezultatai.txt"{}});}
+\DoxyCodeLine{f\ <<\ s\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ į\ failą}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\doxymbox{\hyperlink{classzmogus}{zmogus}}\&\ z\ =\ s;}
+\DoxyCodeLine{std::cout\ <<\ z\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ per\ bazinės\ klasės\ nuorodą}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{zmogus_8cpp_source}{zmogus.\+cpp}} eilutėje \doxymbox{\hyperlink{zmogus_8cpp_source_l00112}{112}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{classzmogus_a5647d3e65118f17a8b352171cf45551d}{zmogus::\+print()}}.
+
+\Hypertarget{zmogus_8cpp_a83717bca17c74f44fccbc3a991026333}\index{zmogus.cpp@{zmogus.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!zmogus.cpp@{zmogus.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \label{zmogus_8cpp_a83717bca17c74f44fccbc3a991026333} 
+std::\+istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std::\+istream \&}]{is}{, }\item[{\doxymbox{\hyperlink{classzmogus}{zmogus}} \&}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Polimorfinis įvesties operatorius. 
+
+Priima {\ttfamily \doxylink{classzmogus}{zmogus}\&} nuorodą, bet kviečia virtualų read() metodą.
+
+
+\begin{DoxyParams}{Parametrai}
+{\em is} & Įvesties srautas \\
+\hline
+{\em z} & Objektas, į kurį nuskaitomi duomenys \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Gražina}
+Nuoroda į srautą
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Išimtys}
+{\em std::\+runtime\+\_\+error} & jei duomenys netinkami \\
+\hline
+\end{DoxyExceptions}
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{zmogus_8cpp_source}{zmogus.\+cpp}} eilutėje \doxymbox{\hyperlink{zmogus_8cpp_source_l00118}{118}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{classzmogus_aeb474769feaec888c17cb334db0d28bc}{zmogus::\+read()}}.
+

@@ -1,0 +1,434 @@
+\doxysection{OOP\+\_\+3/\+main.h Failo Nuoroda}
+\hypertarget{main_8h}{}\label{main_8h}\index{OOP\_3/main.h@{OOP\_3/main.h}}
+{\ttfamily \+\#include $<$windows.\+h$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$list$>$}\newline
+{\ttfamily \+\#include $<$deque$>$}\newline
+{\ttfamily \+\#include $<$exception$>$}\newline
+{\ttfamily \+\#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \+\#include "{}zmogus.\+h"{}}\newline
+{\ttfamily \+\#include "{}studentas.\+h"{}}\newline
+{\ttfamily \+\#include "{}konteineris.\+h"{}}\newline
+Įtraukimo priklausomybių diagrama main.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__incl}
+\end{center}
+\end{figure}
+Šis grafas rodo, kuris failas tiesiogiai ar netiesiogiai įtraukia šį failą:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Klasės}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structsplit_result}{split\+Result$<$ Container $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Apibrėžimai}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{main_8h_a6172ae5f44946971e88b7fe16550f0f2}{NUMBER\+\_\+\+OF\+\_\+\+PAZYMYS}}~15
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+char \doxymbox{\hyperlink{main_8h_a5651f246a79369542b993fa5d34bcb4e}{ask\+Menu\+Choice}} ()
+\item 
+int \doxymbox{\hyperlink{main_8h_a1234dbb38da5673391eb6ee2b60f5f64}{enter\+Number\+Of\+Students}} ()
+\item 
+char \doxymbox{\hyperlink{main_8h_a4978cf2ba4a1e782e02b8c5f547e5860}{ask\+Sort\+By}} ()
+\item 
+bool \doxymbox{\hyperlink{main_8h_a733ae834fd920d494ed5264a13b4b315}{ask\+If\+More\+Students}} ()
+\item 
+char \doxymbox{\hyperlink{main_8h_a5c00b9437416a48eda4888337e47913f}{ask\+Output\+Choice}} ()
+\item 
+char \doxymbox{\hyperlink{main_8h_a6174c3c81733728a7cd564c2f3cbeabe}{ask\+Container\+Choice}} ()
+\item 
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \doxymbox{\hyperlink{main_8h_a7831e27e84708a6cec4ffdd1b56643e2}{generate\+Pazymiai}} (int m)
+\item 
+void \doxymbox{\hyperlink{main_8h_a2b70b7938c7f57013b731aa2c8ddf2c1}{print\+Welcome}} ()
+\item 
+void \doxymbox{\hyperlink{main_8h_a3d91863679e302462cbfe80a4bf04f03}{print\+Name\+Ask}} ()
+\item 
+\doxymbox{\hyperlink{classstudentas}{studentas}} \doxymbox{\hyperlink{main_8h_a5636e815383c58ca453311ad83989444}{enter\+Studentas}} (int n)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8h_aaf49ce89aec8f975875a373eaf934b8b}{enter\+Name}} (int n)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8h_ad902984e6f75d81851f09fb73b940352}{enter\+Surname}} (int n)
+\item 
+int \doxymbox{\hyperlink{main_8h_a1b12f06f1f9095e414b7001f377fc67a}{enter\+Number\+Of\+Pazymys}} (int n)
+\item 
+int \doxymbox{\hyperlink{main_8h_a807792fb0a7abcdfdfb710cf990bc426}{enter\+Pazymys}} (int n)
+\item 
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \doxymbox{\hyperlink{main_8h_a4c40ce3f9e7a303c4a1555edbfa8f640}{enter\+Pazymiai}} (int n, int m)
+\item 
+int \doxymbox{\hyperlink{main_8h_a80734449dd8b2b32ddf671cde5cc07a0}{enter\+Egzaminas}} (int n)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8h_a29b6ab1ee18f21d0cec26a8e37f8200e}{enter\+File\+Name}} ()
+\item 
+std::\+string \doxymbox{\hyperlink{main_8h_ad543da82fc59654dae39d37d5bd9bf69}{enter\+Output\+File\+Name}} (std::\+string desc="{}išvesties"{})
+\item 
+void \doxymbox{\hyperlink{main_8h_a7cc207279ba4315c7699200b62e15aeb}{test\+Containers}} (int n)
+\item 
+bool \doxymbox{\hyperlink{main_8h_a0c9b8a1152b97e6d9e1806fe0387e00c}{test\+Studentas\+Klase}} ()
+\item 
+bool \doxymbox{\hyperlink{main_8h_ad825e0bf7e7233028c28af95f02c952c}{is\+All\+Letters}} (const std::\+string \&input)
+\end{DoxyCompactItemize}
+
+
+\label{main_8h_doc-define-members}
+\Hypertarget{main_8h_doc-define-members}
+\doxysubsection{Apibrėžimų Dokumentacija}
+\Hypertarget{main_8h_a6172ae5f44946971e88b7fe16550f0f2}\index{main.h@{main.h}!NUMBER\_OF\_PAZYMYS@{NUMBER\_OF\_PAZYMYS}}
+\index{NUMBER\_OF\_PAZYMYS@{NUMBER\_OF\_PAZYMYS}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_PAZYMYS}{NUMBER\_OF\_PAZYMYS}}
+{\footnotesize\ttfamily \label{main_8h_a6172ae5f44946971e88b7fe16550f0f2} 
+\+\#define NUMBER\+\_\+\+OF\+\_\+\+PAZYMYS~15}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{main_8h_source}{main.\+h}} eilutėje \doxymbox{\hyperlink{main_8h_source_l00019}{19}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{generate_8h_source_l00034}{generate\+Only\+Pazymiai()}}, \doxymbox{\hyperlink{generate_8h_source_l00015}{generate\+Studentai()}}, ir \doxymbox{\hyperlink{file_8h_source_l00107}{write\+Studentai\+List\+To\+File()}}.
+
+
+
+\label{main_8h_doc-func-members}
+\Hypertarget{main_8h_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{main_8h_a5651f246a79369542b993fa5d34bcb4e}\index{main.h@{main.h}!askMenuChoice@{askMenuChoice}}
+\index{askMenuChoice@{askMenuChoice}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{askMenuChoice()}{askMenuChoice()}}
+{\footnotesize\ttfamily \label{main_8h_a5651f246a79369542b993fa5d34bcb4e} 
+char ask\+Menu\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00003}{3}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a1234dbb38da5673391eb6ee2b60f5f64}\index{main.h@{main.h}!enterNumberOfStudents@{enterNumberOfStudents}}
+\index{enterNumberOfStudents@{enterNumberOfStudents}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterNumberOfStudents()}{enterNumberOfStudents()}}
+{\footnotesize\ttfamily \label{main_8h_a1234dbb38da5673391eb6ee2b60f5f64} 
+int enter\+Number\+Of\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00027}{27}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a4978cf2ba4a1e782e02b8c5f547e5860}\index{main.h@{main.h}!askSortBy@{askSortBy}}
+\index{askSortBy@{askSortBy}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{askSortBy()}{askSortBy()}}
+{\footnotesize\ttfamily \label{main_8h_a4978cf2ba4a1e782e02b8c5f547e5860} 
+char ask\+Sort\+By (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00041}{41}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a733ae834fd920d494ed5264a13b4b315}\index{main.h@{main.h}!askIfMoreStudents@{askIfMoreStudents}}
+\index{askIfMoreStudents@{askIfMoreStudents}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{askIfMoreStudents()}{askIfMoreStudents()}}
+{\footnotesize\ttfamily \label{main_8h_a733ae834fd920d494ed5264a13b4b315} 
+bool ask\+If\+More\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00073}{73}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8h_source_l00021}{enter\+Studentai()}}.
+
+\Hypertarget{main_8h_a5c00b9437416a48eda4888337e47913f}\index{main.h@{main.h}!askOutputChoice@{askOutputChoice}}
+\index{askOutputChoice@{askOutputChoice}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{askOutputChoice()}{askOutputChoice()}}
+{\footnotesize\ttfamily \label{main_8h_a5c00b9437416a48eda4888337e47913f} 
+char ask\+Output\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00087}{87}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a6174c3c81733728a7cd564c2f3cbeabe}\index{main.h@{main.h}!askContainerChoice@{askContainerChoice}}
+\index{askContainerChoice@{askContainerChoice}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{askContainerChoice()}{askContainerChoice()}}
+{\footnotesize\ttfamily \label{main_8h_a6174c3c81733728a7cd564c2f3cbeabe} 
+char ask\+Container\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}} eilutėje \doxymbox{\hyperlink{menu_8cpp_source_l00103}{103}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00107}{main()}}.
+
+\Hypertarget{main_8h_a7831e27e84708a6cec4ffdd1b56643e2}\index{main.h@{main.h}!generatePazymiai@{generatePazymiai}}
+\index{generatePazymiai@{generatePazymiai}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{generatePazymiai()}{generatePazymiai()}}
+{\footnotesize\ttfamily \label{main_8h_a7831e27e84708a6cec4ffdd1b56643e2} 
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ generate\+Pazymiai (\begin{DoxyParamCaption}\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{generate_8cpp_source}{generate.\+cpp}} eilutėje \doxymbox{\hyperlink{generate_8cpp_source_l00009}{9}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{generate_8cpp_source_l00003}{get\+Rng()}}, \doxymbox{\hyperlink{studentas_8h_source_l00116}{studentas::\+max\+Pazymys}}, \doxymbox{\hyperlink{studentas_8h_source_l00115}{studentas::\+min\+Pazymys}}, \doxymbox{\hyperlink{_vector_8h_source_l00739}{Vector$<$ T, Allocator $>$::\+push\+\_\+back()}}, ir \doxymbox{\hyperlink{_vector_8h_source_l00540}{Vector$<$ T, Allocator $>$::\+reserve()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{generate_8h_source_l00034}{generate\+Only\+Pazymiai()}}, ir \doxymbox{\hyperlink{generate_8h_source_l00015}{generate\+Studentai()}}.
+
+\Hypertarget{main_8h_a2b70b7938c7f57013b731aa2c8ddf2c1}\index{main.h@{main.h}!printWelcome@{printWelcome}}
+\index{printWelcome@{printWelcome}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{printWelcome()}{printWelcome()}}
+{\footnotesize\ttfamily \label{main_8h_a2b70b7938c7f57013b731aa2c8ddf2c1} 
+void print\+Welcome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{print_8cpp_source}{print.\+cpp}} eilutėje \doxymbox{\hyperlink{print_8cpp_source_l00003}{3}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00107}{main()}}.
+
+\Hypertarget{main_8h_a3d91863679e302462cbfe80a4bf04f03}\index{main.h@{main.h}!printNameAsk@{printNameAsk}}
+\index{printNameAsk@{printNameAsk}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{printNameAsk()}{printNameAsk()}}
+{\footnotesize\ttfamily \label{main_8h_a3d91863679e302462cbfe80a4bf04f03} 
+void print\+Name\+Ask (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{print_8cpp_source}{print.\+cpp}} eilutėje \doxymbox{\hyperlink{print_8cpp_source_l00010}{10}}.
+
+\Hypertarget{main_8h_a5636e815383c58ca453311ad83989444}\index{main.h@{main.h}!enterStudentas@{enterStudentas}}
+\index{enterStudentas@{enterStudentas}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterStudentas()}{enterStudentas()}}
+{\footnotesize\ttfamily \label{main_8h_a5636e815383c58ca453311ad83989444} 
+\doxymbox{\hyperlink{classstudentas}{studentas}} enter\+Studentas (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00007}{7}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{enter_8cpp_source_l00094}{enter\+Egzaminas()}}, \doxymbox{\hyperlink{enter_8cpp_source_l00019}{enter\+Name()}}, \doxymbox{\hyperlink{enter_8cpp_source_l00050}{enter\+Number\+Of\+Pazymys()}}, \doxymbox{\hyperlink{enter_8cpp_source_l00083}{enter\+Pazymiai()}}, ir \doxymbox{\hyperlink{enter_8cpp_source_l00034}{enter\+Surname()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8h_source_l00021}{enter\+Studentai()}}.
+
+\Hypertarget{main_8h_aaf49ce89aec8f975875a373eaf934b8b}\index{main.h@{main.h}!enterName@{enterName}}
+\index{enterName@{enterName}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterName()}{enterName()}}
+{\footnotesize\ttfamily \label{main_8h_aaf49ce89aec8f975875a373eaf934b8b} 
+std::\+string enter\+Name (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00019}{19}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{enter_8cpp_source_l00111}{is\+All\+Letters()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00007}{enter\+Studentas()}}, ir \doxymbox{\hyperlink{generate_8h_source_l00034}{generate\+Only\+Pazymiai()}}.
+
+\Hypertarget{main_8h_ad902984e6f75d81851f09fb73b940352}\index{main.h@{main.h}!enterSurname@{enterSurname}}
+\index{enterSurname@{enterSurname}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterSurname()}{enterSurname()}}
+{\footnotesize\ttfamily \label{main_8h_ad902984e6f75d81851f09fb73b940352} 
+std::\+string enter\+Surname (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00034}{34}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{enter_8cpp_source_l00111}{is\+All\+Letters()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00007}{enter\+Studentas()}}, ir \doxymbox{\hyperlink{generate_8h_source_l00034}{generate\+Only\+Pazymiai()}}.
+
+\Hypertarget{main_8h_a1b12f06f1f9095e414b7001f377fc67a}\index{main.h@{main.h}!enterNumberOfPazymys@{enterNumberOfPazymys}}
+\index{enterNumberOfPazymys@{enterNumberOfPazymys}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterNumberOfPazymys()}{enterNumberOfPazymys()}}
+{\footnotesize\ttfamily \label{main_8h_a1b12f06f1f9095e414b7001f377fc67a} 
+int enter\+Number\+Of\+Pazymys (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00050}{50}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00007}{enter\+Studentas()}}.
+
+\Hypertarget{main_8h_a807792fb0a7abcdfdfb710cf990bc426}\index{main.h@{main.h}!enterPazymys@{enterPazymys}}
+\index{enterPazymys@{enterPazymys}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterPazymys()}{enterPazymys()}}
+{\footnotesize\ttfamily \label{main_8h_a807792fb0a7abcdfdfb710cf990bc426} 
+int enter\+Pazymys (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00066}{66}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{studentas_8h_source_l00116}{studentas::\+max\+Pazymys}}, ir \doxymbox{\hyperlink{studentas_8h_source_l00115}{studentas::\+min\+Pazymys}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00083}{enter\+Pazymiai()}}.
+
+\Hypertarget{main_8h_a4c40ce3f9e7a303c4a1555edbfa8f640}\index{main.h@{main.h}!enterPazymiai@{enterPazymiai}}
+\index{enterPazymiai@{enterPazymiai}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterPazymiai()}{enterPazymiai()}}
+{\footnotesize\ttfamily \label{main_8h_a4c40ce3f9e7a303c4a1555edbfa8f640} 
+\doxymbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ enter\+Pazymiai (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{int}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00083}{83}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{enter_8cpp_source_l00066}{enter\+Pazymys()}}, ir \doxymbox{\hyperlink{_vector_8h_source_l00739}{Vector$<$ T, Allocator $>$::\+push\+\_\+back()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00007}{enter\+Studentas()}}.
+
+\Hypertarget{main_8h_a80734449dd8b2b32ddf671cde5cc07a0}\index{main.h@{main.h}!enterEgzaminas@{enterEgzaminas}}
+\index{enterEgzaminas@{enterEgzaminas}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterEgzaminas()}{enterEgzaminas()}}
+{\footnotesize\ttfamily \label{main_8h_a80734449dd8b2b32ddf671cde5cc07a0} 
+int enter\+Egzaminas (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00094}{94}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{studentas_8h_source_l00116}{studentas::\+max\+Pazymys}}, ir \doxymbox{\hyperlink{studentas_8h_source_l00115}{studentas::\+min\+Pazymys}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00007}{enter\+Studentas()}}.
+
+\Hypertarget{main_8h_a29b6ab1ee18f21d0cec26a8e37f8200e}\index{main.h@{main.h}!enterFileName@{enterFileName}}
+\index{enterFileName@{enterFileName}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterFileName()}{enterFileName()}}
+{\footnotesize\ttfamily \label{main_8h_a29b6ab1ee18f21d0cec26a8e37f8200e} 
+std::\+string enter\+File\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{file_8cpp_source}{file.\+cpp}} eilutėje \doxymbox{\hyperlink{file_8cpp_source_l00003}{3}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_ad543da82fc59654dae39d37d5bd9bf69}\index{main.h@{main.h}!enterOutputFileName@{enterOutputFileName}}
+\index{enterOutputFileName@{enterOutputFileName}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{enterOutputFileName()}{enterOutputFileName()}}
+{\footnotesize\ttfamily \label{main_8h_ad543da82fc59654dae39d37d5bd9bf69} 
+std::\+string enter\+Output\+File\+Name (\begin{DoxyParamCaption}\item[{std::\+string}]{desc}{ = {\ttfamily "{}išvesties"{}}}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{file_8cpp_source}{file.\+cpp}} eilutėje \doxymbox{\hyperlink{file_8cpp_source_l00016}{16}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{output_8h_source_l00014}{output\+Studentai()}}, ir \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a7cc207279ba4315c7699200b62e15aeb}\index{main.h@{main.h}!testContainers@{testContainers}}
+\index{testContainers@{testContainers}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{testContainers()}{testContainers()}}
+{\footnotesize\ttfamily \label{main_8h_a7cc207279ba4315c7699200b62e15aeb} 
+void test\+Containers (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{test_8cpp_source}{test.\+cpp}} eilutėje \doxymbox{\hyperlink{test_8cpp_source_l00050}{50}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{test_8cpp_source_l00012}{test\+Container()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_a0c9b8a1152b97e6d9e1806fe0387e00c}\index{main.h@{main.h}!testStudentasKlase@{testStudentasKlase}}
+\index{testStudentasKlase@{testStudentasKlase}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{testStudentasKlase()}{testStudentasKlase()}}
+{\footnotesize\ttfamily \label{main_8h_a0c9b8a1152b97e6d9e1806fe0387e00c} 
+bool test\+Studentas\+Klase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{teststudentas_8cpp_source}{teststudentas.\+cpp}} eilutėje \doxymbox{\hyperlink{teststudentas_8cpp_source_l00045}{45}}.
+
+
+
+Ryšiai \doxymbox{\hyperlink{studentas_8cpp_source_l00267}{studentas::\+add\+Pazymys()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00407}{studentas::\+append\+List\+To()}}, \doxymbox{\hyperlink{_vector_8h_source_l00458}{Vector$<$ T, Allocator $>$::\+back()}}, \doxymbox{\hyperlink{_vector_8h_source_l00477}{Vector$<$ T, Allocator $>$::\+begin()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00287}{studentas::\+calculate\+Galutinis()}}, \doxymbox{\hyperlink{studentas_8h_source_l00320}{studentas::\+egzaminas()}}, \doxymbox{\hyperlink{_vector_8h_source_l00510}{Vector$<$ T, Allocator $>$::\+empty()}}, \doxymbox{\hyperlink{_vector_8h_source_l00481}{Vector$<$ T, Allocator $>$::\+end()}}, \doxymbox{\hyperlink{classzmogus_aaa4df9aac8155ffc2bd7b29d657d8d03}{zmogus::\+galutinis()}}, \doxymbox{\hyperlink{studentas_8h_source_l00326}{studentas::\+galutinis\+Med()}}, \doxymbox{\hyperlink{studentas_8h_source_l00323}{studentas::\+galutinis\+Vid()}}, \doxymbox{\hyperlink{studentas_8h_source_l00129}{studentas::\+gyvu\+Studentu}}, \doxymbox{\hyperlink{zmogus_8h_source_l00121}{zmogus::\+gyvu\+Zmoniu}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00273}{studentas::\+isvalyk()}}, \doxymbox{\hyperlink{studentas_8h_source_l00317}{studentas::\+nd()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00300}{studentas::\+parse\+From\+Line()}}, \doxymbox{\hyperlink{zmogus_8h_source_l00147}{zmogus::\+pavarde()}}, \doxymbox{\hyperlink{zmogus_8h_source_l00153}{zmogus::\+pilnas\+Vardas()}}, \doxymbox{\hyperlink{_vector_8h_source_l00739}{Vector$<$ T, Allocator $>$::\+push\+\_\+back()}}, \doxymbox{\hyperlink{_vector_8h_source_l00540}{Vector$<$ T, Allocator $>$::\+reserve()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00261}{studentas::\+set\+Egzaminas()}}, \doxymbox{\hyperlink{studentas_8cpp_source_l00254}{studentas::\+set\+Nd()}}, \doxymbox{\hyperlink{zmogus_8cpp_source_l00101}{zmogus::\+set\+Pavarde()}}, \doxymbox{\hyperlink{zmogus_8cpp_source_l00094}{zmogus::\+set\+Vardas()}}, \doxymbox{\hyperlink{_vector_8h_source_l00516}{Vector$<$ T, Allocator $>$::\+size()}}, \doxymbox{\hyperlink{classzmogus_a317aabc77d479a65f05f76803b820086}{zmogus::\+tipas()}}, ir \doxymbox{\hyperlink{zmogus_8h_source_l00141}{zmogus::\+vardas()}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{_o_o_p__3_8cpp_source_l00015}{run\+Program()}}.
+
+\Hypertarget{main_8h_ad825e0bf7e7233028c28af95f02c952c}\index{main.h@{main.h}!isAllLetters@{isAllLetters}}
+\index{isAllLetters@{isAllLetters}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{isAllLetters()}{isAllLetters()}}
+{\footnotesize\ttfamily \label{main_8h_ad825e0bf7e7233028c28af95f02c952c} 
+bool is\+All\+Letters (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{enter_8cpp_source}{enter.\+cpp}} eilutėje \doxymbox{\hyperlink{enter_8cpp_source_l00111}{111}}.
+
+
+
+Naudojamas \doxymbox{\hyperlink{enter_8cpp_source_l00019}{enter\+Name()}}, ir \doxymbox{\hyperlink{enter_8cpp_source_l00034}{enter\+Surname()}}.
+

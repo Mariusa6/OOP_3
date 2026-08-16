@@ -1,9 +1,17 @@
 var searchData=
 [
-  ['failų_20struktūra_0',['8. Failų struktūra',['../index.html#autotoc_md46',1,'']]],
-  ['failo_20formatas_1',['Duomenų failo formatas',['../index.html#autotoc_md11',1,'']]],
-  ['five_20su_20paveldėjimu_2',['Rule of Five su paveldėjimu',['../index.html#autotoc_md23',1,'']]],
-  ['flag_20ai_3',['&lt;span class=&quot;tt&quot;&gt;struct&lt;/span&gt; vs &lt;span class=&quot;tt&quot;&gt;class&lt;/span&gt; ir optimizavimo flag&apos;ai',['../index.html#autotoc_md43',1,'']]],
-  ['formatas_4',['Duomenų failo formatas',['../index.html#autotoc_md11',1,'']]],
-  ['framework_20—_20catch2_5',['Pasirinktas framework — Catch2',['../index.html#autotoc_md34',1,'']]]
+  ['oop_5f3_2ecpp_0',['OOP_3.cpp',['../_o_o_p__3_8cpp.html',1,'']]],
+  ['operator_20bool_1',['operator bool',['../classstudentas.html#aaf78065e45658100850487f2a8792468',1,'studentas']]],
+  ['operator_21_3d_2',['operator!=',['../classstudentas.html#a64e27765f70e1bf701d3d43a64ba939c',1,'studentas::operator!=()'],['../_vector_8h.html#a7782e8f8d52920c99afa63a9cd7b647d',1,'operator!=():&#160;Vector.h']]],
+  ['operator_3c_3',['operator&lt;',['../classstudentas.html#a5a34b8f0b5953d352fd5b59669c81695',1,'studentas::operator&lt;()'],['../_vector_8h.html#a0c93fc1493205399ea889f9edf3dc900',1,'operator&lt;(const Vector&lt; T, A &gt; &amp;a, const Vector&lt; T, A &gt; &amp;b):&#160;Vector.h']]],
+  ['operator_3c_3c_4',['operator&lt;&lt;',['../zmogus_8cpp.html#aa13bdc9d741efbe2622274d92503d010',1,'operator&lt;&lt;(std::ostream &amp;os, const zmogus &amp;z):&#160;zmogus.cpp'],['../zmogus_8h.html#aa13bdc9d741efbe2622274d92503d010',1,'operator&lt;&lt;(std::ostream &amp;os, const zmogus &amp;z):&#160;zmogus.cpp']]],
+  ['operator_3c_3d_5',['operator&lt;=',['../_vector_8h.html#adc274b27603931a59aa753a299a3a351',1,'Vector.h']]],
+  ['operator_3d_6',['operator=',['../classstudentas.html#a1e06d5df5c12d5abcc50c71d5fc74dc2',1,'studentas::operator=(const studentas &amp;other)'],['../classstudentas.html#a8624e31ed245a1ecf6ad68e0141b2cd1',1,'studentas::operator=(studentas &amp;&amp;other) noexcept'],['../class_vector.html#acd81877aeca482e395ae9d7fd11710c5',1,'Vector::operator=(const Vector &amp;other)'],['../class_vector.html#ac8abbf2c9f557a460d76c97282d61008',1,'Vector::operator=(Vector &amp;&amp;other) noexcept'],['../class_vector.html#a65f1b89a6be95df404bd8194f5e5efe1',1,'Vector::operator=(std::initializer_list&lt; T &gt; il)'],['../classzmogus.html#a40bfcbc64eea331b27604c3eb1831f4a',1,'zmogus::operator=(const zmogus &amp;other)'],['../classzmogus.html#a03bb8bb74fde17e06875f6f08edeb248',1,'zmogus::operator=(zmogus &amp;&amp;other) noexcept']]],
+  ['operator_3d_3d_7',['operator==',['../classstudentas.html#a5d4f597d3fc42b3a66260ec48644c0b4',1,'studentas::operator==()'],['../_vector_8h.html#adbcc8c7443646a5dc119dc247e8be7e4',1,'operator==():&#160;Vector.h']]],
+  ['operator_3e_8',['operator&gt;',['../classstudentas.html#a4e7561cbe64952edb59c11e313abfb0a',1,'studentas::operator&gt;()'],['../_vector_8h.html#a7086fdfd147f6e2ff4821de286755f18',1,'operator&gt;(const Vector&lt; T, A &gt; &amp;a, const Vector&lt; T, A &gt; &amp;b):&#160;Vector.h']]],
+  ['operator_3e_3d_9',['operator&gt;=',['../_vector_8h.html#a99c162bf830b08c75283188b53f05cf6',1,'Vector.h']]],
+  ['operator_3e_3e_10',['operator&gt;&gt;',['../zmogus_8cpp.html#a83717bca17c74f44fccbc3a991026333',1,'operator&gt;&gt;(std::istream &amp;is, zmogus &amp;z):&#160;zmogus.cpp'],['../zmogus_8h.html#a83717bca17c74f44fccbc3a991026333',1,'operator&gt;&gt;(std::istream &amp;is, zmogus &amp;z):&#160;zmogus.cpp']]],
+  ['operator_5b_5d_11',['operator[]',['../classstudentas.html#a1fbde49bc2eccce3549fc73c2221d1b1',1,'studentas::operator[]()'],['../class_vector.html#aace22632f864bc5eb671e78eb63df15e',1,'Vector::operator[](size_type pos)'],['../class_vector.html#ada071e96cc666ad5f355470042d4a27c',1,'Vector::operator[](size_type pos) const']]],
+  ['output_2eh_12',['output.h',['../output_8h.html',1,'']]],
+  ['outputstudentai_13',['outputStudentai',['../output_8h.html#acf60d68156722febd98153c8ae6015d7',1,'output.h']]]
 ];

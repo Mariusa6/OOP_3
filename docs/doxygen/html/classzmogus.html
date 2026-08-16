@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studentu informacine sistema: zmogus Klasė</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v3.0</span>
+   </div>
+   <div id="projectbrief">VU ISI Objektinio programavimo kurso laboratoriniai darbai</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Paieška" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('classzmogus.html','','classzmogus-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">zmogus Klasė<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ABSTRAKTI bazinė klasė — bendras bet kokio žmogaus aprašymas.  
+ <a href="#details">Daugiau...</a></p>
+
+<p><code>#include &lt;<a class="el" href="zmogus_8h_source.html">zmogus.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Paveldimumo diagrama zmogus:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classzmogus__inherit__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Bendradarbiavimo diagrama zmogus:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="classzmogus__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Vieši Metodai</h2></td></tr>
+<tr class="memitem:a03d8b774303f436c2d94a8341b0dce3a" id="r_a03d8b774303f436c2d94a8341b0dce3a"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a03d8b774303f436c2d94a8341b0dce3a">~zmogus</a> ()</td></tr>
+<tr class="memdesc:a03d8b774303f436c2d94a8341b0dce3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtualus destruktorius.  <br /></td></tr>
+<tr class="memitem:ab9d7c2f6f7c5a548306b0200fa0b10c2" id="r_ab9d7c2f6f7c5a548306b0200fa0b10c2"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab9d7c2f6f7c5a548306b0200fa0b10c2">vardas</a> () const</td></tr>
+<tr class="memdesc:ab9d7c2f6f7c5a548306b0200fa0b10c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grąžina žmogaus vardą.  <br /></td></tr>
+<tr class="memitem:aaa03a86df508410d97183e069e1b259b" id="r_aaa03a86df508410d97183e069e1b259b"><td class="memItemLeft">const std::string &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaa03a86df508410d97183e069e1b259b">pavarde</a> () const</td></tr>
+<tr class="memdesc:aaa03a86df508410d97183e069e1b259b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grąžina žmogaus pavardę.  <br /></td></tr>
+<tr class="memitem:aabf76b6f1de7fb59abeaaa7d1d801e63" id="r_aabf76b6f1de7fb59abeaaa7d1d801e63"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#aabf76b6f1de7fb59abeaaa7d1d801e63">pilnasVardas</a> () const</td></tr>
+<tr class="memdesc:aabf76b6f1de7fb59abeaaa7d1d801e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grąžina pilną vardą.  <br /></td></tr>
+<tr class="memitem:a6fd8af389c1dcfdf1799c69ea2d95a27" id="r_a6fd8af389c1dcfdf1799c69ea2d95a27"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6fd8af389c1dcfdf1799c69ea2d95a27">setVardas</a> (const std::string &amp;v)</td></tr>
+<tr class="memdesc:a6fd8af389c1dcfdf1799c69ea2d95a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nustato vardą su validacija.  <br /></td></tr>
+<tr class="memitem:a931b596ee096619748a96d5957ebf6d1" id="r_a931b596ee096619748a96d5957ebf6d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a931b596ee096619748a96d5957ebf6d1">setPavarde</a> (const std::string &amp;p)</td></tr>
+<tr class="memdesc:a931b596ee096619748a96d5957ebf6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nustato pavardę su validacija.  <br /></td></tr>
+<tr class="memitem:aaa4df9aac8155ffc2bd7b29d657d8d03" id="r_aaa4df9aac8155ffc2bd7b29d657d8d03"><td class="memItemLeft">virtual double&#160;</td><td class="memItemRight"><a class="el" href="#aaa4df9aac8155ffc2bd7b29d657d8d03">galutinis</a> () const =0</td></tr>
+<tr class="memdesc:aaa4df9aac8155ffc2bd7b29d657d8d03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grąžina galutinį įvertinimą.  <br /></td></tr>
+<tr class="memitem:a5647d3e65118f17a8b352171cf45551d" id="r_a5647d3e65118f17a8b352171cf45551d"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a5647d3e65118f17a8b352171cf45551d">print</a> (std::ostream &amp;os) const =0</td></tr>
+<tr class="memdesc:a5647d3e65118f17a8b352171cf45551d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Išveda objektą į srautą.  <br /></td></tr>
+<tr class="memitem:aeb474769feaec888c17cb334db0d28bc" id="r_aeb474769feaec888c17cb334db0d28bc"><td class="memItemLeft">virtual std::istream &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aeb474769feaec888c17cb334db0d28bc">read</a> (std::istream &amp;is)=0</td></tr>
+<tr class="memdesc:aeb474769feaec888c17cb334db0d28bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nuskaito objektą iš srauto.  <br /></td></tr>
+<tr class="memitem:a317aabc77d479a65f05f76803b820086" id="r_a317aabc77d479a65f05f76803b820086"><td class="memItemLeft">virtual std::string&#160;</td><td class="memItemRight"><a class="el" href="#a317aabc77d479a65f05f76803b820086">tipas</a> () const =0</td></tr>
+<tr class="memdesc:a317aabc77d479a65f05f76803b820086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grąžina žmogaus tipo pavadinimą.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Statiniai Vieši Atributai</h2></td></tr>
+<tr class="memitem:ab306c91dd20d39cf3f68ea0a82065440" id="r_ab306c91dd20d39cf3f68ea0a82065440"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#ab306c91dd20d39cf3f68ea0a82065440">gyvuZmoniu</a> = 0</td></tr>
+<tr class="memdesc:ab306c91dd20d39cf3f68ea0a82065440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gyvuojančių objektų skaitiklis.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Apsaugoti Metodai</h2></td></tr>
+<tr class="memitem:a3cb03824ec8269cf401cbf615e440833" id="r_a3cb03824ec8269cf401cbf615e440833"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3cb03824ec8269cf401cbf615e440833">zmogus</a> ()</td></tr>
+<tr class="memdesc:a3cb03824ec8269cf401cbf615e440833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numatytasis konstruktorius.  <br /></td></tr>
+<tr class="memitem:a5f1b8edf433bc8c539755cc3539a0d02" id="r_a5f1b8edf433bc8c539755cc3539a0d02"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5f1b8edf433bc8c539755cc3539a0d02">zmogus</a> (const std::string &amp;vardas, const std::string &amp;pavarde)</td></tr>
+<tr class="memdesc:a5f1b8edf433bc8c539755cc3539a0d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pilnas konstruktorius su validacija.  <br /></td></tr>
+<tr class="memitem:a069ba9472329368e0dbb03ceffef6459" id="r_a069ba9472329368e0dbb03ceffef6459"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a069ba9472329368e0dbb03ceffef6459">zmogus</a> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;other)</td></tr>
+<tr class="memdesc:a069ba9472329368e0dbb03ceffef6459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kopijavimo konstruktorius.  <br /></td></tr>
+<tr class="memitem:a68cb6f9ee66889afdef09561b8292e77" id="r_a68cb6f9ee66889afdef09561b8292e77"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a68cb6f9ee66889afdef09561b8292e77">zmogus</a> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a68cb6f9ee66889afdef09561b8292e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perkėlimo (move) konstruktorius.  <br /></td></tr>
+<tr class="memitem:a40bfcbc64eea331b27604c3eb1831f4a" id="r_a40bfcbc64eea331b27604c3eb1831f4a"><td class="memItemLeft"><a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a40bfcbc64eea331b27604c3eb1831f4a">operator=</a> (const <a class="el" href="classzmogus.html">zmogus</a> &amp;other)</td></tr>
+<tr class="memdesc:a40bfcbc64eea331b27604c3eb1831f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kopijavimo priskyrimo operatorius.  <br /></td></tr>
+<tr class="memitem:a03bb8bb74fde17e06875f6f08edeb248" id="r_a03bb8bb74fde17e06875f6f08edeb248"><td class="memItemLeft"><a class="el" href="classzmogus.html">zmogus</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a03bb8bb74fde17e06875f6f08edeb248">operator=</a> (<a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a03bb8bb74fde17e06875f6f08edeb248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perkėlimo (move) priskyrimo operatorius.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Apsaugoti Atributai</h2></td></tr>
+<tr class="memitem:afd058850030e111c47eceb328c65c142" id="r_afd058850030e111c47eceb328c65c142"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#afd058850030e111c47eceb328c65c142">vardas_</a></td></tr>
+<tr class="memdesc:afd058850030e111c47eceb328c65c142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Žmogaus vardas.  <br /></td></tr>
+<tr class="memitem:a5229aa311d1fcaa4af7d9c71f91acec0" id="r_a5229aa311d1fcaa4af7d9c71f91acec0"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5229aa311d1fcaa4af7d9c71f91acec0">pavarde_</a></td></tr>
+<tr class="memdesc:a5229aa311d1fcaa4af7d9c71f91acec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Žmogaus pavardė  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Smulkus aprašymas</h2>
+<div class="textblock"><p>ABSTRAKTI bazinė klasė — bendras bet kokio žmogaus aprašymas. </p>
+<p>Laiko vardą ir pavardę bei apibrėžia interfeisą, kurį privalo realizuoti kiekviena išvestinė klasė.</p>
+<dl class="section user"><dt>Kodėl klasė abstrakti</dt><dd>Klasė padaryta abstrakti <b>dviem nepriklausomais mechanizmais</b>:</dd></dl>
+<ol type="1">
+<li><b>Grynai virtualūs metodai</b> (<span class="tt">= 0</span>) — <a class="el" href="#aaa4df9aac8155ffc2bd7b29d657d8d03" title="Grąžina galutinį įvertinimą.">galutinis()</a>, <a class="el" href="#a5647d3e65118f17a8b352171cf45551d" title="Išveda objektą į srautą.">print()</a>, <a class="el" href="#aeb474769feaec888c17cb334db0d28bc" title="Nuskaito objektą iš srauto.">read()</a>, <a class="el" href="#a317aabc77d479a65f05f76803b820086" title="Grąžina žmogaus tipo pavadinimą.">tipas()</a>. Kompiliatorius neleidžia kurti objektų iš klasės, kuri turi bent vieną neapibrėžtą virtualų metodą.</li>
+<li><b><span class="tt">protected</span> konstruktoriai</b> — prieinami tik išvestinėms klasėms. Tai antras apsaugos sluoksnis.</li>
+</ol>
+<dl class="section user"><dt>Naudojimo pavyzdys</dt><dd><div class="fragment"><div class="line"><span class="comment">// zmogus z;                          // KLAIDA: abstrakti klasė</span></div>
+<div class="line"><span class="comment">// zmogus* p = new zmogus();          // KLAIDA: abstrakti klasė</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="classstudentas.html">studentas</a> s(<span class="stringliteral">&quot;Jonas&quot;</span>, <span class="stringliteral">&quot;Jonaitis&quot;</span>, {5, 6, 7}, 8);   <span class="comment">// OK</span></div>
+<div class="line"><a class="code hl_class" href="classzmogus.html">zmogus</a>&amp; z = s;                                     <span class="comment">// OK — nuoroda</span></div>
+<div class="line">std::cout &lt;&lt; z.<a class="code hl_function" href="#a317aabc77d479a65f05f76803b820086">tipas</a>() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;                    <span class="comment">// &quot;Studentas&quot;</span></div>
+<div class="line"> </div>
+<div class="line">std::unique_ptr&lt;zmogus&gt; p =</div>
+<div class="line">    std::make_unique&lt;studentas&gt;(<span class="stringliteral">&quot;Ona&quot;</span>, <span class="stringliteral">&quot;Onaite&quot;</span>, {10}, 10);   <span class="comment">// OK</span></div>
+<div class="ttc" id="aclassstudentas_html"><div class="ttname"><a href="classstudentas.html">studentas</a></div><div class="ttdoc">Studento duomenys — išvestinė klasė iš abstrakčios zmogus.</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00071">studentas.h:71</a></div></div>
+<div class="ttc" id="aclasszmogus_html"><div class="ttname"><a href="classzmogus.html">zmogus</a></div><div class="ttdoc">ABSTRAKTI bazinė klasė — bendras bet kokio žmogaus aprašymas.</div><div class="ttdef"><b>Definition</b> <a href="zmogus_8h_source.html#l00050">zmogus.h:50</a></div></div>
+<div class="ttc" id="aclasszmogus_html_a317aabc77d479a65f05f76803b820086"><div class="ttname"><a href="#a317aabc77d479a65f05f76803b820086">zmogus::tipas</a></div><div class="ttdeci">virtual std::string tipas() const =0</div><div class="ttdoc">Grąžina žmogaus tipo pavadinimą.</div></div>
+</div><!-- fragment --></dd></dl>
+<dl class="section warning"><dt>Įspėjimas</dt><dd>Destruktorius PRIVALO būti virtualus — kitaip naikinant objektą per bazinės klasės rodyklę išvestinės klasės laukai liktų neatlaisvinti.</dd></dl>
+<dl class="section see"><dt>Taip pat žiūrėti</dt><dd><a class="el" href="classstudentas.html" title="Studento duomenys — išvestinė klasė iš abstrakčios zmogus.">studentas</a> </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00050">50</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Konstruktoriaus ir Destruktoriaus Dokumentacija</h2>
+<a id="a3cb03824ec8269cf401cbf615e440833" name="a3cb03824ec8269cf401cbf615e440833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb03824ec8269cf401cbf615e440833">&#9670;&#160;</a></span>zmogus() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Numatytasis konstruktorius. </p>
+<p>Sukuria objektą su tuščiu vardu ir pavarde. <span class="tt">protected</span> — kviečiamas tik iš išvestinių klasių. </p>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00012">12</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00121">gyvuZmoniu</a>, <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, ir <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="zmogus_8cpp_source.html#l00051">operator=()</a>, <a class="el" href="zmogus_8cpp_source.html#l00065">operator=()</a>, <a class="el" href="studentas_8cpp_source.html#l00060">studentas::studentas()</a>, <a class="el" href="studentas_8cpp_source.html#l00068">studentas::studentas()</a>, <a class="el" href="studentas_8cpp_source.html#l00130">studentas::studentas()</a>, <a class="el" href="studentas_8cpp_source.html#l00086">studentas::studentas()</a>, <a class="el" href="studentas_8cpp_source.html#l00172">studentas::studentas()</a>, <a class="el" href="zmogus_8cpp_source.html#l00032">zmogus()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00042">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="a5f1b8edf433bc8c539755cc3539a0d02" name="a5f1b8edf433bc8c539755cc3539a0d02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1b8edf433bc8c539755cc3539a0d02">&#9670;&#160;</a></span>zmogus() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>vardas</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>pavarde</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pilnas konstruktorius su validacija. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vardas</td><td>Žmogaus vardas (negali būti tuščias) </td></tr>
+    <tr><td class="paramname">pavarde</td><td>Žmogaus pavardė (negali būti tuščia)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Išimtys</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>jei vardas arba pavardė tuščia </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00018">18</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00121">gyvuZmoniu</a>, <a class="el" href="zmogus_8h_source.html#l00147">pavarde()</a>, <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, <a class="el" href="zmogus_8h_source.html#l00141">vardas()</a>, ir <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+</div>
+</div>
+<a id="a069ba9472329368e0dbb03ceffef6459" name="a069ba9472329368e0dbb03ceffef6459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a069ba9472329368e0dbb03ceffef6459">&#9670;&#160;</a></span>zmogus() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzmogus.html">zmogus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kopijavimo konstruktorius. </p>
+<p>Sukuria gilią kopiją — <span class="tt">std::string</span> laukai kopijuoja savo vidinius buferius.</p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Kopijuojamas objektas </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00032">32</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00121">gyvuZmoniu</a>, <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="a68cb6f9ee66889afdef09561b8292e77" name="a68cb6f9ee66889afdef09561b8292e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cb6f9ee66889afdef09561b8292e77">&#9670;&#160;</a></span>zmogus() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::zmogus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perkėlimo (move) konstruktorius. </p>
+<p>Perima kito objekto resursus be kopijavimo. Šaltinis paliekamas galiojančioje, bet tuščioje būsenoje.</p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Objektas, iš kurio perkeliami duomenys</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Pastaba</dt><dd><span class="tt">noexcept</span> būtinas: be jo <span class="tt">std::vector</span> perskirstymo metu naudotų kopijavimo konstruktorių (<span class="tt">std::move_if_noexcept</span>). </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00042">42</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00121">gyvuZmoniu</a>, <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="a03d8b774303f436c2d94a8341b0dce3a" name="a03d8b774303f436c2d94a8341b0dce3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03d8b774303f436c2d94a8341b0dce3a">&#9670;&#160;</a></span>~zmogus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zmogus::~zmogus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtualus destruktorius. </p>
+<dl class="section warning"><dt>Įspėjimas</dt><dd><span class="tt">virtual</span> kvalifikatorius kritiškai svarbus. Be jo: <div class="fragment"><div class="line"><a class="code hl_function" href="#a3cb03824ec8269cf401cbf615e440833">zmogus</a>* p = <span class="keyword">new</span> <a class="code hl_class" href="classstudentas.html">studentas</a>(...);</div>
+<div class="line"><span class="keyword">delete</span> p;    <span class="comment">// kviečiamas TIK ~zmogus()</span></div>
+<div class="line">             <span class="comment">// studentas laukai NEATLAISVINAMI</span></div>
+<div class="ttc" id="aclasszmogus_html_a3cb03824ec8269cf401cbf615e440833"><div class="ttname"><a href="#a3cb03824ec8269cf401cbf615e440833">zmogus::zmogus</a></div><div class="ttdeci">zmogus()</div><div class="ttdoc">Numatytasis konstruktorius.</div><div class="ttdef"><b>Definition</b> <a href="zmogus_8cpp_source.html#l00012">zmogus.cpp:12</a></div></div>
+</div><!-- fragment --></dd></dl>
+<p>Su <span class="tt">virtual</span> naikinimo tvarka teisinga: <span class="tt">~studentas()</span> → <span class="tt"><a class="el" href="#a03d8b774303f436c2d94a8341b0dce3a" title="Virtualus destruktorius.">~zmogus()</a></span>. </p>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00082">82</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00121">gyvuZmoniu</a>, <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, ir <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Metodų Dokumentacija</h2>
+<a id="a40bfcbc64eea331b27604c3eb1831f4a" name="a40bfcbc64eea331b27604c3eb1831f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40bfcbc64eea331b27604c3eb1831f4a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzmogus.html">zmogus</a> &amp; zmogus::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzmogus.html">zmogus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kopijavimo priskyrimo operatorius. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Priskiriamas objektas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Nuoroda į šį objektą (grandininiam priskyrimui <span class="tt">a = b = c</span>)</dd></dl>
+<dl class="section note"><dt>Pastaba</dt><dd>Turi apsaugą nuo priskyrimo sau (<span class="tt">this == &amp;other</span>). </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00051">51</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="studentas_8cpp_source.html#l00147">studentas::operator=()</a>, ir <a class="el" href="studentas_8cpp_source.html#l00190">studentas::operator=()</a>.</p>
+
+</div>
+</div>
+<a id="a03bb8bb74fde17e06875f6f08edeb248" name="a03bb8bb74fde17e06875f6f08edeb248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03bb8bb74fde17e06875f6f08edeb248">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzmogus.html">zmogus</a> &amp; zmogus::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzmogus.html">zmogus</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perkėlimo (move) priskyrimo operatorius. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Objektas, iš kurio perkeliami duomenys </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Nuoroda į šį objektą </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00065">65</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="ab9d7c2f6f7c5a548306b0200fa0b10c2" name="ab9d7c2f6f7c5a548306b0200fa0b10c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9d7c2f6f7c5a548306b0200fa0b10c2">&#9670;&#160;</a></span>vardas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; zmogus::vardas </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grąžina žmogaus vardą. </p>
+<dl class="section return"><dt>Gražina</dt><dd>Konstanti nuoroda į vardą (be kopijavimo) </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00141">141</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="studentas_8cpp_source.html#l00470">comparePagalVarda()</a>, <a class="el" href="studentas_8cpp_source.html#l00068">studentas::studentas()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00439">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00395">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00082">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00347">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00150">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00181">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00221">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00259">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00593">TEST_CASE()</a>, <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00018">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="aaa03a86df508410d97183e069e1b259b" name="aaa03a86df508410d97183e069e1b259b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa03a86df508410d97183e069e1b259b">&#9670;&#160;</a></span>pavarde()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; zmogus::pavarde </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grąžina žmogaus pavardę. </p>
+<dl class="section return"><dt>Gražina</dt><dd>Konstanti nuoroda į pavardę (be kopijavimo) </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00147">147</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="studentas_8cpp_source.html#l00474">comparePagalPavarde()</a>, <a class="el" href="studentas_8cpp_source.html#l00068">studentas::studentas()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00439">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00395">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00082">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00150">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00181">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00221">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00593">TEST_CASE()</a>, <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00018">zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="aabf76b6f1de7fb59abeaaa7d1d801e63" name="aabf76b6f1de7fb59abeaaa7d1d801e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf76b6f1de7fb59abeaaa7d1d801e63">&#9670;&#160;</a></span>pilnasVardas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string zmogus::pilnasVardas </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grąžina pilną vardą. </p>
+<dl class="section return"><dt>Gražina</dt><dd>Vardas ir pavardė, atskirti tarpu </dd></dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00153">153</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>, ir <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00347">TEST_CASE()</a>, ir <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>.</p>
+
+</div>
+</div>
+<a id="a6fd8af389c1dcfdf1799c69ea2d95a27" name="a6fd8af389c1dcfdf1799c69ea2d95a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd8af389c1dcfdf1799c69ea2d95a27">&#9670;&#160;</a></span>setVardas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zmogus::setVardas </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nustato vardą su validacija. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Naujas vardas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Išimtys</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>jei vardas tuščias </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00094">94</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00052">vardas_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00545">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00150">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00221">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00593">TEST_CASE()</a>, ir <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>.</p>
+
+</div>
+</div>
+<a id="a931b596ee096619748a96d5957ebf6d1" name="a931b596ee096619748a96d5957ebf6d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931b596ee096619748a96d5957ebf6d1">&#9670;&#160;</a></span>setPavarde()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zmogus::setPavarde </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nustato pavardę su validacija. </p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Nauja pavardė </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Išimtys</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>jei pavardė tuščia </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a> eilutėje <a class="el" href="zmogus_8cpp_source.html#l00101">101</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="zmogus_8h_source.html#l00053">pavarde_</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00545">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00221">TEST_CASE()</a>, <a class="el" href="unit_tests_8cpp_source.html#l00593">TEST_CASE()</a>, ir <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>.</p>
+
+</div>
+</div>
+<a id="aaa4df9aac8155ffc2bd7b29d657d8d03" name="aaa4df9aac8155ffc2bd7b29d657d8d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4df9aac8155ffc2bd7b29d657d8d03">&#9670;&#160;</a></span>galutinis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double zmogus::galutinis </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grąžina galutinį įvertinimą. </p>
+<p>Grynai virtualus — kiekvienas žmogaus tipas skaičiuoja jį savaip. Studentui tai galutinis balas pagal namų darbų vidurkį ir egzaminą.</p>
+<dl class="section return"><dt>Gražina</dt><dd>Galutinis įvertinimas </dd></dl>
+
+<p>Realizuota <a class="el" href="classstudentas.html#af983eeb567f0f29e80acb793780e285d">studentas</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00347">TEST_CASE()</a>, ir <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>.</p>
+
+</div>
+</div>
+<a id="a5647d3e65118f17a8b352171cf45551d" name="a5647d3e65118f17a8b352171cf45551d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5647d3e65118f17a8b352171cf45551d">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zmogus::print </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>os</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Išveda objektą į srautą. </p>
+<p>Grynai virtualus. Realizuoja polimorfinį <span class="tt">operator&lt;&lt;</span>.</p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Išvesties srautas </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Realizuota <a class="el" href="classstudentas.html#a920beee944e2db5a5257f812b3b45541">studentas</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="zmogus_8cpp_source.html#l00112">operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a id="aeb474769feaec888c17cb334db0d28bc" name="aeb474769feaec888c17cb334db0d28bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb474769feaec888c17cb334db0d28bc">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::istream &amp; zmogus::read </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;</td>          <td class="paramname"><span class="paramname"><em>is</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nuskaito objektą iš srauto. </p>
+<p>Grynai virtualus. Realizuoja polimorfinį <span class="tt">operator&gt;&gt;</span>.</p>
+<dl class="params"><dt>Parametrai</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Įvesties srautas </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Gražina</dt><dd>Nuoroda į tą patį srautą (grandininiam skaitymui) </dd></dl>
+
+<p>Realizuota <a class="el" href="classstudentas.html#abb547ab7799891bfe79386ad5c731534">studentas</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="zmogus_8cpp_source.html#l00118">operator&gt;&gt;()</a>.</p>
+
+</div>
+</div>
+<a id="a317aabc77d479a65f05f76803b820086" name="a317aabc77d479a65f05f76803b820086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a317aabc77d479a65f05f76803b820086">&#9670;&#160;</a></span>tipas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::string zmogus::tipas </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grąžina žmogaus tipo pavadinimą. </p>
+<p>Grynai virtualus. Naudojamas diagnostikai ir logams.</p>
+<dl class="section return"><dt>Gražina</dt><dd>Tipo pavadinimas, pvz. "Studentas" </dd></dl>
+
+<p>Realizuota <a class="el" href="classstudentas.html#aa326738b7b940503b5ec239034f9bfff">studentas</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00347">TEST_CASE()</a>, ir <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Atributų Dokumentacija</h2>
+<a id="afd058850030e111c47eceb328c65c142" name="afd058850030e111c47eceb328c65c142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd058850030e111c47eceb328c65c142">&#9670;&#160;</a></span>vardas_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string zmogus::vardas_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Žmogaus vardas. </p>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00052">52</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="studentas_8cpp_source.html#l00407">studentas::appendListTo()</a>, <a class="el" href="studentas_8cpp_source.html#l00273">studentas::isvalyk()</a>, <a class="el" href="studentas_8cpp_source.html#l00462">studentas::operator bool()</a>, <a class="el" href="studentas_8cpp_source.html#l00446">studentas::operator&lt;()</a>, <a class="el" href="zmogus_8cpp_source.html#l00051">operator=()</a>, <a class="el" href="zmogus_8cpp_source.html#l00065">operator=()</a>, <a class="el" href="studentas_8cpp_source.html#l00434">studentas::operator==()</a>, <a class="el" href="studentas_8cpp_source.html#l00300">studentas::parseFromLine()</a>, <a class="el" href="zmogus_8h_source.html#l00153">pilnasVardas()</a>, <a class="el" href="studentas_8cpp_source.html#l00225">studentas::print()</a>, <a class="el" href="studentas_8cpp_source.html#l00355">studentas::readStudentas()</a>, <a class="el" href="zmogus_8cpp_source.html#l00094">setVardas()</a>, <a class="el" href="studentas_8h_source.html#l00332">studentas::tuscias()</a>, <a class="el" href="zmogus_8h_source.html#l00141">vardas()</a>, <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00018">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00032">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00042">zmogus()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00082">~zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="a5229aa311d1fcaa4af7d9c71f91acec0" name="a5229aa311d1fcaa4af7d9c71f91acec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5229aa311d1fcaa4af7d9c71f91acec0">&#9670;&#160;</a></span>pavarde_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string zmogus::pavarde_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Žmogaus pavardė </p>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00053">53</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="studentas_8cpp_source.html#l00407">studentas::appendListTo()</a>, <a class="el" href="studentas_8cpp_source.html#l00273">studentas::isvalyk()</a>, <a class="el" href="studentas_8cpp_source.html#l00462">studentas::operator bool()</a>, <a class="el" href="studentas_8cpp_source.html#l00446">studentas::operator&lt;()</a>, <a class="el" href="zmogus_8cpp_source.html#l00051">operator=()</a>, <a class="el" href="zmogus_8cpp_source.html#l00065">operator=()</a>, <a class="el" href="studentas_8cpp_source.html#l00434">studentas::operator==()</a>, <a class="el" href="studentas_8cpp_source.html#l00300">studentas::parseFromLine()</a>, <a class="el" href="zmogus_8h_source.html#l00147">pavarde()</a>, <a class="el" href="zmogus_8h_source.html#l00153">pilnasVardas()</a>, <a class="el" href="studentas_8cpp_source.html#l00225">studentas::print()</a>, <a class="el" href="studentas_8cpp_source.html#l00355">studentas::readStudentas()</a>, <a class="el" href="zmogus_8cpp_source.html#l00101">setPavarde()</a>, <a class="el" href="studentas_8h_source.html#l00332">studentas::tuscias()</a>, <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00018">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00032">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00042">zmogus()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00082">~zmogus()</a>.</p>
+
+</div>
+</div>
+<a id="ab306c91dd20d39cf3f68ea0a82065440" name="ab306c91dd20d39cf3f68ea0a82065440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab306c91dd20d39cf3f68ea0a82065440">&#9670;&#160;</a></span>gyvuZmoniu</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zmogus::gyvuZmoniu = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gyvuojančių objektų skaitiklis. </p>
+<p>Didinamas kiekviename konstruktoriuje, mažinamas destruktoriuje. Naudojamas testuose objektų nutekėjimui aptikti. </p>
+
+<p class="definition">Apibrėžimas failo <a class="el" href="zmogus_8h_source.html">zmogus.h</a> eilutėje <a class="el" href="zmogus_8h_source.html#l00121">121</a>.</p>
+
+<p class="reference">Naudojamas <a class="el" href="unit_tests_8cpp_source.html#l00303">TEST_CASE()</a>, <a class="el" href="teststudentas_8cpp_source.html#l00045">testStudentasKlase()</a>, <a class="el" href="zmogus_8cpp_source.html#l00012">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00018">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00032">zmogus()</a>, <a class="el" href="zmogus_8cpp_source.html#l00042">zmogus()</a>, ir <a class="el" href="zmogus_8cpp_source.html#l00082">~zmogus()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacija šiai klasei sugeneruota iš šių failų:<ul>
+<li>OOP_3/<a class="el" href="zmogus_8h_source.html">zmogus.h</a></li>
+<li>OOP_3/<a class="el" href="zmogus_8cpp_source.html">zmogus.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classzmogus.html">zmogus</a></li>
+    <li class="footer">Sugeneruota <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

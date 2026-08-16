@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="lt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Studentu informacine sistema: OOP_3/main.h išeities tekstas</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v3.0</span>
+   </div>
+   <div id="projectbrief">VU ISI Objektinio programavimo kurso laboratoriniai darbai</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Sugeneruota Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Paieška" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('main_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">main.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8h.html">Eiti į šio failo dokumentaciją.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef MAIN_H_DEFINED</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define MAIN_H_DEFINED</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;iostream&gt;</span>     <span class="comment">// cout, cin</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span>       <span class="comment">// string</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span>       <span class="comment">// vector</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;list&gt;</span>         <span class="comment">// list</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;deque&gt;</span>        <span class="comment">// deque</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;exception&gt;</span>    <span class="comment">// exception</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;type_traits&gt;</span>  <span class="comment">// is_abstract, is_base_of, is_nothrow_move_constructible</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="zmogus_8h.html">zmogus.h</a>&quot;</span>     <span class="comment">// abstrakti bazinė klasė</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="studentas_8h.html">studentas.h</a>&quot;</span>  <span class="comment">// išvestinė klasė</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="konteineris_8h.html">konteineris.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="main_8h.html#a6172ae5f44946971e88b7fe16550f0f2">   19</a></span><span class="preprocessor">#define NUMBER_OF_PAZYMYS 15</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// -------------------------------------------------------</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// splitResult — 1 strategijos rezultatas (du nauji konteineriai)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// -------------------------------------------------------</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Container&gt;</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structsplit_result.html">   25</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structsplit_result.html">splitResult</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structsplit_result.html#acd19889c02ed06db0977cbfc0fecc8a2">   27</a></span>    Container <a class="code hl_variable" href="structsplit_result.html#acd19889c02ed06db0977cbfc0fecc8a2">kietiakai</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structsplit_result.html#a47cd03b30b9aeee3b508c282b02b3618">   28</a></span>    Container <a class="code hl_variable" href="structsplit_result.html#a47cd03b30b9aeee3b508c282b02b3618">vargsiukai</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// Function declarations</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// Menu functions</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">char</span> <a class="code hl_function" href="main_8h.html#a5651f246a79369542b993fa5d34bcb4e">askMenuChoice</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8h.html#a1234dbb38da5673391eb6ee2b60f5f64">enterNumberOfStudents</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">char</span> <a class="code hl_function" href="main_8h.html#a4978cf2ba4a1e782e02b8c5f547e5860">askSortBy</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">bool</span> <a class="code hl_function" href="main_8h.html#a733ae834fd920d494ed5264a13b4b315">askIfMoreStudents</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">char</span> <a class="code hl_function" href="main_8h.html#a5c00b9437416a48eda4888337e47913f">askOutputChoice</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">char</span> <a class="code hl_function" href="main_8h.html#a6174c3c81733728a7cd564c2f3cbeabe">askContainerChoice</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Generate functions</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> <a class="code hl_function" href="main_8h.html#a7831e27e84708a6cec4ffdd1b56643e2">generatePazymiai</a>(<span class="keywordtype">int</span> m);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// Print functions</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a2b70b7938c7f57013b731aa2c8ddf2c1">printWelcome</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a3d91863679e302462cbfe80a4bf04f03">printNameAsk</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">// User input functions</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><a class="code hl_class" href="classstudentas.html">studentas</a> <a class="code hl_function" href="main_8h.html#a5636e815383c58ca453311ad83989444">enterStudentas</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>std::string <a class="code hl_function" href="main_8h.html#aaf49ce89aec8f975875a373eaf934b8b">enterName</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>std::string <a class="code hl_function" href="main_8h.html#ad902984e6f75d81851f09fb73b940352">enterSurname</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8h.html#a1b12f06f1f9095e414b7001f377fc67a">enterNumberOfPazymys</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8h.html#a807792fb0a7abcdfdfb710cf990bc426">enterPazymys</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><a class="code hl_class" href="class_vector.html">Vector&lt;int&gt;</a> <a class="code hl_function" href="main_8h.html#a4c40ce3f9e7a303c4a1555edbfa8f640">enterPazymiai</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8h.html#a80734449dd8b2b32ddf671cde5cc07a0">enterEgzaminas</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// File handling functions</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>std::string <a class="code hl_function" href="main_8h.html#a29b6ab1ee18f21d0cec26a8e37f8200e">enterFileName</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>std::string <a class="code hl_function" href="main_8h.html#ad543da82fc59654dae39d37d5bd9bf69">enterOutputFileName</a>(std::string desc = <span class="stringliteral">&quot;išvesties&quot;</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// Test functions</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="main_8h.html#a7cc207279ba4315c7699200b62e15aeb">testContainers</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">bool</span> <a class="code hl_function" href="main_8h.html#a0c9b8a1152b97e6d9e1806fe0387e00c">testStudentasKlase</a>();      <span class="comment">// klasių metodų testas (v1.2 / v1.5)</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// Utility functions</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">bool</span> <a class="code hl_function" href="main_8h.html#ad825e0bf7e7233028c28af95f02c952c">isAllLetters</a>(<span class="keyword">const</span> std::string&amp; input);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_vector_html"><div class="ttname"><a href="class_vector.html">Vector</a></div><div class="ttdoc">Dinaminis masyvas — pilnavertė std::vector alternatyva.</div><div class="ttdef"><b>Definition</b> <a href="_vector_8h_source.html#l00069">Vector.h:69</a></div></div>
+<div class="ttc" id="aclassstudentas_html"><div class="ttname"><a href="classstudentas.html">studentas</a></div><div class="ttdoc">Studento duomenys — išvestinė klasė iš abstrakčios zmogus.</div><div class="ttdef"><b>Definition</b> <a href="studentas_8h_source.html#l00071">studentas.h:71</a></div></div>
+<div class="ttc" id="akonteineris_8h_html"><div class="ttname"><a href="konteineris_8h.html">konteineris.h</a></div><div class="ttdoc">Konteinerio tipo perjungimas tarp std::vector ir nuosavos Vector.</div></div>
+<div class="ttc" id="amain_8h_html_a0c9b8a1152b97e6d9e1806fe0387e00c"><div class="ttname"><a href="main_8h.html#a0c9b8a1152b97e6d9e1806fe0387e00c">testStudentasKlase</a></div><div class="ttdeci">bool testStudentasKlase()</div><div class="ttdef"><b>Definition</b> <a href="teststudentas_8cpp_source.html#l00045">teststudentas.cpp:45</a></div></div>
+<div class="ttc" id="amain_8h_html_a1234dbb38da5673391eb6ee2b60f5f64"><div class="ttname"><a href="main_8h.html#a1234dbb38da5673391eb6ee2b60f5f64">enterNumberOfStudents</a></div><div class="ttdeci">int enterNumberOfStudents()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00027">menu.cpp:27</a></div></div>
+<div class="ttc" id="amain_8h_html_a1b12f06f1f9095e414b7001f377fc67a"><div class="ttname"><a href="main_8h.html#a1b12f06f1f9095e414b7001f377fc67a">enterNumberOfPazymys</a></div><div class="ttdeci">int enterNumberOfPazymys(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00050">enter.cpp:50</a></div></div>
+<div class="ttc" id="amain_8h_html_a29b6ab1ee18f21d0cec26a8e37f8200e"><div class="ttname"><a href="main_8h.html#a29b6ab1ee18f21d0cec26a8e37f8200e">enterFileName</a></div><div class="ttdeci">std::string enterFileName()</div><div class="ttdef"><b>Definition</b> <a href="file_8cpp_source.html#l00003">file.cpp:3</a></div></div>
+<div class="ttc" id="amain_8h_html_a2b70b7938c7f57013b731aa2c8ddf2c1"><div class="ttname"><a href="main_8h.html#a2b70b7938c7f57013b731aa2c8ddf2c1">printWelcome</a></div><div class="ttdeci">void printWelcome()</div><div class="ttdef"><b>Definition</b> <a href="print_8cpp_source.html#l00003">print.cpp:3</a></div></div>
+<div class="ttc" id="amain_8h_html_a3d91863679e302462cbfe80a4bf04f03"><div class="ttname"><a href="main_8h.html#a3d91863679e302462cbfe80a4bf04f03">printNameAsk</a></div><div class="ttdeci">void printNameAsk()</div><div class="ttdef"><b>Definition</b> <a href="print_8cpp_source.html#l00010">print.cpp:10</a></div></div>
+<div class="ttc" id="amain_8h_html_a4978cf2ba4a1e782e02b8c5f547e5860"><div class="ttname"><a href="main_8h.html#a4978cf2ba4a1e782e02b8c5f547e5860">askSortBy</a></div><div class="ttdeci">char askSortBy()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00041">menu.cpp:41</a></div></div>
+<div class="ttc" id="amain_8h_html_a4c40ce3f9e7a303c4a1555edbfa8f640"><div class="ttname"><a href="main_8h.html#a4c40ce3f9e7a303c4a1555edbfa8f640">enterPazymiai</a></div><div class="ttdeci">Vector&lt; int &gt; enterPazymiai(int n, int m)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00083">enter.cpp:83</a></div></div>
+<div class="ttc" id="amain_8h_html_a5636e815383c58ca453311ad83989444"><div class="ttname"><a href="main_8h.html#a5636e815383c58ca453311ad83989444">enterStudentas</a></div><div class="ttdeci">studentas enterStudentas(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00007">enter.cpp:7</a></div></div>
+<div class="ttc" id="amain_8h_html_a5651f246a79369542b993fa5d34bcb4e"><div class="ttname"><a href="main_8h.html#a5651f246a79369542b993fa5d34bcb4e">askMenuChoice</a></div><div class="ttdeci">char askMenuChoice()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00003">menu.cpp:3</a></div></div>
+<div class="ttc" id="amain_8h_html_a5c00b9437416a48eda4888337e47913f"><div class="ttname"><a href="main_8h.html#a5c00b9437416a48eda4888337e47913f">askOutputChoice</a></div><div class="ttdeci">char askOutputChoice()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00087">menu.cpp:87</a></div></div>
+<div class="ttc" id="amain_8h_html_a6174c3c81733728a7cd564c2f3cbeabe"><div class="ttname"><a href="main_8h.html#a6174c3c81733728a7cd564c2f3cbeabe">askContainerChoice</a></div><div class="ttdeci">char askContainerChoice()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00103">menu.cpp:103</a></div></div>
+<div class="ttc" id="amain_8h_html_a733ae834fd920d494ed5264a13b4b315"><div class="ttname"><a href="main_8h.html#a733ae834fd920d494ed5264a13b4b315">askIfMoreStudents</a></div><div class="ttdeci">bool askIfMoreStudents()</div><div class="ttdef"><b>Definition</b> <a href="menu_8cpp_source.html#l00073">menu.cpp:73</a></div></div>
+<div class="ttc" id="amain_8h_html_a7831e27e84708a6cec4ffdd1b56643e2"><div class="ttname"><a href="main_8h.html#a7831e27e84708a6cec4ffdd1b56643e2">generatePazymiai</a></div><div class="ttdeci">Vector&lt; int &gt; generatePazymiai(int m)</div><div class="ttdef"><b>Definition</b> <a href="generate_8cpp_source.html#l00009">generate.cpp:9</a></div></div>
+<div class="ttc" id="amain_8h_html_a7cc207279ba4315c7699200b62e15aeb"><div class="ttname"><a href="main_8h.html#a7cc207279ba4315c7699200b62e15aeb">testContainers</a></div><div class="ttdeci">void testContainers(int n)</div><div class="ttdef"><b>Definition</b> <a href="test_8cpp_source.html#l00050">test.cpp:50</a></div></div>
+<div class="ttc" id="amain_8h_html_a80734449dd8b2b32ddf671cde5cc07a0"><div class="ttname"><a href="main_8h.html#a80734449dd8b2b32ddf671cde5cc07a0">enterEgzaminas</a></div><div class="ttdeci">int enterEgzaminas(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00094">enter.cpp:94</a></div></div>
+<div class="ttc" id="amain_8h_html_a807792fb0a7abcdfdfb710cf990bc426"><div class="ttname"><a href="main_8h.html#a807792fb0a7abcdfdfb710cf990bc426">enterPazymys</a></div><div class="ttdeci">int enterPazymys(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00066">enter.cpp:66</a></div></div>
+<div class="ttc" id="amain_8h_html_aaf49ce89aec8f975875a373eaf934b8b"><div class="ttname"><a href="main_8h.html#aaf49ce89aec8f975875a373eaf934b8b">enterName</a></div><div class="ttdeci">std::string enterName(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00019">enter.cpp:19</a></div></div>
+<div class="ttc" id="amain_8h_html_ad543da82fc59654dae39d37d5bd9bf69"><div class="ttname"><a href="main_8h.html#ad543da82fc59654dae39d37d5bd9bf69">enterOutputFileName</a></div><div class="ttdeci">std::string enterOutputFileName(std::string desc=&quot;išvesties&quot;)</div><div class="ttdef"><b>Definition</b> <a href="file_8cpp_source.html#l00016">file.cpp:16</a></div></div>
+<div class="ttc" id="amain_8h_html_ad825e0bf7e7233028c28af95f02c952c"><div class="ttname"><a href="main_8h.html#ad825e0bf7e7233028c28af95f02c952c">isAllLetters</a></div><div class="ttdeci">bool isAllLetters(const std::string &amp;input)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00111">enter.cpp:111</a></div></div>
+<div class="ttc" id="amain_8h_html_ad902984e6f75d81851f09fb73b940352"><div class="ttname"><a href="main_8h.html#ad902984e6f75d81851f09fb73b940352">enterSurname</a></div><div class="ttdeci">std::string enterSurname(int n)</div><div class="ttdef"><b>Definition</b> <a href="enter_8cpp_source.html#l00034">enter.cpp:34</a></div></div>
+<div class="ttc" id="astructsplit_result_html"><div class="ttname"><a href="structsplit_result.html">splitResult</a></div><div class="ttdef"><b>Definition</b> <a href="#l00025">main.h:26</a></div></div>
+<div class="ttc" id="astructsplit_result_html_a47cd03b30b9aeee3b508c282b02b3618"><div class="ttname"><a href="structsplit_result.html#a47cd03b30b9aeee3b508c282b02b3618">splitResult::vargsiukai</a></div><div class="ttdeci">Container vargsiukai</div><div class="ttdef"><b>Definition</b> <a href="#l00028">main.h:28</a></div></div>
+<div class="ttc" id="astructsplit_result_html_acd19889c02ed06db0977cbfc0fecc8a2"><div class="ttname"><a href="structsplit_result.html#acd19889c02ed06db0977cbfc0fecc8a2">splitResult::kietiakai</a></div><div class="ttdeci">Container kietiakai</div><div class="ttdef"><b>Definition</b> <a href="#l00027">main.h:27</a></div></div>
+<div class="ttc" id="astudentas_8h_html"><div class="ttname"><a href="studentas_8h.html">studentas.h</a></div><div class="ttdoc">Išvestinė klasė studentas — studento duomenys ir galutinių balų skaičiavimas.</div></div>
+<div class="ttc" id="azmogus_8h_html"><div class="ttname"><a href="zmogus_8h.html">zmogus.h</a></div><div class="ttdoc">Abstrakti bazinė klasė, aprašanti bendrus žmogaus duomenis.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_abe5a18bdb5628a9a9d54c7ef8197677.html">OOP_3</a></li><li class="navelem"><a href="main_8h.html">main.h</a></li>
+    <li class="footer">Sugeneruota <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jie_20reikalingi_0',['Kam jie reikalingi',['../index.html#autotoc_md33',1,'']]]
+  ['žinomos_20pastabos_0',['Žinomos pastabos',['../index.html#autotoc_md26',1,'']]]
 ];

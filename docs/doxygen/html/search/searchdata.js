@@ -1,30 +1,36 @@
 var indexSectionsWithContent =
 {
-  0: "12345678abcdefgijklmnoprstuvzįš—",
-  1: "bruv",
-  2: "mst",
-  3: "ls",
-  4: "c",
-  5: "12345678abcdefgijklmnoprstuvzįš—"
+  0: "0abcdefgiklmnoprstuvwz~įšž—",
+  1: "svz",
+  2: "bcefgkmoprstuvz",
+  3: "abcdefgikmnoprstvwz~",
+  4: "abcefgkmnpv",
+  5: "acdiklprsv",
+  6: "cn",
+  7: "0adefiknprstuvįšž—"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "typedefs",
-  4: "defines",
-  5: "pages"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "variables",
+  5: "typedefs",
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "Visi",
-  1: "Failai",
-  2: "Funkcijos",
-  3: "Tipų apibrėžimai",
-  4: "Apibrėžimai",
-  5: "Puslapiai"
+  1: "Klasės",
+  2: "Failai",
+  3: "Funkcijos",
+  4: "Kintamieji",
+  5: "Tipų apibrėžimai",
+  6: "Apibrėžimai",
+  7: "Puslapiai"
 };
 

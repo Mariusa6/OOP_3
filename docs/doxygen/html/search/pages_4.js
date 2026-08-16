@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['5_20dokumentacija_0',['5. Dokumentacija',['../index.html#autotoc_md26',1,'']]]
+  ['failai_0',['failai',['../index.html#autotoc_md18',1,'Pakeisti failai'],['../index.html#autotoc_md24',1,'Prisegti failai']]],
+  ['failas_1',['Diegimo failas',['../index.html#autotoc_md7',1,'']]]
 ];

@@ -1,0 +1,253 @@
+\doxysection{zmogus.\+h}
+\hypertarget{zmogus_8h_source}{}\label{zmogus_8h_source}\index{OOP\_3/zmogus.h@{OOP\_3/zmogus.h}}
+\doxymbox{\hyperlink{zmogus_8h}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ ZMOGUS\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ ZMOGUS\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00007}00007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00008}00008\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00009}00009\ \textcolor{comment}{\ *\ @file\ zmogus.h}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00010}00010\ \textcolor{comment}{\ *\ @brief\ Abstrakti\ bazinė\ klasė,\ aprašanti\ bendrus\ žmogaus\ duomenis.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00011}00011\ \textcolor{comment}{\ *\ @author\ Marius\ Augustinas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00012}00012\ \textcolor{comment}{\ *\ @date\ 2026}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00013}00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00014}00014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00015}00015\ \textcolor{comment}{\ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00016}00016\ \textcolor{comment}{\ \ *\ @class\ zmogus}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00017}00017\ \textcolor{comment}{\ \ *\ @brief\ ABSTRAKTI\ bazinė\ klasė\ —\ bendras\ bet\ kokio\ žmogaus\ aprašymas.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00018}00018\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00019}00019\ \textcolor{comment}{\ \ *\ Laiko\ vardą\ ir\ pavardę\ bei\ apibrėžia\ interfeisą,\ kurį\ privalo}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00020}00020\ \textcolor{comment}{\ \ *\ realizuoti\ kiekviena\ išvestinė\ klasė.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00021}00021\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00022}00022\ \textcolor{comment}{\ \ *\ @par\ Kodėl\ klasė\ abstrakti}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00023}00023\ \textcolor{comment}{\ \ *\ Klasė\ padaryta\ abstrakti\ **dviem\ nepriklausomais\ mechanizmais**:}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00024}00024\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00025}00025\ \textcolor{comment}{\ \ *\ 1.\ **Grynai\ virtualūs\ metodai**\ (`=\ 0`)\ —\ galutinis(),\ print(),}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00026}00026\ \textcolor{comment}{\ \ *\ \ \ \ read(),\ tipas().\ Kompiliatorius\ neleidžia\ kurti\ objektų\ iš\ klasės,}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00027}00027\ \textcolor{comment}{\ \ *\ \ \ \ kuri\ turi\ bent\ vieną\ neapibrėžtą\ virtualų\ metodą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00028}00028\ \textcolor{comment}{\ \ *\ 2.\ **\`{}protected`\ konstruktoriai**\ —\ prieinami\ tik\ išvestinėms\ klasėms.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00029}00029\ \textcolor{comment}{\ \ *\ \ \ \ Tai\ antras\ apsaugos\ sluoksnis.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00030}00030\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00031}00031\ \textcolor{comment}{\ \ *\ @par\ Naudojimo\ pavyzdys}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00032}00032\ \textcolor{comment}{\ \ *\ @code}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00033}00033\ \textcolor{comment}{\ \ *\ //\ zmogus\ z;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ KLAIDA:\ abstrakti\ klasė}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00034}00034\ \textcolor{comment}{\ \ *\ //\ zmogus*\ p\ =\ new\ zmogus();\ \ \ \ \ \ \ \ \ \ //\ KLAIDA:\ abstrakti\ klasė}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00035}00035\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00036}00036\ \textcolor{comment}{\ \ *\ studentas\ s("{}Jonas"{},\ "{}Jonaitis"{},\ \{5,\ 6,\ 7\},\ 8);\ \ \ //\ OK}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00037}00037\ \textcolor{comment}{\ \ *\ zmogus\&\ z\ =\ s;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ OK\ —\ nuoroda}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00038}00038\ \textcolor{comment}{\ \ *\ std::cout\ <<\ z.tipas()\ <<\ "{}\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ "{}Studentas"{}}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00039}00039\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00040}00040\ \textcolor{comment}{\ \ *\ std::unique\_ptr<zmogus>\ p\ =}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00041}00041\ \textcolor{comment}{\ \ *\ \ \ \ \ std::make\_unique<studentas>("{}Ona"{},\ "{}Onaite"{},\ \{10\},\ 10);\ \ \ //\ OK}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00042}00042\ \textcolor{comment}{\ \ *\ @endcode}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00043}00043\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00044}00044\ \textcolor{comment}{\ \ *\ @warning\ Destruktorius\ PRIVALO\ būti\ virtualus\ —\ kitaip\ naikinant}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00045}00045\ \textcolor{comment}{\ \ *\ \ \ \ \ \ \ \ \ \ objektą\ per\ bazinės\ klasės\ rodyklę\ išvestinės\ klasės}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00046}00046\ \textcolor{comment}{\ \ *\ \ \ \ \ \ \ \ \ \ laukai\ liktų\ neatlaisvinti.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00047}00047\ \textcolor{comment}{\ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00048}00048\ \textcolor{comment}{\ \ *\ @see\ studentas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00049}00049\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00050}\doxymbox{\hyperlink{classzmogus}{00050}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\ \{}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00051}00051\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00052}\doxymbox{\hyperlink{classzmogus_afd058850030e111c47eceb328c65c142}{00052}}\ \ \ \ \ std::string\ \doxymbox{\hyperlink{classzmogus_afd058850030e111c47eceb328c65c142}{vardas\_}};\ \ \ \ \textcolor{comment}{///<\ Žmogaus\ vardas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00053}\doxymbox{\hyperlink{classzmogus_a5229aa311d1fcaa4af7d9c71f91acec0}{00053}}\ \ \ \ \ std::string\ \doxymbox{\hyperlink{classzmogus_a5229aa311d1fcaa4af7d9c71f91acec0}{pavarde\_}};\ \ \ \textcolor{comment}{///<\ Žmogaus\ pavardė}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00054}00054\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00055}00055\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Numatytasis\ konstruktorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ *\ Sukuria\ objektą\ su\ tuščiu\ vardu\ ir\ pavarde.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ *\ \`{}protected`\ —\ kviečiamas\ tik\ iš\ išvestinių\ klasių.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00061}00061\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}();}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00062}00062\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00063}00063\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Pilnas\ konstruktorius\ su\ validacija.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ *\ @param\ vardas\ Žmogaus\ vardas\ (negali\ būti\ tuščias)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ *\ @param\ pavarde\ Žmogaus\ pavardė\ (negali\ būti\ tuščia)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ *\ @throws\ std::invalid\_argument\ jei\ vardas\ arba\ pavardė\ tuščia}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00071}00071\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}(\textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classzmogus_ab9d7c2f6f7c5a548306b0200fa0b10c2}{vardas}},\ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classzmogus_aaa03a86df508410d97183e069e1b259b}{pavarde}});}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00072}00072\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00073}00073\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Kopijavimo\ konstruktorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ *\ Sukuria\ gilią\ kopiją\ —\ \`{}std::string`\ laukai\ kopijuoja}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ *\ savo\ vidinius\ buferius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ Kopijuojamas\ objektas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00081}00081\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00082}00082\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Perkėlimo\ (move)\ konstruktorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00086}00086\ \textcolor{comment}{\ \ \ \ \ *\ Perima\ kito\ objekto\ resursus\ be\ kopijavimo.\ Šaltinis\ paliekamas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00087}00087\ \textcolor{comment}{\ \ \ \ \ *\ galiojančioje,\ bet\ tuščioje\ būsenoje.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00088}00088\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00089}00089\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ Objektas,\ iš\ kurio\ perkeliami\ duomenys}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00090}00090\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \ *\ @note\ \`{}noexcept`\ būtinas:\ be\ jo\ \`{}std::vector`\ perskirstymo\ metu}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00092}00092\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ naudotų\ kopijavimo\ konstruktorių\ (`std::move\_if\_noexcept`).}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00094}00094\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}(\doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00095}00095\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00096}00096\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Kopijavimo\ priskyrimo\ operatorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00098}00098\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ Priskiriamas\ objektas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Nuoroda\ į\ šį\ objektą\ (grandininiam\ priskyrimui\ \`{}a\ =\ b\ =\ c`)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ *\ @note\ Turi\ apsaugą\ nuo\ priskyrimo\ sau\ (`this\ ==\ \&other`).}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00104}00104\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\ \doxymbox{\hyperlink{classzmogus_a40bfcbc64eea331b27604c3eb1831f4a}{operator=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\ other);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00105}00105\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00106}00106\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Perkėlimo\ (move)\ priskyrimo\ operatorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ *\ @param\ other\ Objektas,\ iš\ kurio\ perkeliami\ duomenys}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Nuoroda\ į\ šį\ objektą}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00112}00112\ \ \ \ \ \doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\ \doxymbox{\hyperlink{classzmogus_a40bfcbc64eea331b27604c3eb1831f4a}{operator=}}(\doxymbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00114}00114\ \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00115}00115\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Gyvuojančių\ objektų\ skaitiklis.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \ *\ Didinamas\ kiekviename\ konstruktoriuje,\ mažinamas\ destruktoriuje.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00119}00119\ \textcolor{comment}{\ \ \ \ \ *\ Naudojamas\ testuose\ objektų\ nutekėjimui\ aptikti.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00120}00120\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00121}\doxymbox{\hyperlink{classzmogus_ab306c91dd20d39cf3f68ea0a82065440}{00121}}\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classzmogus_ab306c91dd20d39cf3f68ea0a82065440}{gyvuZmoniu}};}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00122}00122\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00123}00123\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00124}00124\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Virtualus\ destruktorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00125}00125\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00126}00126\ \textcolor{comment}{\ \ \ \ \ *\ @warning\ \`{}virtual`\ kvalifikatorius\ kritiškai\ svarbus.\ Be\ jo:}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00127}00127\ \textcolor{comment}{\ \ \ \ \ *\ @code}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00128}00128\ \textcolor{comment}{\ \ \ \ \ *\ zmogus*\ p\ =\ new\ studentas(...);}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \ *\ delete\ p;\ \ \ \ //\ kviečiamas\ TIK\ \string~zmogus()}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00130}00130\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ studentas\ laukai\ NEATLAISVINAMI}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00131}00131\ \textcolor{comment}{\ \ \ \ \ *\ @endcode}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00132}00132\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00133}00133\ \textcolor{comment}{\ \ \ \ \ *\ Su\ \`{}virtual`\ naikinimo\ tvarka\ teisinga:\ \`{}\string~studentas()`\ →\ \`{}\string~zmogus()`.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00134}00134\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{classzmogus_a03d8b774303f436c2d94a8341b0dce3a}{\string~zmogus}}();}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00136}00136\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00137}00137\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00138}00138\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Grąžina\ žmogaus\ vardą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00139}00139\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Konstanti\ nuoroda\ į\ vardą\ (be\ kopijavimo)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00140}00140\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00141}\doxymbox{\hyperlink{classzmogus_ab9d7c2f6f7c5a548306b0200fa0b10c2}{00141}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classzmogus_ab9d7c2f6f7c5a548306b0200fa0b10c2}{vardas}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classzmogus_afd058850030e111c47eceb328c65c142}{vardas\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00142}00142\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00143}00143\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00144}00144\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Grąžina\ žmogaus\ pavardę.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00145}00145\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Konstanti\ nuoroda\ į\ pavardę\ (be\ kopijavimo)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00146}00146\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00147}\doxymbox{\hyperlink{classzmogus_aaa03a86df508410d97183e069e1b259b}{00147}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::string\&\ \doxymbox{\hyperlink{classzmogus_aaa03a86df508410d97183e069e1b259b}{pavarde}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classzmogus_a5229aa311d1fcaa4af7d9c71f91acec0}{pavarde\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00148}00148\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00149}00149\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00150}00150\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Grąžina\ pilną\ vardą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00151}00151\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Vardas\ ir\ pavardė,\ atskirti\ tarpu}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00152}00152\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00153}\doxymbox{\hyperlink{classzmogus_aabf76b6f1de7fb59abeaaa7d1d801e63}{00153}}\ \ \ \ \ \textcolor{keyword}{inline}\ std::string\ \doxymbox{\hyperlink{classzmogus_aabf76b6f1de7fb59abeaaa7d1d801e63}{pilnasVardas}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classzmogus_afd058850030e111c47eceb328c65c142}{vardas\_}}\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ \doxymbox{\hyperlink{classzmogus_a5229aa311d1fcaa4af7d9c71f91acec0}{pavarde\_}};\ \}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00154}00154\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00155}00155\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00156}00156\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Nustato\ vardą\ su\ validacija.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ *\ @param\ v\ Naujas\ vardas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00158}00158\ \textcolor{comment}{\ \ \ \ \ *\ @throws\ std::invalid\_argument\ jei\ vardas\ tuščias}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00159}00159\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00160}00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classzmogus_a6fd8af389c1dcfdf1799c69ea2d95a27}{setVardas}}(\textcolor{keyword}{const}\ std::string\&\ v);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00161}00161\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00162}00162\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00163}00163\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Nustato\ pavardę\ su\ validacija.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00164}00164\ \textcolor{comment}{\ \ \ \ \ *\ @param\ p\ Nauja\ pavardė}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00165}00165\ \textcolor{comment}{\ \ \ \ \ *\ @throws\ std::invalid\_argument\ jei\ pavardė\ tuščia}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00166}00166\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00167}00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classzmogus_a931b596ee096619748a96d5957ebf6d1}{setPavarde}}(\textcolor{keyword}{const}\ std::string\&\ p);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00168}00168\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00169}00169\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00170}00170\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Grąžina\ galutinį\ įvertinimą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00171}00171\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00172}00172\ \textcolor{comment}{\ \ \ \ \ *\ Grynai\ virtualus\ —\ kiekvienas\ žmogaus\ tipas\ skaičiuoja\ jį\ savaip.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00173}00173\ \textcolor{comment}{\ \ \ \ \ *\ Studentui\ tai\ galutinis\ balas\ pagal\ namų\ darbų\ vidurkį\ ir\ egzaminą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00175}00175\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Galutinis\ įvertinimas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00177}\doxymbox{\hyperlink{classzmogus_aaa4df9aac8155ffc2bd7b29d657d8d03}{00177}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classzmogus_aaa4df9aac8155ffc2bd7b29d657d8d03}{galutinis}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00178}00178\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00179}00179\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Išveda\ objektą\ į\ srautą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ *\ Grynai\ virtualus.\ Realizuoja\ polimorfinį\ \`{}operator<<`.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00183}00183\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ *\ @param\ os\ Išvesties\ srautas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00186}\doxymbox{\hyperlink{classzmogus_a5647d3e65118f17a8b352171cf45551d}{00186}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classzmogus_a5647d3e65118f17a8b352171cf45551d}{print}}(std::ostream\&\ os)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00187}00187\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00188}00188\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00189}00189\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Nuskaito\ objektą\ iš\ srauto.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00190}00190\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00191}00191\ \textcolor{comment}{\ \ \ \ \ *\ Grynai\ virtualus.\ Realizuoja\ polimorfinį\ \`{}operator>>`.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00192}00192\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00193}00193\ \textcolor{comment}{\ \ \ \ \ *\ @param\ is\ Įvesties\ srautas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00194}00194\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Nuoroda\ į\ tą\ patį\ srautą\ (grandininiam\ skaitymui)}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00195}00195\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00196}\doxymbox{\hyperlink{classzmogus_aeb474769feaec888c17cb334db0d28bc}{00196}}\ \ \ \ \ \textcolor{keyword}{virtual}\ std::istream\&\ \doxymbox{\hyperlink{classzmogus_aeb474769feaec888c17cb334db0d28bc}{read}}(std::istream\&\ is)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00197}00197\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00198}00198\ \textcolor{comment}{\ \ \ \ /**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00199}00199\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Grąžina\ žmogaus\ tipo\ pavadinimą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00200}00200\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00201}00201\ \textcolor{comment}{\ \ \ \ \ *\ Grynai\ virtualus.\ Naudojamas\ diagnostikai\ ir\ logams.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00202}00202\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00203}00203\ \textcolor{comment}{\ \ \ \ \ *\ @return\ Tipo\ pavadinimas,\ pvz.\ "{}Studentas"{}}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00204}00204\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00205}\doxymbox{\hyperlink{classzmogus_a317aabc77d479a65f05f76803b820086}{00205}}\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \doxymbox{\hyperlink{classzmogus_a317aabc77d479a65f05f76803b820086}{tipas}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00206}00206\ \};}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00207}00207\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00208}00208\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00209}00209\ \textcolor{comment}{\ *\ @brief\ Polimorfinis\ išvesties\ operatorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00210}00210\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00211}00211\ \textcolor{comment}{\ *\ Priima\ \`{}zmogus\&`\ nuorodą,\ bet\ kviečia\ virtualų\ print()\ metodą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00212}00212\ \textcolor{comment}{\ *\ Todėl\ veikia\ su\ bet\ kuria\ išvestine\ klase\ —\ dabartine\ ir\ būsimomis.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00213}00213\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00214}00214\ \textcolor{comment}{\ *\ @param\ os\ Išvesties\ srautas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00215}00215\ \textcolor{comment}{\ *\ @param\ z\ Išvedamas\ objektas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00216}00216\ \textcolor{comment}{\ *\ @return\ Nuoroda\ į\ srautą}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00217}00217\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00218}00218\ \textcolor{comment}{\ *\ @par\ Pavyzdys}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00219}00219\ \textcolor{comment}{\ *\ @code}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00220}00220\ \textcolor{comment}{\ *\ studentas\ s("{}Jonas"{},\ "{}Jonaitis"{},\ \{5,\ 6\},\ 7);}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00221}00221\ \textcolor{comment}{\ *\ s.calculateGalutinis();}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00222}00222\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00223}00223\ \textcolor{comment}{\ *\ std::cout\ <<\ s\ <<\ "{}\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ //\ į\ ekraną}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00224}00224\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00225}00225\ \textcolor{comment}{\ *\ std::ofstream\ f("{}rezultatai.txt"{});}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00226}00226\ \textcolor{comment}{\ *\ f\ <<\ s\ <<\ "{}\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ į\ failą}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00227}00227\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00228}00228\ \textcolor{comment}{\ *\ zmogus\&\ z\ =\ s;}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00229}00229\ \textcolor{comment}{\ *\ std::cout\ <<\ z\ <<\ "{}\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ //\ per\ bazinės\ klasės\ nuorodą}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00230}00230\ \textcolor{comment}{\ *\ @endcode}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00231}00231\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00232}00232\ std::ostream\&\ \doxymbox{\hyperlink{zmogus_8h_aa13bdc9d741efbe2622274d92503d010}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classzmogus}{zmogus}}\&\ z);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00233}00233\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00234}00234\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00235}00235\ \textcolor{comment}{\ *\ @brief\ Polimorfinis\ įvesties\ operatorius.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00236}00236\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00237}00237\ \textcolor{comment}{\ *\ Priima\ \`{}zmogus\&`\ nuorodą,\ bet\ kviečia\ virtualų\ read()\ metodą.}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00238}00238\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00239}00239\ \textcolor{comment}{\ *\ @param\ is\ Įvesties\ srautas}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00240}00240\ \textcolor{comment}{\ *\ @param\ z\ Objektas,\ į\ kurį\ nuskaitomi\ duomenys}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00241}00241\ \textcolor{comment}{\ *\ @return\ Nuoroda\ į\ srautą}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00242}00242\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00243}00243\ \textcolor{comment}{\ *\ @throws\ std::runtime\_error\ jei\ duomenys\ netinkami}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00244}00244\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00245}00245\ std::istream\&\ \doxymbox{\hyperlink{zmogus_8h_a83717bca17c74f44fccbc3a991026333}{operator>>}}(std::istream\&\ is,\ \doxymbox{\hyperlink{classzmogus}{zmogus}}\&\ z);}
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{zmogus_8h_source_l00247}00247\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ZMOGUS\_H\_DEFINED}}
+
+\end{DoxyCode}

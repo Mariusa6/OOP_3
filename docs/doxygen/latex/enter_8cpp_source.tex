@@ -1,0 +1,119 @@
+\doxysection{enter.\+cpp}
+\hypertarget{enter_8cpp_source}{}\label{enter_8cpp_source}\index{OOP\_3/enter.cpp@{OOP\_3/enter.cpp}}
+\doxymbox{\hyperlink{enter_8cpp}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{enter_8h}{enter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00003}00003\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00004}00004\ \textcolor{comment}{//\ enterStudentas\ —\ surenka\ vieno\ studento\ duomenis\ ir\ sukuria}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00005}00005\ \textcolor{comment}{//\ objektą\ per\ pilną\ konstruktorių\ (jis\ validuoja\ ir\ apskaičiuoja).}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00006}00006\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00007}\doxymbox{\hyperlink{enter_8cpp_a5636e815383c58ca453311ad83989444}{00007}}\ \doxymbox{\hyperlink{classstudentas}{studentas}}\ \doxymbox{\hyperlink{enter_8cpp_a5636e815383c58ca453311ad83989444}{enterStudentas}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00009}00009\ \ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\#'}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studentas:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00011}00011\ \ \ \ \ std::string\ vardas\ =\ \doxymbox{\hyperlink{enter_8cpp_aaf49ce89aec8f975875a373eaf934b8b}{enterName}}(n);}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00012}00012\ \ \ \ \ std::string\ pavarde\ =\ \doxymbox{\hyperlink{enter_8cpp_ad902984e6f75d81851f09fb73b940352}{enterSurname}}(n);}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00013}00013\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ nd\ =\ \doxymbox{\hyperlink{enter_8cpp_a4c40ce3f9e7a303c4a1555edbfa8f640}{enterPazymiai}}(n,\ \doxymbox{\hyperlink{enter_8cpp_a1b12f06f1f9095e414b7001f377fc67a}{enterNumberOfPazymys}}(n));}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ egzaminas\ =\ \doxymbox{\hyperlink{enter_8cpp_a80734449dd8b2b32ddf671cde5cc07a0}{enterEgzaminas}}(n);}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classstudentas}{studentas}}(vardas,\ pavarde,\ nd,\ egzaminas);}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00019}\doxymbox{\hyperlink{enter_8cpp_aaf49ce89aec8f975875a373eaf934b8b}{00019}}\ std::string\ \doxymbox{\hyperlink{enter_8cpp_aaf49ce89aec8f975875a373eaf934b8b}{enterName}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00021}00021\ \ \ \ \ std::string\ v;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00023}00023\ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ studento\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ vardą:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(std::cin\ >>\ v)\ ||\ !\doxymbox{\hyperlink{enter_8cpp_ad825e0bf7e7233028c28af95f02c952c}{isAllLetters}}(v))}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ std::cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Naudokite\ raides.\ Iveskite\ studento\ vardą:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00034}\doxymbox{\hyperlink{enter_8cpp_ad902984e6f75d81851f09fb73b940352}{00034}}\ std::string\ \doxymbox{\hyperlink{enter_8cpp_ad902984e6f75d81851f09fb73b940352}{enterSurname}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00036}00036\ \ \ \ \ std::string\ v;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00038}00038\ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ studento\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ pavardę:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(std::cin\ >>\ v)\ ||\ !\doxymbox{\hyperlink{enter_8cpp_ad825e0bf7e7233028c28af95f02c952c}{isAllLetters}}(v))}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ std::cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Naudokite\ raides.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ studento\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ pavardę:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00045}00045\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00050}\doxymbox{\hyperlink{enter_8cpp_a1b12f06f1f9095e414b7001f377fc67a}{00050}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{enter_8cpp_a1b12f06f1f9095e414b7001f377fc67a}{enterNumberOfPazymys}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\{\};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00054}00054\ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ kiek\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studentas\ turėjo\ namų\ darbų:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(std::cin\ >>\ tmp)\ ||\ tmp\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ std::cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ neneigiamą\ skaičių.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ kiek\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studentas\ turėjo\ namų\ darbų:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00066}\doxymbox{\hyperlink{enter_8cpp_a807792fb0a7abcdfdfb710cf990bc426}{00066}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{enter_8cpp_a807792fb0a7abcdfdfb710cf990bc426}{enterPazymys}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\{\};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00070}00070\ \ \ \ \ std::cout\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ pažymys:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(std::cin\ >>\ tmp)\ ||\ tmp\ <\ studentas::minPazymys\ ||\ tmp\ >\ \doxymbox{\hyperlink{classstudentas_a7a161092b42a69047c953d133c7141cb}{studentas::maxPazymys}})}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00072}00072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ std::cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ skaičių\ nuo\ "{}}\ <<\ \doxymbox{\hyperlink{classstudentas_a08eb952f268a7d733b733e438ca78d80}{studentas::minPazymys}}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ u8\textcolor{stringliteral}{"{}\ iki\ "{}}\ <<\ \doxymbox{\hyperlink{classstudentas_a7a161092b42a69047c953d133c7141cb}{studentas::maxPazymys}}\ <<\ u8\textcolor{stringliteral}{"{}.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ std::cout\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ pažymys:\ "{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00083}\doxymbox{\hyperlink{enter_8cpp_a4c40ce3f9e7a303c4a1555edbfa8f640}{00083}}\ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ \doxymbox{\hyperlink{enter_8cpp_a4c40ce3f9e7a303c4a1555edbfa8f640}{enterPazymiai}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ m)\ \textcolor{comment}{//\ n\ -\/\ studento\ numeris,\ m\ -\/\ pažymių\ skaičius}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00085}00085\ \ \ \ \ \doxymbox{\hyperlink{class_vector}{Vector<int>}}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00086}00086\ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studento\ namų\ darbų\ pažymius.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\{\ 0\ \};\ i\ <\ m;\ i++)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00088}00088\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ tmp.\doxymbox{\hyperlink{class_vector_a7cb08d016f15c97741c849cdb83170e1}{push\_back}}(\doxymbox{\hyperlink{enter_8cpp_a807792fb0a7abcdfdfb710cf990bc426}{enterPazymys}}(i\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00094}\doxymbox{\hyperlink{enter_8cpp_a80734449dd8b2b32ddf671cde5cc07a0}{00094}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{enter_8cpp_a80734449dd8b2b32ddf671cde5cc07a0}{enterEgzaminas}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{int}\ tmp\{\};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00098}00098\ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ kiek\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studentas\ gavo\ iš\ egzamino.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{while}\ (!(std::cin\ >>\ tmp)\ ||\ tmp\ <\ studentas::minPazymys\ ||\ tmp\ >\ \doxymbox{\hyperlink{classstudentas_a7a161092b42a69047c953d133c7141cb}{studentas::maxPazymys}})}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ std::cin.clear();}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ std::cin.ignore(std::numeric\_limits<std::streamsize>::max(),\ \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ skaičių\ nuo\ "{}}\ <<\ \doxymbox{\hyperlink{classstudentas_a08eb952f268a7d733b733e438ca78d80}{studentas::minPazymys}}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ u8\textcolor{stringliteral}{"{}\ iki\ "{}}\ <<\ \doxymbox{\hyperlink{classstudentas_a7a161092b42a69047c953d133c7141cb}{studentas::maxPazymys}}\ <<\ u8\textcolor{stringliteral}{"{}.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ std::cout\ <<\ u8\textcolor{stringliteral}{"{}Iveskite\ kiek\ \#"{}}\ <<\ n\ <<\ u8\textcolor{stringliteral}{"{}\ studentas\ gavo\ iš\ egzamino.\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00111}\doxymbox{\hyperlink{enter_8cpp_ad825e0bf7e7233028c28af95f02c952c}{00111}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{enter_8cpp_ad825e0bf7e7233028c28af95f02c952c}{isAllLetters}}(\textcolor{keyword}{const}\ std::string\&\ input)\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{return}\ std::all\_of(input.begin(),\ input.end(),\ ::isalpha);}
+\DoxyCodeLine{\Hypertarget{enter_8cpp_source_l00113}00113\ \}}
+
+\end{DoxyCode}

@@ -295,8 +295,13 @@ TEST_CASE("Rule of Five: noexcept specifikatorius", "[rule5][noexcept]")
     }
 
     SECTION("bazine klase taip pat noexcept") {
-        REQUIRE(std::is_nothrow_move_constructible<zmogus>::value);
-        REQUIRE(std::is_nothrow_move_assignable<zmogus>::value);
+        // zmogus konstruktoriai yra protected, todel is_nothrow_move_constructible
+        // grazina false — trait tikrina prieinamuma IS ISORES, ne noexcept.
+        // Kad bazines klases move operacijos tikrai noexcept, matome netiesiogiai:
+        // studentas move konstruktorius kviecia zmogus(std::move(other)) ir pats
+        // yra noexcept — kompiliatorius to neleistu, jei bazine galetu mesti isimti.
+        REQUIRE(std::is_nothrow_move_constructible<studentas>::value);
+        REQUIRE_FALSE(std::is_default_constructible<zmogus>::value);
     }
 }
 

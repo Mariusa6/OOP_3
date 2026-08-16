@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['2_20naudojimosi_20instrukcija_0',['2. Naudojimosi instrukcija',['../index.html#autotoc_md6',1,'']]]
+  ['atminties_20perskirstymai_0',['Atminties perskirstymai',['../index.html#autotoc_md11',1,'']]]
 ];

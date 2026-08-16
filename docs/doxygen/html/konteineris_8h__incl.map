@@ -1,0 +1,25 @@
+<map id="OOP_3/konteineris.h" name="OOP_3/konteineris.h">
+<area shape="rect" id="Node000001" title="Konteinerio tipo perjungimas tarp std::vector ir nuosavos Vector." alt="" coords="416,5,559,32"/>
+<area shape="rect" id="Node000002" href="$_vector_8h.html" title="Nuosava std::vector alternatyva — dinaminis masyvas." alt="" coords="409,80,478,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,31,461,69,457,65,478,34"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="503,80,560,107"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="496,30,519,68,513,66,494,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,74,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="406,100,273,123,89,157,88,152,272,118,411,99"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,155,160,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="409,104,175,157,174,151,408,99"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="183,155,261,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="411,106,276,152,275,147,406,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="286,155,382,181"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="427,106,367,148,365,143,422,108"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="406,155,481,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="445,105,446,141,441,137,442,109"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="505,155,558,181"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="460,105,507,145,502,144,458,110"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="582,155,665,181"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="475,105,581,149,575,148,474,110"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="689,155,753,181"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="479,101,676,154,671,154,478,106"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="777,155,830,181"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="479,101,492,104,626,127,686,136,765,155,760,154,685,141,625,132,491,109,478,106"/>
+</map>

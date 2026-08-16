@@ -1,0 +1,91 @@
+\doxysection{calculate.\+h}
+\hypertarget{calculate_8h_source}{}\label{calculate_8h_source}\index{OOP\_3/calculate.h@{OOP\_3/calculate.h}}
+\doxymbox{\hyperlink{calculate_8h}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ CALCULATE\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ CALCULATE\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \textcolor{comment}{//\ vector}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \ \ \ \textcolor{comment}{//\ sort,\ partition\_copy,\ stable\_partition}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <iterator>}\ \ \ \ \ \textcolor{comment}{//\ back\_inserter,\ make\_move\_iterator}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <type\_traits>}\ \ \textcolor{comment}{//\ is\_same\_v}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <stdexcept>}\ \ \ \ \textcolor{comment}{//\ runtime\_error}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00011}00011\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00012}00012\ \textcolor{comment}{//\ Template:\ calculateGalutinis}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00013}00013\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00014}00014\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00015}\doxymbox{\hyperlink{calculate_8h_a075f16863229a04047d7d1e57c11e7fd}{00015}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculate_8h_a075f16863229a04047d7d1e57c11e7fd}{calculateGalutinis}}(Container\&\ studentai)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (studentai.empty())}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Studentų\ sąrašas\ tuščias\ —\ nėra\ ką\ skaičiuoti."{}});}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ s\ :\ studentai)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ s.calculateGalutinis();}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00024}00024\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00025}00025\ \textcolor{comment}{//\ Template:\ sortStudentai}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00026}00026\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00027}00027\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00028}\doxymbox{\hyperlink{calculate_8h_a86a9a7ec6b079ece5e376ea000412fa4}{00028}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{calculate_8h_a86a9a7ec6b079ece5e376ea000412fa4}{sortStudentai}}(Container\&\ studentai,\ \textcolor{keywordtype}{char}\ sortBy)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{auto}\ cmp\ =\ [sortBy](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classstudentas}{studentas}}\&\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classstudentas}{studentas}}\&\ b)\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (sortBy)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'1'}:\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{studentas_8cpp_a0a090581662414d22a31c1c2df11ab9d}{comparePagalVarda}}(a,\ b);}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'2'}:\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{studentas_8cpp_afdbb7a6f48d03b06797dcb3c719f028c}{comparePagalPavarde}}(a,\ b);}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'3'}:\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{studentas_8cpp_a2316ebd910e6f41a24383cdb5292d817}{comparePagalVidurki}}(a,\ b);}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'4'}:\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{studentas_8cpp_abf2bec5fcfb3a0031d0f388be4936f04}{comparePagalMediana}}(a,\ b);}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<Container,\ std::list<studentas>>)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ studentai.sort(cmp);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ list\ narys}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ std::sort(studentai.begin(),\ studentai.end(),\ cmp);\ \ \textcolor{comment}{//\ vector\ /\ deque}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00048}00048\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00049}00049\ \textcolor{comment}{//\ Template:\ splitStudentai\ \ (1\ strategija)}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00050}00050\ \textcolor{comment}{//\ Skaido\ į\ DU\ naujus\ konteinerius,\ originalas\ nekeičiamas.}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00051}00051\ \textcolor{comment}{//\ Neefektyvu\ atminties\ atžvilgiu\ —\ duomenys\ dublikuojami.}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00052}00052\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00053}00053\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00054}\doxymbox{\hyperlink{calculate_8h_a6446249f282aca6b2314630b80b2228a}{00054}}\ \doxymbox{\hyperlink{structsplit_result}{splitResult<Container>}}\ \doxymbox{\hyperlink{calculate_8h_a6446249f282aca6b2314630b80b2228a}{splitStudentai}}(\textcolor{keyword}{const}\ Container\&\ studentai)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00056}00056\ \ \ \ \ \doxymbox{\hyperlink{structsplit_result}{splitResult<Container>}}\ result;}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00058}00058\ \ \ \ \ std::partition\_copy(studentai.begin(),\ studentai.end(),}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ std::back\_inserter(result.\doxymbox{\hyperlink{structsplit_result_acd19889c02ed06db0977cbfc0fecc8a2}{kietiakai}}),}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ std::back\_inserter(result.\doxymbox{\hyperlink{structsplit_result_a47cd03b30b9aeee3b508c282b02b3618}{vargsiukai}}),}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classstudentas}{studentas}}\&\ s)\ \{\ return\ s.galutinisVid()\ >=\ 5.0;\ \});}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00066}00066\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00067}00067\ \textcolor{comment}{//\ Template:\ partitionStudentai\ \ (3\ strategija\ —\ optimaliausia)}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00068}00068\ \textcolor{comment}{//\ Perskirsto\ originalų\ konteinerį\ vietoje,\ vargsiukus\ perkelia}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00069}00069\ \textcolor{comment}{//\ į\ naują\ konteinerį\ ir\ blokiniu\ erase\ pašalina\ iš\ originalo.}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00070}00070\ \textcolor{comment}{//\ Po\ iškvietimo\ studentai\ konteineryje\ lieka\ tik\ kietiakai.}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00071}00071\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00072}00072\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00073}\doxymbox{\hyperlink{calculate_8h_a6532d778fd6f2d1ff2759c109c3002b4}{00073}}\ Container\ \doxymbox{\hyperlink{calculate_8h_a6532d778fd6f2d1ff2759c109c3002b4}{partitionStudentai}}(Container\&\ studentai)}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::stable\_partition(studentai.begin(),\ studentai.end(),}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ [](\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classstudentas}{studentas}}\&\ s)\ \{\ return\ s.galutinisVid()\ >=\ 5.0;\ \});}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00078}00078\ \ \ \ \ Container\ vargsiukai(std::make\_move\_iterator(it),}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ std::make\_move\_iterator(studentai.end()));}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00080}00080\ \ \ \ \ studentai.erase(it,\ studentai.end());}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{return}\ vargsiukai;}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{calculate_8h_source_l00085}00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CALCULATE\_H\_DEFINED}}
+
+\end{DoxyCode}

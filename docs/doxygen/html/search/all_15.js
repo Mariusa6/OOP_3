@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['o_20optimizacija_0',['I/O optimizacija',['../index.html#autotoc_md44',1,'']]],
-  ['of_20five_20su_20paveldėjimu_1',['Rule of Five su paveldėjimu',['../index.html#autotoc_md23',1,'']]],
-  ['optimizacija_2',['I/O optimizacija',['../index.html#autotoc_md44',1,'']]],
-  ['optimizavimo_20flag_20ai_3',['&lt;span class=&quot;tt&quot;&gt;struct&lt;/span&gt; vs &lt;span class=&quot;tt&quot;&gt;class&lt;/span&gt; ir optimizavimo flag&apos;ai',['../index.html#autotoc_md43',1,'']]]
+  ['zmogus_0',['zmogus',['../classzmogus.html',1,'zmogus'],['../classzmogus.html#a3cb03824ec8269cf401cbf615e440833',1,'zmogus::zmogus()'],['../classzmogus.html#a5f1b8edf433bc8c539755cc3539a0d02',1,'zmogus::zmogus(const std::string &amp;vardas, const std::string &amp;pavarde)'],['../classzmogus.html#a069ba9472329368e0dbb03ceffef6459',1,'zmogus::zmogus(const zmogus &amp;other)'],['../classzmogus.html#a68cb6f9ee66889afdef09561b8292e77',1,'zmogus::zmogus(zmogus &amp;&amp;other) noexcept']]],
+  ['zmogus_2ecpp_1',['zmogus.cpp',['../zmogus_8cpp.html',1,'']]],
+  ['zmogus_2eh_2',['zmogus.h',['../zmogus_8h.html',1,'']]]
 ];

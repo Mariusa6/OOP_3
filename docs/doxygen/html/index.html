@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Studentu informacine sistema: Studentų Informacinė Sistema</title>
+<title>Studentu informacine sistema: v3.0 — Nuosavas Vector konteineris</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="codefolding.js"></script>
@@ -31,7 +31,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v2.0</span>
+   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v3.0</span>
    </div>
    <div id="projectbrief">VU ISI Objektinio programavimo kurso laboratoriniai darbai</div>
   </td>
@@ -117,571 +117,216 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Studentų Informacinė Sistema </div></div>
+  <div class="headertitle"><div class="title">v3.0 — Nuosavas <a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a> konteineris </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
-<p><b>OOP_Marius_Augustinas</b> · VU ISI Objektinio programavimo kurso laboratoriniai darbai</p>
-<p>C++ programa studentų duomenims įvesti, saugoti, apdoroti ir analizuoti. Palaiko tris STL konteinerius, tris duomenų įvesties būdus, studentų skirstymą į kategorijas ir spartos tyrimus su dideliais duomenų kiekiais.</p>
+<p>Galutinė laboratorinių darbų versija · VU ISI Objektinio programavimo kursas</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
-Turinys</h1>
-<ol type="1">
-<li>Versijų istorijaVersijų istorija</li>
-</ol>
-<ol type="1">
-<li>Naudojimosi instrukcijaNaudojimosi instrukcija</li>
-</ol>
-<ol type="1">
-<li>Įdiegimo instrukcijaĮdiegimo instrukcija</li>
-</ol>
-<ol type="1">
-<li>Klasių architektūraKlasių architektūra</li>
-</ol>
-<ol type="1">
-<li>DokumentacijaDokumentacija</li>
-</ol>
-<ol type="1">
-<li>Unit testaiUnit testai</li>
-</ol>
-<ol type="1">
-<li>Spartos tyrimaiSpartos tyrimai</li>
-</ol>
-<ol type="1">
-<li>Failų struktūraFailų struktūra</li>
-</ol>
+Santrauka</h1>
+<p>Sukurtas nuosavas <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span> konteineris, realizuojantis ~99% <span class="tt">std::vector</span> interfeiso, ir juo pakeistas standartinis konteineris visoje programoje. Atlikta spartos analizė, parašyti unit testai, sugeneruota dokumentacija ir paruoštas diegimo failas.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-1. Versijų istorija</h1>
+Nauja šioje versijoje</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Vector konteineris</h2>
+<p>Naujas failas <span class="tt"><a class="el" href="_vector_8h.html" title="Nuosava std::vector alternatyva — dinaminis masyvas.">OOP_3/Vector.h</a></span> — apie 80 metodų.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Versija  </th><th class="markdownTableHeadNone">Pagrindiniai pakeitimai  </th></tr>
+<th class="markdownTableHeadNone">Kategorija  </th><th class="markdownTableHeadNone">Realizuota  </th><th class="markdownTableHeadNone"><span class="tt">std::vector</span> turi  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>v0.1</b>  </td><td class="markdownTableBodyNone">Pradinė realizacija — <span class="tt">std::vector</span>, rankinis įvedimas, vidurkio arba medianos skaičiavimas  </td></tr>
+<td class="markdownTableBodyNone">Member tipai  </td><td class="markdownTableBodyNone">12  </td><td class="markdownTableBodyNone">12  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>v0.2</b>  </td><td class="markdownTableBodyNone">Failo skaitymas ir rašymas, rikiavimas, abu galutiniai balai skaičiuojami vienu metu  </td></tr>
+<td class="markdownTableBodyNone">Konstruktoriai / destruktorius  </td><td class="markdownTableBodyNone">8  </td><td class="markdownTableBodyNone">8  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>v0.3</b>  </td><td class="markdownTableBodyNone">Kodas suskaidytas į modulius (<span class="tt">*.h</span>/<span class="tt">*.cpp</span>), išimčių valdymas (<span class="tt">try</span>/<span class="tt">catch</span>)  </td></tr>
+<td class="markdownTableBodyNone">Priskyrimas  </td><td class="markdownTableBodyNone">6  </td><td class="markdownTableBodyNone">6  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>v0.4</b>  </td><td class="markdownTableBodyNone">Studentų skirstymas į dvi grupes, spartos testavimas, failų generatorius  </td></tr>
+<td class="markdownTableBodyNone">Elementų prieiga  </td><td class="markdownTableBodyNone">10  </td><td class="markdownTableBodyNone">10  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>v0.5</b>  </td><td class="markdownTableBodyNone">Programa pertvarkyta į <span class="tt">template&lt;typename Container&gt;</span> — <span class="tt">vector</span>/<span class="tt">list</span>/<span class="tt">deque</span>  </td></tr>
+<td class="markdownTableBodyNone">Iteratoriai  </td><td class="markdownTableBodyNone">12  </td><td class="markdownTableBodyNone">12  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>v1.0</b>  </td><td class="markdownTableBodyNone">Trijų skirstymo strategijų palyginimas, atminties analizė, <span class="tt">CMakeLists.txt</span>  </td></tr>
+<td class="markdownTableBodyNone">Talpa  </td><td class="markdownTableBodyNone">6  </td><td class="markdownTableBodyNone">6  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>v1.1</b>  </td><td class="markdownTableBodyNone"><span class="tt">struct studentas</span> → <span class="tt">class studentas</span>; I/O optimizacija; struct vs class tyrimas  </td></tr>
+<td class="markdownTableBodyNone">Modifikavimas  </td><td class="markdownTableBodyNone">17  </td><td class="markdownTableBodyNone">18  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>v1.2</b>  </td><td class="markdownTableBodyNone">Pilna <b>Rule of Five</b>, perdengti operatoriai, rankinis klasės metodų testas  </td></tr>
+<td class="markdownTableBodyNone">Ne-nariai operatoriai  </td><td class="markdownTableBodyNone">9  </td><td class="markdownTableBodyNone">9  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>v1.5</b>  </td><td class="markdownTableBodyNone"><b>Abstrakti bazinė klasė <span class="tt">zmogus</span></b> + išvestinė <span class="tt">studentas</span>; polimorfizmas  </td></tr>
+<td class="markdownTableBodyNone"><b>Iš viso</b>  </td><td class="markdownTableBodyNone"><b>80</b>  </td><td class="markdownTableBodyNone"><b>81 (~99%)</b>  </td></tr>
+</table>
+<p>Nerealizuota tik <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a>&lt;bool&gt;</span> specializacija — sąmoningai, nes ji laikoma standarto klaida.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Programa perjungta į Vector</h2>
+<p>Pridėtas <span class="tt"><a class="el" href="konteineris_8h.html" title="Konteinerio tipo perjungimas tarp std::vector ir nuosavos Vector.">konteineris.h</a></span> perjungiklis — programą galima perkompiliuoti su bet kuriuo konteineriu:</p>
+<div class="fragment"><div class="line">cmake .. -DNAUDOTI_STD_VECTOR=ON    # std::vector</div>
+<div class="line">cmake .. -DNAUDOTI_STD_VECTOR=OFF   # nuosava Vector (numatytoji)</div>
+</div><!-- fragment --><p>Taip spartos palyginimas sąžiningas — abi versijos naudoja tą patį kodą.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Diegimo failas</h2>
+<p><span class="tt">setup.exe</span> (CPack + NSIS):</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Veiksmas  </th><th class="markdownTableHeadNone">Statusas  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Diegia į <span class="tt">C:\Program Files\VU\Marius-Augustinas</span>  </td><td class="markdownTableBodyNone">✅  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>v2.0</b>  </td><td class="markdownTableBodyNone"><b>Doxygen dokumentacija</b> (HTML + LaTeX + PDF), <b>Catch2 unit testai</b>, švari repozitorija  </td></tr>
+<td class="markdownTableBodyNone">Nuoroda darbalaukyje  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Nuoroda Start meniu (VU → Marius-Augustinas)  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Prašo administratoriaus teisių  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Įtraukia testinius failus (10k, 100k)  </td><td class="markdownTableBodyNone">✅  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Pašalinimas per Windows programų sąrašą  </td><td class="markdownTableBodyNone">✅  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
-2. Naudojimosi instrukcija</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
-Paleidimas</h2>
-<div class="fragment"><div class="line">.\programa.exe          # Windows</div>
-<div class="line">./programa              # Linux/Mac</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
-Pirmas ekranas — konteinerio pasirinkimas</h2>
-<div class="fragment"><div class="line">Pasirinkite konteinerį:</div>
-<div class="line">1. vector</div>
-<div class="line">2. list</div>
-<div class="line">3. deque</div>
-</div><!-- fragment --><p>Pasirinkimas galioja visai sesijai. Norint pakeisti — paleisti programą iš naujo.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
-Meniu</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Nr.  </th><th class="markdownTableHeadNone">Veiksmas  </th><th class="markdownTableHeadNone">Ką daro  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">Įvesti studentus ranka  </td><td class="markdownTableBodyNone">Klausia vardo, pavardės, pažymių po vieną  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">Generuoti tik pažymius  </td><td class="markdownTableBodyNone">Vardai įvedami ranka, pažymiai atsitiktiniai  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">3  </td><td class="markdownTableBodyNone">Generuoti studentus  </td><td class="markdownTableBodyNone">Šabloniniai vardai (<span class="tt">VardasNR1</span>) ir atsitiktiniai pažymiai  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">4  </td><td class="markdownTableBodyNone">Nuskaityti iš failo  </td><td class="markdownTableBodyNone">Klausia failo pavadinimo su <span class="tt">.txt</span> plėtiniu  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">5  </td><td class="markdownTableBodyNone">Generuoti studentų failą  </td><td class="markdownTableBodyNone">Sukuria testinį failą su nurodytu įrašų skaičiumi  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">6  </td><td class="markdownTableBodyNone">Failų kūrimo testas  </td><td class="markdownTableBodyNone">1 tyrimas — matuoja failo rašymo spartą  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">7  </td><td class="markdownTableBodyNone">Duomenų apdorojimo testas  </td><td class="markdownTableBodyNone">2 tyrimas — matuoja visus apdorojimo žingsnius  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">8  </td><td class="markdownTableBodyNone">Konteinerių palyginimas  </td><td class="markdownTableBodyNone">3 tyrimas — lygina <span class="tt">vector</span>, <span class="tt">list</span>, <span class="tt">deque</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">9  </td><td class="markdownTableBodyNone">Klasių metodų testas  </td><td class="markdownTableBodyNone">Rankinis <span class="tt">zmogus</span> ir <span class="tt">studentas</span> metodų patikrinimas  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">Baigti darbą  </td><td class="markdownTableBodyNone"></td></tr>
-</table>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Tyrimų rezultatai</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
-Tipinė darbo eiga</h2>
-<div class="fragment"><div class="line">1. Paleisti programą           → pasirinkti konteinerį (1 = vector)</div>
-<div class="line">2. Meniu punktas 5             → sugeneruoti failą (pvz. 100000 įrašų)</div>
-<div class="line">3. Meniu punktas 4             → nuskaityti tą failą</div>
-<div class="line">4. Pasirinkti rikiavimo būdą   → pvz. 4 (pagal medianą)</div>
-<div class="line">5. Pasirinkti išvesties formatą → 1 (konsolė) arba 2 (failas)</div>
-</div><!-- fragment --><p>Rezultate studentai suskirstomi į dvi grupes: <b>kietiakai</b> (galutinis ≥ 5.0) ir <b>vargsiukai</b> (galutinis &lt; 5.0).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
-Duomenų failo formatas</h2>
-<div class="fragment"><div class="line">Vardas                   Pavarde                         ND1       ND2  ...  Egzaminas</div>
-<div class="line">VardasNR1                PavardeNR1                        7         3  ...          5</div>
-<div class="line">VardasNR2                PavardeNR2                        9         1  ...          8</div>
-</div><!-- fragment --><p>Antraštė naudojama automatiškai nustatyti namų darbų stulpelių skaičių pagal <span class="tt">ND</span> žymėjimą — todėl failai su skirtingu pažymių kiekiu nuskaitomi be jokių pakeitimų kode.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Įvesties validacija</h2>
+push_back sparta</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Tikrinama  </th><th class="markdownTableHeadNone">Reakcija  </th></tr>
+<th class="markdownTableHeadNone">Elementų  </th><th class="markdownTableHeadNone"><span class="tt">std::vector</span>  </th><th class="markdownTableHeadNone"><span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span>  </th><th class="markdownTableHeadNone">Santykis  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Vardas / pavardė tuščia arba su skaičiais  </td><td class="markdownTableBodyNone">Kartojamas klausimas  </td></tr>
+<td class="markdownTableBodyNone">10 000  </td><td class="markdownTableBodyNone">0.000141 s  </td><td class="markdownTableBodyNone"><b>0.000125 s</b>  </td><td class="markdownTableBodyNone">0.89×  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Pažymys ne tarp 1 ir 10  </td><td class="markdownTableBodyNone">Kartojamas klausimas (interaktyviai) arba <span class="tt">std::runtime_error</span> (iš failo)  </td></tr>
+<td class="markdownTableBodyNone">100 000  </td><td class="markdownTableBodyNone">0.000954 s  </td><td class="markdownTableBodyNone"><b>0.000691 s</b>  </td><td class="markdownTableBodyNone">0.72×  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Failo pavadinimas be <span class="tt">.txt</span>  </td><td class="markdownTableBodyNone">Kartojamas klausimas  </td></tr>
+<td class="markdownTableBodyNone">1 000 000  </td><td class="markdownTableBodyNone">0.017269 s  </td><td class="markdownTableBodyNone"><b>0.003643 s</b>  </td><td class="markdownTableBodyNone">0.21×  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Failas neegzistuoja  </td><td class="markdownTableBodyNone"><span class="tt">std::runtime_error</span> su failo pavadinimu  </td></tr>
+<td class="markdownTableBodyNone">10 000 000  </td><td class="markdownTableBodyNone">0.089110 s  </td><td class="markdownTableBodyNone"><b>0.047492 s</b>  </td><td class="markdownTableBodyNone">0.53×  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Meniu pasirinkimas už ribų  </td><td class="markdownTableBodyNone">Kartojamas klausimas  </td></tr>
+<td class="markdownTableBodyNone">100 000 000  </td><td class="markdownTableBodyNone">0.727454 s  </td><td class="markdownTableBodyNone"><b>0.315388 s</b>  </td><td class="markdownTableBodyNone">0.43×  </td></tr>
 </table>
+<p>Su grynais <span class="tt">int</span> elementais nuosava realizacija 2–5× greitesnė — dėl mažesnio perskirstymų skaičiaus.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+Atminties perskirstymai</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Elementų  </th><th class="markdownTableHeadNone"><span class="tt">std::vector</span>  </th><th class="markdownTableHeadNone"><span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span>  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">10 000  </td><td class="markdownTableBodyNone">24  </td><td class="markdownTableBodyNone"><b>15</b>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">1 000 000  </td><td class="markdownTableBodyNone">35  </td><td class="markdownTableBodyNone"><b>21</b>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">100 000 000  </td><td class="markdownTableBodyNone">47  </td><td class="markdownTableBodyNone"><b>28</b>  </td></tr>
+</table>
+<p><span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span> naudoja 2× augimo koeficientą, MSVC <span class="tt">std::vector</span> — 1.5×. Todėl perskirstymų ~1.7 karto mažiau.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+Programos sparta su realiais duomenimis</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Studentų  </th><th class="markdownTableHeadNone"><span class="tt">std::vector</span>  </th><th class="markdownTableHeadNone"><span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span>  </th><th class="markdownTableHeadNone">Skirtumas  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">100 000  </td><td class="markdownTableBodyNone"><b>0.500 s</b>  </td><td class="markdownTableBodyNone">0.530 s  </td><td class="markdownTableBodyNone">+6%  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">1 000 000  </td><td class="markdownTableBodyNone"><b>5.247 s</b>  </td><td class="markdownTableBodyNone">6.261 s  </td><td class="markdownTableBodyNone">+19%  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">10 000 000  </td><td class="markdownTableBodyNone"><b>90.624 s</b>  </td><td class="markdownTableBodyNone">123.427 s  </td><td class="markdownTableBodyNone">+36%  </td></tr>
+</table>
+<p>Su sudėtingais objektais (<span class="tt"><a class="el" href="classstudentas.html" title="Studento duomenys — išvestinė klasė iš abstrakčios zmogus.">studentas</a></span> turi du <span class="tt">std::string</span> ir <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a>&lt;int&gt;</span>) nuosava realizacija atsilieka. Priežastis — MSVC <span class="tt">std::vector</span> turi optimizacijų, kurių paprastesnė realizacija neturi.</p>
+<p>Rikiavimas ir skirstymas praktiškai lygūs, nes juos atlieka STL algoritmai per iteratorius, o <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span> iteratoriai yra paprastos rodyklės.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-3. Įdiegimo instrukcija</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
-Reikalavimai</h2>
+Unit testai</h1>
+<p><span class="tt"><a class="el" href="_vectortests_8cpp.html" title="Unit testai nuosavai Vector klasei (Catch2).">tests/vectorTests.cpp</a></span> — 70 sekcijų, suskirstytų į 9 grupes. Kiekviena operacija atliekama su <span class="tt">std::vector</span> ir <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span>, rezultatai lyginami.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Įrankis  </th><th class="markdownTableHeadNone">Versija  </th><th class="markdownTableHeadNone">Būtinas  </th></tr>
+<th class="markdownTableHeadNone">Žymė  </th><th class="markdownTableHeadNone">Sekcijų  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">C++ kompiliatorius  </td><td class="markdownTableBodyNone">MSVC 2019+, g++ 8+, clang++ 7+ (C++17)  </td><td class="markdownTableBodyNone">Taip  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[konstruktoriai]</span>  </td><td class="markdownTableBodyNone">8  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">CMake  </td><td class="markdownTableBodyNone">3.16+  </td><td class="markdownTableBodyNone">Rekomenduojama  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[priskyrimas]</span>  </td><td class="markdownTableBodyNone">6  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Catch2  </td><td class="markdownTableBodyNone">v2.13.x (<span class="tt">catch.hpp</span>)  </td><td class="markdownTableBodyNone">Unit testams  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[prieiga]</span>  </td><td class="markdownTableBodyNone">5  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Doxygen  </td><td class="markdownTableBodyNone">1.9+  </td><td class="markdownTableBodyNone">Dokumentacijai  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[iteratoriai]</span>  </td><td class="markdownTableBodyNone">5  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Graphviz  </td><td class="markdownTableBodyNone">bet kokia  </td><td class="markdownTableBodyNone">Diagramoms dokumentacijoje  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[talpa]</span>  </td><td class="markdownTableBodyNone">8  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">TeX Live / MiKTeX  </td><td class="markdownTableBodyNone">bet kokia  </td><td class="markdownTableBodyNone">PDF generavimui  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">[modifikavimas]</span>  </td><td class="markdownTableBodyNone">24  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">[operatoriai]</span>  </td><td class="markdownTableBodyNone">5  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">[tipai]</span>  </td><td class="markdownTableBodyNone">3  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">[krastiniai]</span>  </td><td class="markdownTableBodyNone">6  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
-Variantas A — CMake (rekomenduojama)</h2>
-<div class="fragment"><div class="line">git clone &lt;repozitorijos-adresas&gt;</div>
-<div class="line">cd OOP_Marius_Augustinas</div>
-<div class="line"> </div>
-<div class="line">mkdir build &amp;&amp; cd build</div>
+<p>Testuose naudojama <span class="tt">Sekiklis</span> klasė, skaičiuojanti konstruktorių, kopijų ir perkėlimų kvietimus — taip patikrinama, ar perskirstymas tikrai naudoja <span class="tt">move</span>, ne <span class="tt">copy</span>.</p>
+<div class="fragment"><div class="line">./vectorTests              # visi testai</div>
+<div class="line">./vectorTests &quot;[talpa]&quot;    # tik talpos testai</div>
+</div><!-- fragment --><hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Dokumentacija</h1>
+<p>Visa <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span> klasė pakomentuota Doxygen žymomis.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Formatas  </th><th class="markdownTableHeadNone">Vieta  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HTML  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/html/index.html</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LaTeX  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/latex/</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PDF  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/refman.pdf</span>  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+Pakeisti failai</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Failas  </th><th class="markdownTableHeadNone">Pakeitimas  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="_vector_8h.html" title="Nuosava std::vector alternatyva — dinaminis masyvas.">OOP_3/Vector.h</a></span>  </td><td class="markdownTableBodyNone"><b>Naujas</b> — nuosavas konteineris  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="konteineris_8h.html" title="Konteinerio tipo perjungimas tarp std::vector ir nuosavos Vector.">OOP_3/konteineris.h</a></span>  </td><td class="markdownTableBodyNone"><b>Naujas</b> — perjungiklis  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="_vectortests_8cpp.html" title="Unit testai nuosavai Vector klasei (Catch2).">tests/vectorTests.cpp</a></span>  </td><td class="markdownTableBodyNone"><b>Naujas</b> — <a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a> testai  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="benchmark_8cpp.html" title="Spartos analizė: std::vector vs nuosava Vector klasė.">tests/benchmark.cpp</a></span>  </td><td class="markdownTableBodyNone"><b>Naujas</b> — spartos analizė  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="studentas_8h.html" title="Išvestinė klasė studentas — studento duomenys ir galutinių balų skaičiavimas.">OOP_3/studentas.h</a></span>  </td><td class="markdownTableBodyNone"><span class="tt">std::vector&lt;int&gt; nd_</span> → <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a>&lt;int&gt; nd_</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt"><a class="el" href="_o_o_p__3_8cpp.html">OOP_3/OOP_3.cpp</a></span>  </td><td class="markdownTableBodyNone">Naudoja <span class="tt"><a class="el" href="konteineris_8h.html#ad95895b7bdd09ed705005b9bcd0ed27a" title="Naudojamo konteinerio šablonas.">Konteineris</a>&lt;<a class="el" href="classstudentas.html" title="Studento duomenys — išvestinė klasė iš abstrakčios zmogus.">studentas</a>&gt;</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">CMakeLists.txt</span>  </td><td class="markdownTableBodyNone">+ benchmark, vectorTests, CPack  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Diegimas</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+Iš setup.exe</h2>
+<p>Atsisiųsti prisegtą <span class="tt">setup.exe</span> → paleisti → programa įdiegiama į <span class="tt">C:\Program Files\VU\Marius-Augustinas</span> su nuorodomis darbalaukyje ir Start meniu.</p>
+<p>Pašalinimas: <b>Settings → Apps → Studentu informacine sistema → Uninstall</b>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+Iš šaltinio</h2>
+<div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
 <div class="line">cmake ..</div>
 <div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><p>Rezultatas:</p><ul>
-<li><span class="tt">programa</span> (arba <span class="tt">programa.exe</span>) — pagrindinė programa</li>
-<li><span class="tt">unitTests</span> — unit testai (jei rastas <span class="tt">tests/catch.hpp</span>)</li>
-<li><span class="tt">data/</span> aplankas nukopijuojamas automatiškai šalia vykdomojo failo</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
-Variantas B — g++ tiesiogiai</h2>
-<div class="fragment"><div class="line">cd OOP_2</div>
-<div class="line">g++ -std=c++17 -O2 -Wall \</div>
-<div class="line">    OOP_2.cpp zmogus.cpp studentas.cpp testStudentas.cpp \</div>
-<div class="line">    menu.cpp enter.cpp generate.cpp file.cpp print.cpp test.cpp \</div>
-<div class="line">    -o programa.exe</div>
-<div class="line">./programa.exe</div>
-</div><!-- fragment --><p>Kompiliuoti reikia <b>iš <span class="tt">OOP_2/</span> aplanko</b> — taip vykdomasis failas atsiranda šalia <span class="tt">data/</span>, ir testavimo funkcijos randa duomenų failus.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
-Variantas C — Visual Studio</h2>
-<p>CMake projektą galima atidaryti tiesiogiai: <b>File → Open → CMake</b> → pasirinkti <span class="tt">CMakeLists.txt</span>.</p>
-<p>Rankiniam projektui — <b>Properties → Configuration: Release, Platform: x64</b>:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Nustatymas  </th><th class="markdownTableHeadNone">Reikšmė  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">C/C++ → Language → C++ Language Standard  </td><td class="markdownTableBodyNone"><span class="tt">ISO C++17 (/std:c++17)</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">C/C++ → Optimization → Optimization  </td><td class="markdownTableBodyNone"><span class="tt">/O2</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">C/C++ → Optimization → Whole Program Optimization  </td><td class="markdownTableBodyNone"><span class="tt">/GL</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Linker → Optimization → Link Time Code Generation  </td><td class="markdownTableBodyNone"><span class="tt">/LTCG</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Debugging → Working Directory  </td><td class="markdownTableBodyNone"><span class="tt">$(ProjectDir)</span>  </td></tr>
-</table>
-<blockquote class="doxtable">
-<p><b>Pastaba dėl <span class="tt">/O3</span>:</b> MSVC tokio flag'o <b>neturi</b> — jo skalė yra <span class="tt">/Od</span> → <span class="tt">/O1</span> → <span class="tt">/O2</span>, kur <span class="tt">/O2</span> yra maksimalus lygis. GCC/Clang atitikmuo — <span class="tt">-O2</span>. </p>
-</blockquote>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
-Unit testų paruošimas</h2>
-<div class="fragment"><div class="line">mkdir -p tests</div>
-<div class="line">curl -L -o tests/catch.hpp \</div>
+</div><!-- fragment --><p>Unit testams reikia <span class="tt">tests/catch.hpp</span>: </p><div class="fragment"><div class="line">curl -L -o tests/catch.hpp \</div>
 <div class="line">  https://github.com/catchorg/Catch2/releases/download/v2.13.10/catch.hpp</div>
-</div><!-- fragment --><p>Be <span class="tt">tests/catch.hpp</span> CMake parodys įspėjimą ir praleis testų taikinį — pagrindinė programa vis tiek sukompiliuos.</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
-4. Klasių architektūra</h1>
-<div class="fragment"><div class="line">┌─────────────────────────────┐</div>
-<div class="line">│   zmogus  (ABSTRAKTI)       │</div>
-<div class="line">├─────────────────────────────┤</div>
-<div class="line">│ protected:                  │</div>
-<div class="line">│   vardas_ , pavarde_        │</div>
-<div class="line">│   konstruktoriai            │</div>
-<div class="line">├─────────────────────────────┤</div>
-<div class="line">│ public:                     │</div>
-<div class="line">│   virtual ~zmogus()         │</div>
-<div class="line">│   vardas() / pavarde()      │</div>
-<div class="line">│   pilnasVardas()            │</div>
-<div class="line">│   setVardas() / setPavarde()│</div>
-<div class="line">│                             │</div>
-<div class="line">│   = 0  galutinis()          │  ← grynai virtualūs</div>
-<div class="line">│   = 0  print()              │</div>
-<div class="line">│   = 0  read()               │</div>
-<div class="line">│   = 0  tipas()              │</div>
-<div class="line">└──────────────┬──────────────┘</div>
-<div class="line">               │ public paveldėjimas</div>
-<div class="line">               ▼</div>
-<div class="line">┌─────────────────────────────┐</div>
-<div class="line">│   studentas  (KONKRETI)     │</div>
-<div class="line">├─────────────────────────────┤</div>
-<div class="line">│ private:                    │</div>
-<div class="line">│   nd_ , egzaminas_          │</div>
-<div class="line">│   galutinisVid_             │</div>
-<div class="line">│   galutinisMed_             │</div>
-<div class="line">├─────────────────────────────┤</div>
-<div class="line">│ public:                     │</div>
-<div class="line">│   Rule of Five (5 metodai)  │</div>
-<div class="line">│   override × 4              │</div>
-<div class="line">│   parseFromLine()           │</div>
-<div class="line">│   appendListTo()            │</div>
-<div class="line">│   ==, !=, &lt;, &gt;, [], bool    │</div>
-<div class="line">└─────────────────────────────┘</div>
-</div><!-- fragment --><p><img src="docs/klasiu_diagrama.png" alt="Klasių diagrama" class="inline"/> <em>1 pav. Klasių hierarchija (Visual Studio Class Designer)</em></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
-Abstrakti klasė <span class="tt">zmogus</span></h2>
-<p>Klasė padaryta abstrakti <b>dviem nepriklausomais mechanizmais</b>:</p>
-<ol type="1">
-<li><b>Keturi grynai virtualūs metodai</b> — <span class="tt">galutinis()</span>, <span class="tt">print()</span>, <span class="tt">read()</span>, <span class="tt">tipas()</span></li>
-<li><b><span class="tt">protected</span> konstruktoriai</b> — prieinami tik išvestinėms klasėms</li>
-</ol>
-<p>Objekto sukurti neįmanoma: </p><div class="fragment"><div class="line">zmogus z;                     <span class="comment">// error C2259: cannot instantiate abstract class</span></div>
-<div class="line">zmogus* p = <span class="keyword">new</span> zmogus();     <span class="comment">// ta pati klaida</span></div>
-</div><!-- fragment --><p><img src="docs/abstrakti_klaida.png" alt="Kompiliavimo klaida" class="inline"/> <em>2 pav. Kompiliatoriaus klaida bandant sukurti <span class="tt">zmogus</span> objektą</em></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
-Rule of Five su paveldėjimu</h2>
-<p>Kiekviena iš penkių funkcijų <b>privalo</b> iškviesti atitinkamą bazinės klasės funkciją:</p>
+</div><!-- fragment --><hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+Prisegti failai</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Metodas  </th><th class="markdownTableHeadNone">Bazinės klasės kvietimas  </th><th class="markdownTableHeadNone">Kas nutiktų be jo  </th></tr>
+<th class="markdownTableHeadNone">Failas  </th><th class="markdownTableHeadNone">Aprašymas  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Kopijavimo konstruktorius  </td><td class="markdownTableBodyNone"><span class="tt">: zmogus(other)</span>  </td><td class="markdownTableBodyNone">Vardas ir pavardė liktų tušti  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">setup.exe</span>  </td><td class="markdownTableBodyNone">Diegimo failas su testiniais duomenimis (10k, 100k)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Kopijavimo priskyrimas  </td><td class="markdownTableBodyNone"><span class="tt">zmogus::operator=(other);</span>  </td><td class="markdownTableBodyNone">Bazinė dalis nepasikeistų  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Move konstruktorius  </td><td class="markdownTableBodyNone"><span class="tt">: zmogus(std::move(other))</span>  </td><td class="markdownTableBodyNone">Bazinė dalis būtų kopijuojama  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Move priskyrimas  </td><td class="markdownTableBodyNone"><span class="tt">zmogus::operator=(std::move(other));</span>  </td><td class="markdownTableBodyNone">Ta pati problema  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Destruktorius  </td><td class="markdownTableBodyNone">Kviečiamas automatiškai  </td><td class="markdownTableBodyNone">—  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">refman.pdf</span>  </td><td class="markdownTableBodyNone">Pilna API dokumentacija  </td></tr>
 </table>
-<p>Trys subtilumai, kurių kompiliatorius nepagaus:</p>
-<p><b><span class="tt">std::move(other)</span> move konstruktoriuje.</b> <span class="tt">other</span> yra pavadintas kintamasis, todėl pats savaime lvalue — net jei jo tipas <span class="tt">studentas&amp;&amp;</span>. Be <span class="tt">std::move</span> būtų iškviestas <span class="tt">zmogus</span> <b>kopijavimo</b> konstruktorius.</p>
-<p><b>Kvalifikuotas <span class="tt">zmogus::operator=</span>.</b> Be <span class="tt">zmogus::</span> prefikso kompiliatorius parinktų <span class="tt">studentas::operator=</span> — įvyktų begalinė rekursija.</p>
-<p><b><span class="tt">noexcept</span> move operacijose.</b> <span class="tt">std::vector</span> perskirstymo metu naudoja <span class="tt">std::move_if_noexcept</span> — be <span class="tt">noexcept</span> jis renkasi kopijavimo konstruktorių, ir sparta krenta kelis kartus.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
-Polimorfizmas</h2>
-<p><span class="tt">operator&lt;&lt;</span> ir <span class="tt">operator&gt;&gt;</span> priima <span class="tt">zmogus&amp;</span> ir kviečia virtualius <span class="tt">print()</span> / <span class="tt">read()</span>:</p>
-<div class="fragment"><div class="line">std::vector&lt;std::unique_ptr&lt;zmogus&gt;&gt; zmones;</div>
-<div class="line">zmones.push_back(std::make_unique&lt;studentas&gt;(<span class="stringliteral">&quot;Ona&quot;</span>, <span class="stringliteral">&quot;Onaite&quot;</span>, {10, 10}, 10));</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; z : zmones)</div>
-<div class="line">    std::cout &lt;&lt; z-&gt;tipas() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; *z &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-</div><!-- fragment --><p>Pridėjus naują išvestinę klasę ateityje, tie patys operatoriai veiks be pakeitimų.</p>
-<p><img src="docs/polimorfizmas.png" alt="Polimorfizmo demonstracija" class="inline"/> <em>3 pav. Polimorfinis konteineris ir virtualūs metodai</em></p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
-5. Dokumentacija</h1>
-<p>Dokumentacija generuojama <b>Doxygen</b> įrankiu iš kodo komentarų.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
-Generavimas</h2>
-<div class="fragment"><div class="line">doxygen Doxyfile</div>
-</div><!-- fragment --><p>Arba per CMake: </p><div class="fragment"><div class="line">cmake --build build --target docs</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
-Rezultatas</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Formatas  </th><th class="markdownTableHeadNone">Vieta  </th><th class="markdownTableHeadNone">Kaip atidaryti  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>HTML</b>  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/html/</span>  </td><td class="markdownTableBodyNone">Naršyklėje atidaryti <span class="tt">index.html</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>LaTeX</b>  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/latex/</span>  </td><td class="markdownTableBodyNone">Šaltiniai PDF generavimui  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>PDF</b>  </td><td class="markdownTableBodyNone"><span class="tt">docs/doxygen/refman.pdf</span>  </td><td class="markdownTableBodyNone">Bet kokiu PDF skaitytuvu  </td></tr>
-</table>
-<p><img src="docs/doxygen_html.png" alt="Doxygen HTML dokumentacija" class="inline"/> <em>4 pav. Sugeneruota HTML dokumentacija su paveldėjimo diagrama</em></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
-PDF generavimas</h2>
-<p>Jei įdiegtas TeX Live arba MiKTeX: </p><div class="fragment"><div class="line">cd docs/doxygen/latex</div>
-<div class="line">make.bat        # Windows</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
-Kas dokumentuota</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Elementas  </th><th class="markdownTableHeadNone">Aprašyta  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Klasės <span class="tt">zmogus</span>, <span class="tt">studentas</span>  </td><td class="markdownTableBodyNone">Paskirtis, paveldėjimo ryšys, naudojimo pavyzdžiai  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Visi konstruktoriai  </td><td class="markdownTableBodyNone">Parametrai, metamos išimtys  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Rule of Five metodai</b>  </td><td class="markdownTableBodyNone">Kodėl reikia bazinės klasės kvietimo, kodėl <span class="tt">noexcept</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Įvesties/išvesties metodai  </td><td class="markdownTableBodyNone">Formatai, skirtumas tarp greito ir universalaus varianto  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Perdengti operatoriai  </td><td class="markdownTableBodyNone">Kam gali prireikti būsimiems naudotojams  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Šablonai (<span class="tt">calculate.h</span>, <span class="tt">file.h</span>)  </td><td class="markdownTableBodyNone">Kaip veikia su skirtingais konteineriais  </td></tr>
-</table>
-<p>Naudojamos Doxygen žymos: <span class="tt">@file</span>, <span class="tt">@class</span>, <span class="tt">@brief</span>, <span class="tt">@param</span>, <span class="tt">@return</span>, <span class="tt">@throws</span>, <span class="tt">@note</span>, <span class="tt">@warning</span>, <span class="tt">@see</span>, <span class="tt">@code</span>/<span class="tt">@endcode</span>, <span class="tt">@par</span>, taip pat grupavimas su <span class="tt">@name</span> / <span class="tt">@{</span> / <span class="tt">@}</span>.</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
-6. Unit testai</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
-Kam jie reikalingi</h2>
-<p>Programoje jau yra rankinis testas (meniu punktas 9), bet jis reikalauja paleisti programą ir žiūrėti į konsolę. Unit testai sprendžia tris problemas:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Problema  </th><th class="markdownTableHeadNone">Sprendimas  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Regresijos</b> — pataisius vieną vietą sugenda kita  </td><td class="markdownTableBodyNone">Testai paleidžiami po kiekvieno pakeitimo ir iškart parodo, kas sulūžo  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Tylios klaidos</b> — kodas kompiliuojasi, bet veikia neteisingai  </td><td class="markdownTableBodyNone">Rule of Five klaidos būtent tokios: pamiršus <span class="tt">zmogus(other)</span>, vardai bus tušti, bet programa veiks  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Rankinis tikrinimas</b> — reikia žmogaus  </td><td class="markdownTableBodyNone">Testai grąžina exit kodą, todėl tinka automatiniam paleidimui (CI)  </td></tr>
-</table>
-<p><b>Test Driven Development (TDD)</b> — metodika, kai testai rašomi <b>prieš</b> realizaciją. Ciklas: raudona (testas krenta) → žalia (realizacija) → refactor. Šiame darbe testai rašyti po realizacijos, bet round-trip testas (<span class="tt">appendListTo</span> → <span class="tt">parseFromLine</span>) yra pavyzdys, kaip testas apibrėžia kontraktą tarp dviejų metodų — jis garantuoja, kad įrašytas failas bus teisingai nuskaitytas.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
-Pasirinktas framework — Catch2</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Kodėl  </th><th class="markdownTableHeadNone"></th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Vienas header failas  </td><td class="markdownTableBodyNone">Nereikia atskiro build'o ar diegimo  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">REQUIRE</span> vietoj <span class="tt">ASSERT_EQ</span>  </td><td class="markdownTableBodyNone">Skaitomesnė sintaksė, veikia su bet kokia išraiška  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">SECTION</span> blokai  </td><td class="markdownTableBodyNone">Kiekvienas paleidžiamas su šviežiu <span class="tt"><a class="el" href="unit_tests_8cpp.html#a0a6a137671dc1cf071cd8bd11fd64bb7">TEST_CASE</a></span> kontekstu  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Žymės (<span class="tt">[rule5]</span>)  </td><td class="markdownTableBodyNone">Galima paleisti tik dalį testų  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Aiškūs pranešimai  </td><td class="markdownTableBodyNone">Rodo tikslią eilutę ir abiejų pusių reikšmes  </td></tr>
-</table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
-Paleidimas</h2>
-<div class="fragment"><div class="line">./unitTests                    # visi testai</div>
-<div class="line">./unitTests -s                 # su detaliu išvedimu</div>
-<div class="line">./unitTests &quot;[rule5]&quot;          # tik Rule of Five</div>
-<div class="line">./unitTests &quot;[abstrakti]&quot;      # tik abstrakčios klasės</div>
-<div class="line">./unitTests -l                 # testų sąrašas</div>
-<div class="line">ctest                          # per CMake</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
-Testų apimtis</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Žymė  </th><th class="markdownTableHeadNone">Ką tikrina  </th><th class="markdownTableHeadNone"><span class="tt"><a class="el" href="unit_tests_8cpp.html#a0a6a137671dc1cf071cd8bd11fd64bb7">TEST_CASE</a></span>  </th><th class="markdownTableHeadNone">Sekcijų  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">[abstrakti]</span>  </td><td class="markdownTableBodyNone">Abstrakti klasė, paveldėjimas, virtualus destruktorius  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">4  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">[konstruktoriai]</span>  </td><td class="markdownTableBodyNone">Visi trys konstruktoriai, validacija, ribinės reikšmės  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">7  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b><span class="tt">[rule5]</span></b>  </td><td class="markdownTableBodyNone"><b>Visi penki metodai + <span class="tt">noexcept</span> + destruktorius</b>  </td><td class="markdownTableBodyNone"><b>5</b>  </td><td class="markdownTableBodyNone"><b>20</b>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">[polimorfizmas]</span>  </td><td class="markdownTableBodyNone">Virtualūs metodai, <span class="tt">dynamic_cast</span>, polimorfinis konteineris  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">4  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">[io]</span>  </td><td class="markdownTableBodyNone"><span class="tt">&gt;&gt;</span>, <span class="tt">&lt;&lt;</span>, <span class="tt">parseFromLine</span>, <span class="tt">appendListTo</span>, round-trip  </td><td class="markdownTableBodyNone">3  </td><td class="markdownTableBodyNone">8  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">[operatoriai]</span>  </td><td class="markdownTableBodyNone"><span class="tt">==</span>, <span class="tt">!=</span>, <span class="tt">&lt;</span>, <span class="tt">&gt;</span>, <span class="tt">[]</span>  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">6  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">[skaiciavimas]</span>  </td><td class="markdownTableBodyNone">Vidurkis, mediana, kraštiniai atvejai  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">5  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">[seteriai]</span>  </td><td class="markdownTableBodyNone">Set'eriai, validacija, <span class="tt">isvalyk()</span>  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">5  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">[konteineriai]</span>  </td><td class="markdownTableBodyNone"><span class="tt">vector</span> perskirstymas, <span class="tt">std::move</span>, <span class="tt">list</span>/<span class="tt">deque</span>  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">3  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Iš viso</b>  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><b>17</b>  </td><td class="markdownTableBodyNone"><b>62</b>  </td></tr>
-</table>
-<p><img src="docs/unittestai.png" alt="Unit testų rezultatai" class="inline"/> <em>5 pav. Catch2 unit testų išvestis</em></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
-Įdomiausi testai</h2>
-<p><b>Deep copy patikra</b> — ar objektai tikrai nepriklausomi: </p><div class="fragment"><div class="line">studentas kopija(originalas);</div>
-<div class="line">kopija.setVardas(<span class="stringliteral">&quot;Pakeistas&quot;</span>);</div>
-<div class="line">REQUIRE(originalas.vardas() == <span class="stringliteral">&quot;Jonas&quot;</span>);</div>
-</div><!-- fragment --><p><b>Virtualaus destruktoriaus patikra</b> — naudojami du objektų skaitikliai: </p><div class="fragment"><div class="line">{</div>
-<div class="line">    std::unique_ptr&lt;zmogus&gt; p = std::make_unique&lt;studentas&gt;(...);</div>
-<div class="line">    REQUIRE(studentas::gyvuStudentu == priesStudentu + 1);</div>
-<div class="line">}</div>
-<div class="line">REQUIRE(studentas::gyvuStudentu == priesStudentu);   <span class="comment">// ~studentas() iškviestas</span></div>
-<div class="line">REQUIRE(zmogus::gyvuZmoniu == priesZmoniu);          <span class="comment">// ~zmogus() iškviestas</span></div>
-</div><!-- fragment --><p><b><span class="tt">noexcept</span> patikra</b> — statinė, kompiliavimo metu: </p><div class="fragment"><div class="line">REQUIRE(std::is_nothrow_move_constructible&lt;studentas&gt;::value);</div>
-<div class="line">REQUIRE(std::is_nothrow_move_assignable&lt;studentas&gt;::value);</div>
-</div><!-- fragment --><p><b>Round-trip patikra</b> — svarbiausias I/O testas: </p><div class="fragment"><div class="line">studentas originalas(<span class="stringliteral">&quot;Rasa&quot;</span>, <span class="stringliteral">&quot;Rasaite&quot;</span>, {6, 7, 8}, 9);</div>
-<div class="line">std::string buferis;</div>
-<div class="line">originalas.appendListTo(buferis);</div>
-<div class="line"> </div>
-<div class="line">studentas nuskaitytas;</div>
-<div class="line">nuskaitytas.parseFromLine(buferis, 3, 1);</div>
-<div class="line">REQUIRE(nuskaitytas == originalas);</div>
-</div><!-- fragment --><hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
-7. Spartos tyrimai</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
-Techninė aplinka</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Parametras  </th><th class="markdownTableHeadNone">Reikšmė  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Procesorius  </td><td class="markdownTableBodyNone">Intel Core i7-8565U (4 branduoliai / 8 gijų, iki 4.6 GHz)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">RAM  </td><td class="markdownTableBodyNone">8 GB DDR4  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Saugykla  </td><td class="markdownTableBodyNone">250 GB SSD  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">OS  </td><td class="markdownTableBodyNone">Windows 11  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Kompiliatorius  </td><td class="markdownTableBodyNone">MSVC (Visual Studio 2022), x64 Release, <span class="tt">/O2</span>  </td></tr>
-</table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
-Konteinerių palyginimas</h2>
-<p>Matuoti trys žingsniai su tais pačiais failais. Kiekvienas dydis testuotas 3 kartus, pateikiami vidurkiai.</p>
-<p><b>Rikiavimas (s)</b></p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Įrašų sk.  </th><th class="markdownTableHeadNone">vector  </th><th class="markdownTableHeadNone">list  </th><th class="markdownTableHeadNone">deque  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1 000  </td><td class="markdownTableBodyNone">0.0021201  </td><td class="markdownTableBodyNone"><b>0.0008624</b>  </td><td class="markdownTableBodyNone">0.0024529  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">10 000  </td><td class="markdownTableBodyNone">0.0336593  </td><td class="markdownTableBodyNone"><b>0.0061455</b>  </td><td class="markdownTableBodyNone">0.0412758  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">100 000  </td><td class="markdownTableBodyNone">0.349848  </td><td class="markdownTableBodyNone"><b>0.0646853</b>  </td><td class="markdownTableBodyNone">0.378782  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">1 000 000  </td><td class="markdownTableBodyNone">9.50295  </td><td class="markdownTableBodyNone"><b>1.43094</b>  </td><td class="markdownTableBodyNone">6.5229  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">10 000 000  </td><td class="markdownTableBodyNone">73.956  </td><td class="markdownTableBodyNone"><b>16.4002</b>  </td><td class="markdownTableBodyNone">79.0366  </td></tr>
-</table>
-<p><span class="tt">std::list</span> rikiavimas su 10 mln. studentų **~4.5× greitesnis** nei <span class="tt">vector</span>. Priežastis: <span class="tt">list::sort()</span> naudoja merge sort ir tik perrikiuoja rodykles, o <span class="tt">std::sort</span> su <span class="tt">vector</span> fiziškai perkeldinėja objektus, kurių kiekvienas turi <span class="tt">std::string</span> ir <span class="tt">std::vector</span> viduje.</p>
-<p><b>Skirstymas į grupes (s)</b></p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Įrašų sk.  </th><th class="markdownTableHeadNone">vector  </th><th class="markdownTableHeadNone">list  </th><th class="markdownTableHeadNone">deque  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">100 000  </td><td class="markdownTableBodyNone">0.0666329  </td><td class="markdownTableBodyNone">0.0635167  </td><td class="markdownTableBodyNone"><b>0.0474443</b>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">1 000 000  </td><td class="markdownTableBodyNone">1.54565  </td><td class="markdownTableBodyNone">0.784462  </td><td class="markdownTableBodyNone"><b>0.529881</b>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">10 000 000  </td><td class="markdownTableBodyNone">22.6479  </td><td class="markdownTableBodyNone">12.5161  </td><td class="markdownTableBodyNone"><b>9.44885</b>  </td></tr>
-</table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
-Skirstymo strategijų palyginimas</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Strategija  </th><th class="markdownTableHeadNone">Metodas  </th><th class="markdownTableHeadNone">Sudėtingumas  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone"><span class="tt">partition_copy</span> į du naujus konteinerius  </td><td class="markdownTableBodyNone">O(n), bet 3× atmintis  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone"><span class="tt">stable_partition</span> + <span class="tt">erase</span> po vieną  </td><td class="markdownTableBodyNone"><b>O(n²)</b> su <span class="tt">vector</span>/<span class="tt">deque</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">3  </td><td class="markdownTableBodyNone"><span class="tt">stable_partition</span> + blokinis <span class="tt">erase</span>  </td><td class="markdownTableBodyNone"><b>O(n)</b>, ~1.5× atmintis  </td></tr>
-</table>
-<p><b>2 strategija su <span class="tt">vector</span> ir 100 000 studentų užtruko 215 sekundžių</b> — 3 234× lėčiau nei 3 strategija (0.067 s). Priežastis: kiekvienas <span class="tt">erase</span> iš vidurio perstumia visus likusius elementus.</p>
-<p><span class="tt">std::list</span> šios problemos neturi — trynimas O(1), nes tai dvikryptė rodyklių sąsaja.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
-<span class="tt">struct</span> vs <span class="tt">class</span> ir optimizavimo flag'ai</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Versija  </th><th class="markdownTableHeadNone">Flag  </th><th class="markdownTableHeadNone"><span class="tt">.exe</span>  </th><th class="markdownTableHeadNone">100k (s)  </th><th class="markdownTableHeadNone">1M (s)  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">class (MSVC)  </td><td class="markdownTableBodyNone"><span class="tt">/O1</span>  </td><td class="markdownTableBodyNone">120 KB  </td><td class="markdownTableBodyNone">0.3979  </td><td class="markdownTableBodyNone">4.7711  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">class (MSVC)  </td><td class="markdownTableBodyNone"><span class="tt">/O2</span>  </td><td class="markdownTableBodyNone">160 KB  </td><td class="markdownTableBodyNone">0.4071  </td><td class="markdownTableBodyNone"><b>4.7157</b>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">struct (MinGW)  </td><td class="markdownTableBodyNone"><span class="tt">-O1</span>  </td><td class="markdownTableBodyNone">371 KB  </td><td class="markdownTableBodyNone">0.5637  </td><td class="markdownTableBodyNone">6.5547  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">struct (MinGW)  </td><td class="markdownTableBodyNone"><span class="tt">-O2</span>  </td><td class="markdownTableBodyNone">336 KB  </td><td class="markdownTableBodyNone">0.7768  </td><td class="markdownTableBodyNone">10.6278  </td></tr>
-</table>
-<p>Netikėtas rezultatas: <b><span class="tt">struct</span> versija su <span class="tt">-O2</span> yra 1.62× lėtesnė nei su <span class="tt">-O1</span></b>. Visas skirtumas ateina iš failo rašymo. Tikėtina priežastis — agresyvus <span class="tt">-O2</span> inline'inimas išpučia <span class="tt">std::setw</span>/<span class="tt">operator&lt;&lt;</span> grandinę, kuri cikle kviečiama 16 kartų vienai eilutei, ir kodas nebetelpa į instrukcijų cache.</p>
-<blockquote class="doxtable">
-<p>Tai <b>hipotezė</b>, patikrinta tik netiesiogiai. Galutinis patvirtinimas reikalautų cache miss matavimo profileriu. </p>
-</blockquote>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
-I/O optimizacija</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Problema  </th><th class="markdownTableHeadNone">Sprendimas  </th><th class="markdownTableHeadNone">Efektas  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">std::istringstream</span> kiekvienai eilutei  </td><td class="markdownTableBodyNone"><span class="tt">parseFromLine</span> dirba su <span class="tt">const std::string&amp;</span>  </td><td class="markdownTableBodyNone">10 mln. objektų konstravimų → 0  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">operator&gt;&gt;</span> skaičiams  </td><td class="markdownTableBodyNone"><span class="tt">std::from_chars</span> (C++17)  </td><td class="markdownTableBodyNone">Be locale, sentry, būsenos  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Klaidos pranešimai kiekvienam pažymiui  </td><td class="markdownTableBodyNone">Formuojami tik metant išimtį  </td><td class="markdownTableBodyNone">~160 mln. konkatenacijų → 0  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">std::setw</span> manipuliatoriai rašant  </td><td class="markdownTableBodyNone"><span class="tt">std::to_chars</span> + <span class="tt">std::string</span> buferis  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Kiekviena eilutė rašoma atskirai  </td><td class="markdownTableBodyNone">Buferis, <span class="tt">file.write()</span> kas ~1 MB  </td><td class="markdownTableBodyNone"></td></tr>
-</table>
-<p>Rezultatas: failo nuskaitymas su 10 mln. studentų <b>nuo ~90 s iki ~30 s</b>.</p>
-<hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
-8. Failų struktūra</h1>
-<div class="fragment"><div class="line">.</div>
-<div class="line">├── LICENSE</div>
-<div class="line">├── README.md</div>
-<div class="line">├── CMakeLists.txt                          # Programa + testai + docs taikinys</div>
-<div class="line">├── Doxyfile                                # Doxygen konfigūracija</div>
-<div class="line">├── .gitignore                              # IDE ir build failų filtras</div>
-<div class="line">│</div>
-<div class="line">├── docs/                                   # Ekrano kopijos ir dokumentacija</div>
-<div class="line">│   ├── *.png                               # Iliustracijos README failui</div>
-<div class="line">│   └── doxygen/                            # Sugeneruota dokumentacija</div>
-<div class="line">│       ├── html/                           # HTML formatas</div>
-<div class="line">│       ├── latex/                           # LaTeX šaltiniai</div>
-<div class="line">│       └── refman.pdf                      # Sukompiliuotas PDF</div>
-<div class="line">│</div>
-<div class="line">├── tests/                                  # Unit testai</div>
-<div class="line">│   ├── catch.hpp                           # Catch2 framework (atsisiunčiamas)</div>
-<div class="line">│   └── unitTests.cpp                       # Testai</div>
-<div class="line">│</div>
-<div class="line">└── OOP_2/                                  # Programos šaltinio failai</div>
-<div class="line">    ├── data/                               # Testiniai duomenų failai</div>
-<div class="line">    │   ├── studentai1000.txt</div>
-<div class="line">    │   ├── studentai10000.txt</div>
-<div class="line">    │   └── studentai100000.txt</div>
-<div class="line">    ├── zmogus.h / zmogus.cpp               # ABSTRAKTI bazinė klasė</div>
-<div class="line">    ├── studentas.h / studentas.cpp         # Išvestinė klasė : public zmogus</div>
-<div class="line">    ├── testStudentas.h / testStudentas.cpp # Rankinis klasių testas (meniu 9)</div>
-<div class="line">    ├── main.h                              # splitResult&lt;T&gt;, deklaracijos</div>
-<div class="line">    ├── OOP_2.cpp                           # main() + runProgram&lt;Container&gt;()</div>
-<div class="line">    ├── menu.h / menu.cpp                   # Meniu funkcijos</div>
-<div class="line">    ├── enter.h / enter.cpp                 # Rankinio įvedimo funkcijos</div>
-<div class="line">    ├── generate.h / generate.cpp           # Generavimo funkcijos</div>
-<div class="line">    ├── file.h / file.cpp                   # Failo I/O šablonai</div>
-<div class="line">    ├── calculate.h                         # Skaičiavimo, rikiavimo šablonai</div>
-<div class="line">    ├── output.h                            # outputStudentai&lt;T&gt;</div>
-<div class="line">    ├── print.h / print.cpp                 # Spausdinimo funkcijos</div>
-<div class="line">    └── test.h / test.cpp                   # Spartos testavimo funkcijos</div>
-</div><!-- fragment --><blockquote class="doxtable">
-<p><b>Pastaba dėl <span class="tt">data/</span>.</b> Testavimo funkcijos atidaro failus santykiniu keliu <span class="tt">data/studentaiN.txt</span>, todėl <span class="tt">data/</span> turi būti darbo aplanke. CMake tai sutvarko automatiškai (<span class="tt">POST_BUILD</span> kopijavimas). Dideli failai (1 mln. ir 10 mln. įrašų) į repozitoriją neįtraukti — juos galima sugeneruoti meniu punktu 5. </p>
-</blockquote>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
-Repozitorijos švarumas</h2>
-<p><span class="tt">.gitignore</span> filtruoja:</p><ul>
-<li>Visual Studio projekto failus (<span class="tt">.vcxproj</span>, <span class="tt">.sln</span>, <span class="tt">.cd</span>, <span class="tt">.vs/</span>)</li>
-<li>Build aplankus (<span class="tt">build/</span>, <span class="tt">x64/</span>, <span class="tt">Debug/</span>, <span class="tt">Release/</span>)</li>
-<li>Kompiliavimo rezultatus (<span class="tt">.exe</span>, <span class="tt">.obj</span>, <span class="tt">.pdb</span>)</li>
-<li>Programos generuojamus failus (<span class="tt">teststudentai*.txt</span>)</li>
+Žinomos pastabos</h1>
+<ul>
+<li><span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a>&lt;bool&gt;</span> nespecializuotas — veikia kaip įprastas <span class="tt">bool</span> masyvas</li>
+<li>Su 10 mln. studentų matavimai svyravo iki 18 s tarp paleidimų (disko kešas, sistemos apkrova) — pateikti vidurkiai iš dviejų bandymų</li>
+<li>100 mln. elementų benchmark'as naudoja ~400 MB vienam konteineriui</li>
+<li>MSVC neturi <span class="tt">/O3</span> — maksimalus optimizavimo lygis yra <span class="tt">/O2</span></li>
 </ul>
-<p>Repozitorijoje lieka <b>tik šaltinio failai</b>, dokumentacija ir konfigūracija.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md49"></a>
-Licencija</h1>
-<p>Žr. [LICENSE](LICENSE). </p>
+<p>Išsamus aprašymas su funkcijų pavyzdžiais, lentelėmis ir ekrano kopijomis — <a class="el" href="#md__r_e_a_d_m_e" title="v3.0 — Nuosavas Vector konteineris"><span class="tt">README.md</span></a>. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

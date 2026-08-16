@@ -1,0 +1,106 @@
+\doxysection{OOP\+\_\+3/\+konteineris.h Failo Nuoroda}
+\hypertarget{konteineris_8h}{}\label{konteineris_8h}\index{OOP\_3/konteineris.h@{OOP\_3/konteineris.h}}
+
+
+Konteinerio tipo perjungimas tarp std::\+vector ir nuosavos \doxylink{class_vector}{Vector}.  
+
+
+{\ttfamily \+\#include "{}Vector.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+Įtraukimo priklausomybių diagrama konteineris.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{konteineris_8h__incl}
+\end{center}
+\end{figure}
+Šis grafas rodo, kuris failas tiesiogiai ar netiesiogiai įtraukia šį failą:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{konteineris_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Tipų apibrėžimai}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\using \doxymbox{\hyperlink{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a}{Konteineris}} = \doxymbox{\hyperlink{class_vector}{Vector}}$<$T$>$
+\begin{DoxyCompactList}\small\item\em Naudojamo konteinerio šablonas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcijos}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{konteineris_8h_afe11e198e456d1433c707308bac11fc0}{konteinerio\+Pavadinimas}} ()
+\begin{DoxyCompactList}\small\item\em Grąžina naudojamo konteinerio pavadinimą (diagnostikai). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Smulkus aprašymas}
+Konteinerio tipo perjungimas tarp std::\+vector ir nuosavos \doxylink{class_vector}{Vector}. 
+
+Leidžia visą programą perkompiliuoti su kitu konteineriu pakeitus vieną {\ttfamily \#define} arba kompiliavimo parametrą — taip galima palyginti abiejų realizacijų spartą tomis pačiomis sąlygomis.
+
+\begin{DoxyParagraph}{Naudojimas}
+Pagal nutylėjimą naudojama nuosava \doxylink{class_vector}{Vector}. Norint grįžti prie std::\+vector, kompiliuoti su:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++\ -\/DNAUDOTI\_STD\_VECTOR\ ...}
+
+\end{DoxyCode}
+ arba {\ttfamily CMake\+Lists.\+txt} faile įjungti {\ttfamily NAUDOTI\+\_\+\+STD\+\_\+\+VECTOR} parametrą.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Pavyzdys}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{konteineris_8h}{konteineris.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{StudentuVektorius\ studentai;\ \ \ \ \ \ \textcolor{comment}{//\ Vector<studentas>\ arba\ std::vector<studentas>}}
+\DoxyCodeLine{studentai.push\_back(s);}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::cout\ <<\ \doxymbox{\hyperlink{konteineris_8h_afe11e198e456d1433c707308bac11fc0}{konteinerioPavadinimas}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \textcolor{comment}{//\ "{}Vector"{}\ arba\ "{}std::vector"{}}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+
+Apibrėžimas faile \doxymbox{\hyperlink{konteineris_8h_source}{konteineris.\+h}}.
+
+
+
+\label{konteineris_8h_doc-typedef-members}
+\Hypertarget{konteineris_8h_doc-typedef-members}
+\doxysubsection{Tipų apibrėžimų Dokumentacija}
+\Hypertarget{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a}\index{konteineris.h@{konteineris.h}!Konteineris@{Konteineris}}
+\index{Konteineris@{Konteineris}!konteineris.h@{konteineris.h}}
+\doxysubsubsection{\texorpdfstring{Konteineris}{Konteineris}}
+{\footnotesize\ttfamily \label{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a} 
+template$<$typename T$>$ \\
+using \doxymbox{\hyperlink{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a}{Konteineris}} = \doxymbox{\hyperlink{class_vector}{Vector}}$<$T$>$}
+
+
+
+Naudojamo konteinerio šablonas. 
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{konteineris_8h_source}{konteineris.\+h}} eilutėje \doxymbox{\hyperlink{konteineris_8h_source_l00047}{47}}.
+
+
+
+\label{konteineris_8h_doc-func-members}
+\Hypertarget{konteineris_8h_doc-func-members}
+\doxysubsection{Funkcijos Dokumentacija}
+\Hypertarget{konteineris_8h_afe11e198e456d1433c707308bac11fc0}\index{konteineris.h@{konteineris.h}!konteinerioPavadinimas@{konteinerioPavadinimas}}
+\index{konteinerioPavadinimas@{konteinerioPavadinimas}!konteineris.h@{konteineris.h}}
+\doxysubsubsection{\texorpdfstring{konteinerioPavadinimas()}{konteinerioPavadinimas()}}
+{\footnotesize\ttfamily \label{konteineris_8h_afe11e198e456d1433c707308bac11fc0} 
+const char \texorpdfstring{$\ast$}{*} konteinerio\+Pavadinimas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Grąžina naudojamo konteinerio pavadinimą (diagnostikai). 
+
+
+
+Apibrėžimas failo \doxymbox{\hyperlink{konteineris_8h_source}{konteineris.\+h}} eilutėje \doxymbox{\hyperlink{konteineris_8h_source_l00050}{50}}.
+

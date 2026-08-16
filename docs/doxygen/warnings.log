@@ -1,11 +1,2 @@
-warning: source 'OOP_2' is not a readable file or directory... skipping.
 graph_legend:3: warning: Found unknown command '\kodo'
 graph_legend:38: warning: unexpected command endcode
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:11: warning: unable to resolve reference to '1-versijų-istorija' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:12: warning: unable to resolve reference to '2-naudojimosi-instrukcija' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:13: warning: unable to resolve reference to '3-įdiegimo-instrukcija' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:14: warning: unable to resolve reference to '4-klasių-architektūra' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:15: warning: unable to resolve reference to '5-dokumentacija' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:16: warning: unable to resolve reference to '6-unit-testai' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:17: warning: unable to resolve reference to '7-spartos-tyrimai' for \ref command
-C:/Users/mariu/coding/VU ISI/Objektinis/OOP_3/README.md:18: warning: unable to resolve reference to '8-failų-struktūra' for \ref command

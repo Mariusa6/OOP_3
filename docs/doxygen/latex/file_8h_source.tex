@@ -1,0 +1,159 @@
+\doxysection{file.\+h}
+\hypertarget{file_8h_source}{}\label{file_8h_source}\index{OOP\_3/file.h@{OOP\_3/file.h}}
+\doxymbox{\hyperlink{file_8h}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ FILE\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ FILE\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00005}00005\ \textcolor{preprocessor}{\#undef\ max}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <iostream>}\ \ \textcolor{comment}{//\ cout,\ cin}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <fstream>}\ \ \ \textcolor{comment}{//\ ifstream,\ ofstream}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <sstream>}\ \ \ \textcolor{comment}{//\ istringstream}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \textcolor{comment}{//\ vector}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \textcolor{comment}{//\ string}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <iomanip>}\ \ \ \textcolor{comment}{//\ setprecision,\ setw}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <limits>}\ \ \ \ \textcolor{comment}{//\ numeric\_limits}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <stdexcept>}\ \textcolor{comment}{//\ runtime\_error}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00015}00015\ \textcolor{comment}{//\ Rašymo\ buferio\ dydis\ —\ 64\ KB.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00016}\doxymbox{\hyperlink{file_8h_ac41d4277e4f090bfab83348cd18e2283}{00016}}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{file_8h_ac41d4277e4f090bfab83348cd18e2283}{FILE\_BUFFER\_SIZE}}\ =\ 64\ *\ 1024;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00018}00018\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00019}00019\ \textcolor{comment}{//\ Template:\ readStudentaiFromFile<Container>}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00020}00020\ \textcolor{comment}{//\ Nuskaito\ studentus\ iš\ .txt\ failo\ į\ bet\ kokį\ konteinerį.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00021}00021\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00022}00022\ \textcolor{comment}{//\ Optimizacijos:}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00023}00023\ \textcolor{comment}{//\ \ -\/\ nenaudojamas\ std::istringstream\ (nekuriamas\ objektas\ eilutei)}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00024}00024\ \textcolor{comment}{//\ \ -\/\ studentas::parseFromLine\ naudoja\ std::from\_chars}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00025}00025\ \textcolor{comment}{//\ \ -\/\ line\ buferis\ pernaudojamas\ visoms\ eilutėms}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00026}00026\ \textcolor{comment}{//\ \ -\/\ studentas\ objektas\ kuriamas\ vietoje\ ir\ perkeliamas\ (move)}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00027}00027\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00028}00028\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00029}\doxymbox{\hyperlink{file_8h_a4e9eb1ad8b2be192d829a53b73c868c5}{00029}}\ Container\ \doxymbox{\hyperlink{file_8h_a4e9eb1ad8b2be192d829a53b73c868c5}{readStudentaiFromFile}}(\textcolor{keyword}{const}\ std::string\&\ filename)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00031}00031\ \ \ \ \ Container\ studentai;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00032}00032\ \ \ \ \ std::ifstream\ file(filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Nepavyko\ atidaryti\ failo:\ "{}}\ +\ filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ Didesnis\ skaitymo\ buferis\ —\ mažiau\ OS\ kvietimų}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00038}00038\ \ \ \ \ \doxymbox{\hyperlink{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a}{Konteineris<char>}}\ rdbuf(\doxymbox{\hyperlink{file_8h_ac41d4277e4f090bfab83348cd18e2283}{FILE\_BUFFER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00039}00039\ \ \ \ \ file.rdbuf()-\/>pubsetbuf(rdbuf.\doxymbox{\hyperlink{class_vector_a1fcf91de0c080eb7a487dddb3124ed7c}{data}}(),\ rdbuf.\doxymbox{\hyperlink{class_vector_ade9ce4c7602280a9c935c919afe10098}{size}}());}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00041}00041\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00042}00042\ \ \ \ \ line.reserve(256);\ \ \ \textcolor{comment}{//\ eilutės\ buferis\ pernaudojamas\ —\ jokių\ perskirstymų}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::getline(file,\ line))}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failas\ tuščias\ arba\ sugadintas:\ "{}}\ +\ filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Apskaičiuojame\ ND\ stulpelių\ skaičių\ iš\ antraštės}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ (antraštė\ nuskaitoma\ tik\ vieną\ kartą,\ todėl\ istringstream\ čia\ pigus)}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00049}00049\ \ \ \ \ std::istringstream\ headerStream(line);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00050}00050\ \ \ \ \ std::string\ token;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{int}\ ndCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{while}\ (headerStream\ >>\ token)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (token.find(\textcolor{stringliteral}{"{}ND"{}})\ !=\ std::string::npos)\ ndCount++;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00055}00055\ \ \ \ \ \doxymbox{\hyperlink{classstudentas}{studentas}}\ s;\ \ \ \textcolor{comment}{//\ objektas\ pernaudojamas\ —\ nekuriamas\ naujas\ kiekvienai\ eilutei}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ lineNumber\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00059}00059\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ lineNumber++;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.empty())\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ s.\doxymbox{\hyperlink{classstudentas_a048331f8f44003bfa36ac02e1786a972}{parseFromLine}}(line,\ ndCount,\ lineNumber);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ studentai.push\_back(std::move(s));}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{return}\ studentai;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00070}00070\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00071}00071\ \textcolor{comment}{//\ Template:\ writeStudentaiToFile}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00072}00072\ \textcolor{comment}{//\ Išveda\ studentus\ su\ galutiniais\ balais.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00073}00073\ \textcolor{comment}{//\ Formatavimą\ atlieka\ klasės\ operator<<.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00074}00074\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00075}00075\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00076}\doxymbox{\hyperlink{file_8h_a81f42fe2e4f2aff12bf97a260e54e66a}{00076}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{file_8h_a81f42fe2e4f2aff12bf97a260e54e66a}{writeStudentaiToFile}}(\textcolor{keyword}{const}\ Container\&\ studentai,\ \textcolor{keyword}{const}\ std::string\&\ filename)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00078}00078\ \ \ \ \ std::ofstream\ file(filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Nepavyko\ sukurti\ failo:\ "{}}\ +\ filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00082}00082\ \ \ \ \ \doxymbox{\hyperlink{konteineris_8h_ad95895b7bdd09ed705005b9bcd0ed27a}{Konteineris<char>}}\ wrbuf(\doxymbox{\hyperlink{file_8h_ac41d4277e4f090bfab83348cd18e2283}{FILE\_BUFFER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00083}00083\ \ \ \ \ file.rdbuf()-\/>pubsetbuf(wrbuf.\doxymbox{\hyperlink{class_vector_a1fcf91de0c080eb7a487dddb3124ed7c}{data}}(),\ wrbuf.\doxymbox{\hyperlink{class_vector_ade9ce4c7602280a9c935c919afe10098}{size}}());}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00085}00085\ \ \ \ \ file\ <<\ u8\textcolor{stringliteral}{"{}Vardas\ \ \ \ \ \ \ \ \ \ \ \ \ \ Pavardė\ \ \ \ \ \ \ \ \ \ \ \ \ Galutinis\ (Vid.)\ \ \ \ Galutinis\ (Med.)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00086}00086\ \ \ \ \ file\ <<\ u8\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ s\ :\ studentai)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ file\ <<\ s\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00091}00091\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00094}00094\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00095}00095\ \textcolor{comment}{//\ Template:\ writeStudentaiListToFile}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00096}00096\ \textcolor{comment}{//\ Išveda\ studentus\ su\ visais\ namų\ darbų\ pažymiais.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00097}00097\ \textcolor{comment}{//\ Šis\ formatas\ suderinamas\ su\ readStudentaiFromFile\ skaitymui.}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00098}00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00099}00099\ \textcolor{comment}{//\ Optimizacijos:}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00100}00100\ \textcolor{comment}{//\ \ -\/\ eilutės\ formuojamos\ į\ std::string\ buferį\ (studentas::appendListTo)}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00101}00101\ \textcolor{comment}{//\ \ \ \ naudojant\ std::to\_chars\ vietoj\ std::setw\ manipuliatorių}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00102}00102\ \textcolor{comment}{//\ \ -\/\ buferis\ išvalomas\ kas\ \string~1\ MB\ —\ atmintis\ NEauga\ proporcingai}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00103}00103\ \textcolor{comment}{//\ \ \ \ studentų\ skaičiui\ (skirtingai\ nei\ kaupiant\ viską\ į\ vieną\ string)}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00104}00104\ \textcolor{comment}{//\ \ -\/\ vienas\ file.write()\ vietoj\ kelių\ <<\ operacijų\ eilutei}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00105}00105\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00106}00106\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00107}\doxymbox{\hyperlink{file_8h_aa660a9704b9e5aeb2c251ecf291a5491}{00107}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{file_8h_aa660a9704b9e5aeb2c251ecf291a5491}{writeStudentaiListToFile}}(\textcolor{keyword}{const}\ Container\&\ studentai,\ \textcolor{keyword}{const}\ std::string\&\ filename)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00108}00108\ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00109}00109\ \ \ \ \ std::ofstream\ file(filename,\ std::ios::binary);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Nepavyko\ sukurti\ failo:\ "{}}\ +\ filename);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//\ Antraštė}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00114}00114\ \ \ \ \ std::string\ out;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00115}00115\ \ \ \ \ out.reserve(1024\ *\ 1024\ +\ 1024);\ \ \ \textcolor{comment}{//\ \string~1\ MB\ darbinis\ buferis}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00117}00117\ \ \ \ \ out.append(\textcolor{stringliteral}{"{}Vardas"{}});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00118}00118\ \ \ \ \ out.append(25\ -\/\ 6,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00119}00119\ \ \ \ \ out.append(\textcolor{stringliteral}{"{}Pavarde"{}});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00120}00120\ \ \ \ \ out.append(25\ -\/\ 7,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ \doxymbox{\hyperlink{main_8h_a6172ae5f44946971e88b7fe16550f0f2}{NUMBER\_OF\_PAZYMYS}};\ ++i)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00123}00123\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ std::string\ nd\ =\ \textcolor{stringliteral}{"{}ND"{}}\ +\ std::to\_string(i);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ out.append(10\ -\/\ nd.size(),\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ out.append(nd);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00128}00128\ \ \ \ \ out.append(10\ -\/\ 9,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00129}00129\ \ \ \ \ out.append(\textcolor{stringliteral}{"{}Egzaminas"{}});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00130}00130\ \ \ \ \ out.push\_back(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00132}00132\ \ \ \ \ \textcolor{comment}{//\ Eilutės\ —\ buferis\ išvalomas\ pasiekus\ \string~1\ MB\ ribą}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00133}00133\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ FLUSH\_LIMIT\ =\ 1024\ *\ 1024;}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ s\ :\ studentai)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ s.appendListTo(out);}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (out.size()\ >=\ FLUSH\_LIMIT)}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ file.write(out.data(),\ \textcolor{keyword}{static\_cast<}std::streamsize\textcolor{keyword}{>}(out.size()));}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ out.clear();\ \ \ \textcolor{comment}{//\ capacity\ išlieka\ —\ jokių\ naujų\ alokacijų}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00146}00146\ \ \ \ \ \textcolor{comment}{//\ Likutis}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (!out.empty())}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ file.write(out.data(),\ \textcolor{keyword}{static\_cast<}std::streamsize\textcolor{keyword}{>}(out.size()));}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00150}00150\ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00151}00151\ \}}
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{file_8h_source_l00153}00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILE\_H\_DEFINED}}
+
+\end{DoxyCode}

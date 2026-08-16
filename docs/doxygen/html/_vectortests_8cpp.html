@@ -31,7 +31,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v2.0</span>
+   <div id="projectname">Studentu informacine sistema<span id="projectnumber">&#160;v3.0</span>
    </div>
    <div id="projectbrief">VU ISI Objektinio programavimo kurso laboratoriniai darbai</div>
   </td>
@@ -121,10 +121,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_vectortests_8
 </div><!--header-->
 <div class="contents">
 
-<p>Unit testai nuosavai Vector klasei (Catch2).  
+<p>Unit testai nuosavai <a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a> klasei (Catch2).  
 <a href="#details">Daugiau...</a></p>
 <div class="textblock"><code>#include &quot;catch.hpp&quot;</code><br />
-<code>#include &quot;../OOP_3/Vector.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_vector_8h_source.html">../OOP_3/Vector.h</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_vectortests_8
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="_vectortests_8cpp__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="_vectortests_8cpp__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_vectortests_8cpp_source.html">Eiti į šio failo programos kodą.</a></p>
@@ -159,8 +159,8 @@ Funkcijos</h2></td></tr>
 <tr class="memitem:ab0bc5b77d3ffd20b0a0c6b006014d43c" id="r_ab0bc5b77d3ffd20b0a0c6b006014d43c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab0bc5b77d3ffd20b0a0c6b006014d43c">TEST_CASE</a> (&quot;Lyginimo operatoriai&quot;, &quot;[operatoriai]&quot;)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Smulkus aprašymas</h2>
-<div class="textblock"><p>Unit testai nuosavai Vector klasei (Catch2). </p>
-<p>Kiekvienam testui taikomas tas pats principas: ta pati operacija atliekama su <span class="tt">std::vector</span> ir su <span class="tt">Vector</span>, o rezultatai lyginami. Taip tikrinama ne tik ar <span class="tt">Vector</span> veikia, bet ar veikia <b>taip pat</b> kaip standartinis konteineris.</p>
+<div class="textblock"><p>Unit testai nuosavai <a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a> klasei (Catch2). </p>
+<p>Kiekvienam testui taikomas tas pats principas: ta pati operacija atliekama su <span class="tt">std::vector</span> ir su <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span>, o rezultatai lyginami. Taip tikrinama ne tik ar <span class="tt"><a class="el" href="class_vector.html" title="Dinaminis masyvas — pilnavertė std::vector alternatyva.">Vector</a></span> veikia, bet ar veikia <b>taip pat</b> kaip standartinis konteineris.</p>
 <p>Paleidimas: ./vectorTests — visi testai ./vectorTests "[talpa]" — tik talpos testai ./vectorTests -l — testų sąrašas </p>
 
 <p class="definition">Apibrėžimas faile <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a>.</p>
@@ -203,6 +203,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00073">73</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00551">Vector&lt; T, Allocator &gt;::capacity()</a>, <a class="el" href="_vector_8h_source.html#l00466">Vector&lt; T, Allocator &gt;::data()</a>, <a class="el" href="_vector_8h_source.html#l00510">Vector&lt; T, Allocator &gt;::empty()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
+
 </div>
 </div>
 <a id="af7c085cd63dc81f4ef508223ed4414ef" name="af7c085cd63dc81f4ef508223ed4414ef"></a>
@@ -225,6 +227,8 @@ Funkcijos</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00157">157</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00368">Vector&lt; T, Allocator &gt;::assign()</a>, <a class="el" href="_vector_8h_source.html#l00466">Vector&lt; T, Allocator &gt;::data()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -249,6 +253,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00209">209</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00427">Vector&lt; T, Allocator &gt;::at()</a>, <a class="el" href="_vector_8h_source.html#l00458">Vector&lt; T, Allocator &gt;::back()</a>, <a class="el" href="_vector_8h_source.html#l00466">Vector&lt; T, Allocator &gt;::data()</a>, ir <a class="el" href="_vector_8h_source.html#l00453">Vector&lt; T, Allocator &gt;::front()</a>.</p>
+
 </div>
 </div>
 <a id="a23f3a0726aa12d548c9ca1b19691546f" name="a23f3a0726aa12d548c9ca1b19691546f"></a>
@@ -271,6 +277,8 @@ Funkcijos</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00259">259</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00477">Vector&lt; T, Allocator &gt;::begin()</a>, <a class="el" href="_vector_8h_source.html#l00479">Vector&lt; T, Allocator &gt;::cbegin()</a>, <a class="el" href="_vector_8h_source.html#l00483">Vector&lt; T, Allocator &gt;::cend()</a>, <a class="el" href="_vector_8h_source.html#l00490">Vector&lt; T, Allocator &gt;::crbegin()</a>, <a class="el" href="_vector_8h_source.html#l00481">Vector&lt; T, Allocator &gt;::end()</a>, <a class="el" href="_vector_8h_source.html#l00486">Vector&lt; T, Allocator &gt;::rbegin()</a>, ir <a class="el" href="_vector_8h_source.html#l00493">Vector&lt; T, Allocator &gt;::rend()</a>.</p>
 
 </div>
 </div>
@@ -295,6 +303,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00306">306</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00551">Vector&lt; T, Allocator &gt;::capacity()</a>, <a class="el" href="_vector_8h_source.html#l00466">Vector&lt; T, Allocator &gt;::data()</a>, <a class="el" href="_vector_8h_source.html#l00510">Vector&lt; T, Allocator &gt;::empty()</a>, <a class="el" href="_vector_8h_source.html#l00524">Vector&lt; T, Allocator &gt;::max_size()</a>, <a class="el" href="_vector_8h_source.html#l00739">Vector&lt; T, Allocator &gt;::push_back()</a>, <a class="el" href="_vector_8h_source.html#l00540">Vector&lt; T, Allocator &gt;::reserve()</a>, <a class="el" href="_vector_8h_source.html#l00561">Vector&lt; T, Allocator &gt;::shrink_to_fit()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
+
 </div>
 </div>
 <a id="a6bd8fa915df6ab8b350537df6a0c49a1" name="a6bd8fa915df6ab8b350537df6a0c49a1"></a>
@@ -317,6 +327,8 @@ Funkcijos</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00403">403</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00458">Vector&lt; T, Allocator &gt;::back()</a>, <a class="el" href="_vector_8h_source.html#l00780">Vector&lt; T, Allocator &gt;::pop_back()</a>, <a class="el" href="_vector_8h_source.html#l00739">Vector&lt; T, Allocator &gt;::push_back()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -341,6 +353,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00438">438</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00768">Vector&lt; T, Allocator &gt;::emplace_back()</a>, ir <a class="el" href="_vector_8h_source.html#l00540">Vector&lt; T, Allocator &gt;::reserve()</a>.</p>
+
 </div>
 </div>
 <a id="a164b3a55fe63ec18a2f0b061d9b92a49" name="a164b3a55fe63ec18a2f0b061d9b92a49"></a>
@@ -363,6 +377,8 @@ Funkcijos</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00463">463</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00458">Vector&lt; T, Allocator &gt;::back()</a>, <a class="el" href="_vector_8h_source.html#l00477">Vector&lt; T, Allocator &gt;::begin()</a>, <a class="el" href="_vector_8h_source.html#l00481">Vector&lt; T, Allocator &gt;::end()</a>, <a class="el" href="_vector_8h_source.html#l00592">Vector&lt; T, Allocator &gt;::insert()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
 
 </div>
 </div>
@@ -387,6 +403,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00521">521</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00477">Vector&lt; T, Allocator &gt;::begin()</a>, <a class="el" href="_vector_8h_source.html#l00768">Vector&lt; T, Allocator &gt;::emplace_back()</a>, ir <a class="el" href="_vector_8h_source.html#l00707">Vector&lt; T, Allocator &gt;::erase()</a>.</p>
+
 </div>
 </div>
 <a id="a3f6265afaf30849f3520b7e1f4299345" name="a3f6265afaf30849f3520b7e1f4299345"></a>
@@ -410,6 +428,8 @@ Funkcijos</h2></td></tr>
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00555">555</a>.</p>
 
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00458">Vector&lt; T, Allocator &gt;::back()</a>, <a class="el" href="_vector_8h_source.html#l00551">Vector&lt; T, Allocator &gt;::capacity()</a>, <a class="el" href="_vector_8h_source.html#l00581">Vector&lt; T, Allocator &gt;::clear()</a>, <a class="el" href="_vector_8h_source.html#l00768">Vector&lt; T, Allocator &gt;::emplace_back()</a>, <a class="el" href="_vector_8h_source.html#l00510">Vector&lt; T, Allocator &gt;::empty()</a>, <a class="el" href="_vector_8h_source.html#l00793">Vector&lt; T, Allocator &gt;::resize()</a>, ir <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>.</p>
+
 </div>
 </div>
 <a id="a8ee0afea8ae4b977afc3abee195bf7c1" name="a8ee0afea8ae4b977afc3abee195bf7c1"></a>
@@ -432,6 +452,8 @@ Funkcijos</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Apibrėžimas failo <a class="el" href="_vectortests_8cpp_source.html">Vectortests.cpp</a> eilutėje <a class="el" href="_vectortests_8cpp_source.html#l00600">600</a>.</p>
+
+<p class="reference">Ryšiai <a class="el" href="_vector_8h_source.html#l00466">Vector&lt; T, Allocator &gt;::data()</a>, <a class="el" href="_vector_8h_source.html#l00516">Vector&lt; T, Allocator &gt;::size()</a>, <a class="el" href="_vector_8h_source.html#l00909">swap()</a>, ir <a class="el" href="_vector_8h_source.html#l00830">Vector&lt; T, Allocator &gt;::swap()</a>.</p>
 
 </div>
 </div>

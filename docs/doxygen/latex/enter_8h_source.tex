@@ -1,0 +1,40 @@
+\doxysection{enter.\+h}
+\hypertarget{enter_8h_source}{}\label{enter_8h_source}\index{OOP\_3/enter.h@{OOP\_3/enter.h}}
+\doxymbox{\hyperlink{enter_8h}{Eiti į šio failo dokumentaciją.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ ENTER\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ ENTER\_H\_DEFINED}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00005}00005\ \textcolor{preprocessor}{\#undef\ max}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <iostream>}\ \textcolor{comment}{//\ cout,\ cin}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <limits>}\ \ \ \textcolor{comment}{//\ numeric\_limits}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <ios>}\ \ \ \ \ \ \textcolor{comment}{//\ streamsize}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \textcolor{comment}{//\ vector}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \textcolor{comment}{//\ string}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \textcolor{comment}{//\ all\_of}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <cctype>}\ \ \ \textcolor{comment}{//\ isalpha}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00014}00014\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00015}00015\ \textcolor{comment}{//\ Template:\ enterStudentai<Container>}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00016}00016\ \textcolor{comment}{//\ Įveda\ studentus\ ranka\ į\ bet\ kokį\ konteinerį}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00017}00017\ \textcolor{comment}{//\ (vector,\ list,\ deque)\ naudojant\ push\_back.}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00018}00018\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00020}00020\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Container>}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00021}\doxymbox{\hyperlink{enter_8h_a7605ecb120f648a7102289325b6c3f33}{00021}}\ Container\ \doxymbox{\hyperlink{enter_8h_a7605ecb120f648a7102289325b6c3f33}{enterStudentai}}()}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00023}00023\ \ \ \ \ Container\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{int}\ n\{\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ tmp.push\_back(\doxymbox{\hyperlink{enter_8cpp_a5636e815383c58ca453311ad83989444}{enterStudentas}}(n));}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00029}00029\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\doxymbox{\hyperlink{main_8h_a733ae834fd920d494ed5264a13b4b315}{askIfMoreStudents}}());}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{enter_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ENTER\_H\_DEFINED}}
+
+\end{DoxyCode}

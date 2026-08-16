@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['7_20spartos_20tyrimai_0',['7. Spartos tyrimai',['../index.html#autotoc_md39',1,'']]]
+  ['konteineris_0',['konteineris',['../index.html',1,'v3.0 — Nuosavas Vector konteineris'],['../index.html#autotoc_md5',1,'Vector konteineris']]]
 ];

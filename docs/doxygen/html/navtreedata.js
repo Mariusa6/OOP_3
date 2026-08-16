@@ -25,12 +25,24 @@
 var NAVTREE =
 [
   [ "Studentu informacine sistema", "index.html", [
-    [ "Studentų Informacinė Sistema", "index.html", "index" ],
+    [ "v3.0 — Nuosavas Vector konteineris", "index.html", "index" ],
+    [ "Klasės", "annotated.html", [
+      [ "Klasės", "annotated.html", "annotated_dup" ],
+      [ "Klasės Indeksas", "classes.html", null ],
+      [ "Klasių hierarchija", "hierarchy.html", "hierarchy" ],
+      [ "Klasių Nariai", "functions.html", [
+        [ "Visi", "functions.html", null ],
+        [ "Funkcijos", "functions_func.html", null ],
+        [ "Kintamieji", "functions_vars.html", null ],
+        [ "Tipų apibrėžimai", "functions_type.html", null ]
+      ] ]
+    ] ],
     [ "Failai", "files.html", [
       [ "Failai", "files.html", "files_dup" ],
       [ "Failų Nariai", "globals.html", [
         [ "Visi", "globals.html", null ],
         [ "Funkcijos", "globals_func.html", null ],
+        [ "Kintamieji", "globals_vars.html", null ],
         [ "Tipų apibrėžimai", "globals_type.html", null ],
         [ "Apibrėžimai", "globals_defs.html", null ]
       ] ]
@@ -40,7 +52,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_vectortests_8cpp.html"
+"_o_o_p__3_8cpp.html",
+"index.html#autotoc_md16"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';
