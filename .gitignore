@@ -45,7 +45,6 @@ Testing/
 # ===== Kompiliavimo rezultatai =====
 *.o
 *.obj
-*.exe
 *.dll
 *.so
 *.dylib
