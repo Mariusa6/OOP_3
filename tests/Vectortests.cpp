@@ -13,6 +13,7 @@
  *     ./vectorTests -l               — testų sąrašas
  */
 
+#define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "../OOP_2/Vector.h"
 
