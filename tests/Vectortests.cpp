@@ -15,7 +15,7 @@
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "../OOP_2/Vector.h"
+#include "../OOP_3/Vector.h"
 
 #include <vector>
 #include <string>

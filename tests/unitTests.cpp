@@ -18,8 +18,8 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#include "../OOP_2/zmogus.h"
-#include "../OOP_2/studentas.h"
+#include "../OOP_3/zmogus.h"
+#include "../OOP_3/studentas.h"
 
 #include <sstream>
 #include <vector>
@@ -322,7 +322,7 @@ TEST_CASE("Rule of Five: destruktorius", "[rule5][destruktorius]")
             // Be virtual destruktoriaus ~studentas() NEBUTU iskviestas,
             // ir nd_ vektorius liktu neatlaisvintas
             std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-                "Testas", "Testaitis", std::vector<int>{ 5, 5 }, 5);
+                "Testas", "Testaitis", Vector<int>{ 5, 5 }, 5);
             REQUIRE(studentas::gyvuStudentu == priesStudentu + 1);
         }
         REQUIRE(studentas::gyvuStudentu == priesStudentu);
@@ -359,14 +359,14 @@ TEST_CASE("Polimorfizmas", "[polimorfizmas]")
 
     SECTION("virtualus metodai per unique_ptr") {
         std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-            "Ona", "Onaite", std::vector<int>{ 10, 10 }, 10);
+            "Ona", "Onaite", Vector<int>{ 10, 10 }, 10);
         REQUIRE(p->tipas() == "Studentas");
         REQUIRE(p->pilnasVardas() == "Ona Onaite");
     }
 
     SECTION("dynamic_cast atgal i isvestine klase") {
         std::unique_ptr<zmogus> p = std::make_unique<studentas>(
-            "Ona", "Onaite", std::vector<int>{ 10, 10 }, 10);
+            "Ona", "Onaite", Vector<int>{ 10, 10 }, 10);
         studentas* sp = dynamic_cast<studentas*>(p.get());
         REQUIRE(sp != nullptr);
         REQUIRE(sp->nd().size() == 2);
@@ -375,9 +375,9 @@ TEST_CASE("Polimorfizmas", "[polimorfizmas]")
     SECTION("polimorfinis konteineris") {
         std::vector<std::unique_ptr<zmogus>> zmones;
         zmones.push_back(std::make_unique<studentas>(
-            "Pirmas", "Pirmaitis", std::vector<int>{ 10, 10 }, 10));
+            "Pirmas", "Pirmaitis", Vector<int>{ 10, 10 }, 10));
         zmones.push_back(std::make_unique<studentas>(
-            "Antras", "Antraitis", std::vector<int>{ 1, 1 }, 1));
+            "Antras", "Antraitis", Vector<int>{ 1, 1 }, 1));
 
         for (auto& z : zmones)
             if (auto* sp = dynamic_cast<studentas*>(z.get()))

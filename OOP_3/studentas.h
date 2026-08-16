@@ -2,7 +2,7 @@
 #define STUDENTAS_H_DEFINED
 
 #include "zmogus.h"
-#include "main.h"
+#include "Vector.h"
 
 #include <string>
 #include <vector>

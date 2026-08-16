@@ -17,9 +17,9 @@ option(NAUDOTI_STD_VECTOR "Naudoti std::vector vietoj nuosavos Vector" OFF)
 # =====================================================================
 function(nustatyk_parametrus taikinys)
     if(MSVC)
-        target_compile_options(${taikinys} PRIVATE /W4 /O2 /utf-8)
+        target_compile_options(${taikinys} PRIVATE /W4 /utf-8)
     else()
-        target_compile_options(${taikinys} PRIVATE -Wall -Wextra -O2)
+        target_compile_options(${taikinys} PRIVATE -Wall -Wextra)
     endif()
     if(NAUDOTI_STD_VECTOR)
         target_compile_definitions(${taikinys} PRIVATE NAUDOTI_STD_VECTOR)
@@ -30,32 +30,32 @@ endfunction()
 # Klasių biblioteka
 # =====================================================================
 add_library(studentaiLib STATIC
-    OOP_2/zmogus.cpp
-    OOP_2/studentas.cpp
+    OOP_3/zmogus.cpp
+    OOP_3/studentas.cpp
 )
-target_include_directories(studentaiLib PUBLIC ${CMAKE_SOURCE_DIR}/OOP_2)
+target_include_directories(studentaiLib PUBLIC ${CMAKE_SOURCE_DIR}/OOP_3)
 nustatyk_parametrus(studentaiLib)
 
 # =====================================================================
 # Pagrindinė programa
 # =====================================================================
 add_executable(programa
-    OOP_2/OOP_2.cpp
-    OOP_2/testStudentas.cpp
-    OOP_2/menu.cpp
-    OOP_2/enter.cpp
-    OOP_2/generate.cpp
-    OOP_2/file.cpp
-    OOP_2/print.cpp
-    OOP_2/test.cpp
+    OOP_3/OOP_3.cpp
+    OOP_3/testStudentas.cpp
+    OOP_3/menu.cpp
+    OOP_3/enter.cpp
+    OOP_3/generate.cpp
+    OOP_3/file.cpp
+    OOP_3/print.cpp
+    OOP_3/test.cpp
 )
 target_link_libraries(programa PRIVATE studentaiLib)
 nustatyk_parametrus(programa)
 
-if(EXISTS ${CMAKE_SOURCE_DIR}/OOP_2/data)
+if(EXISTS ${CMAKE_SOURCE_DIR}/OOP_3/data)
     add_custom_command(TARGET programa POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/OOP_2/data
+            ${CMAKE_SOURCE_DIR}/OOP_3/data
             $<TARGET_FILE_DIR:programa>/data
         COMMENT "Kopijuojamas data/ aplankas"
     )
@@ -65,7 +65,7 @@ endif()
 # Spartos analizė (benchmark) — nereikalauja Catch2
 # =====================================================================
 add_executable(benchmark tests/benchmark.cpp)
-target_include_directories(benchmark PRIVATE ${CMAKE_SOURCE_DIR}/OOP_2)
+target_include_directories(benchmark PRIVATE ${CMAKE_SOURCE_DIR}/OOP_3)
 nustatyk_parametrus(benchmark)
 
 # =====================================================================
@@ -84,7 +84,7 @@ if(EXISTS ${CMAKE_SOURCE_DIR}/tests/catch.hpp)
     add_executable(vectorTests tests/vectorTests.cpp)
     target_include_directories(vectorTests PRIVATE
         ${CMAKE_SOURCE_DIR}/tests
-        ${CMAKE_SOURCE_DIR}/OOP_2)
+        ${CMAKE_SOURCE_DIR}/OOP_3)
     nustatyk_parametrus(vectorTests)
 
     add_test(NAME KlasiuTestai COMMAND unitTests)
@@ -119,8 +119,8 @@ install(TARGETS programa
     RUNTIME DESTINATION bin
 )
 
-if(EXISTS ${CMAKE_SOURCE_DIR}/OOP_2/data)
-    install(DIRECTORY ${CMAKE_SOURCE_DIR}/OOP_2/data/
+if(EXISTS ${CMAKE_SOURCE_DIR}/OOP_3/data)
+    install(DIRECTORY ${CMAKE_SOURCE_DIR}/OOP_3/data/
         DESTINATION bin/data
         FILES_MATCHING PATTERN "studentai10000.txt" PATTERN "studentai100000.txt"
     )
